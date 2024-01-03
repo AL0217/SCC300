@@ -29,7 +29,8 @@ DATA_SIZE_MIN = 10
 #each node is advertising 
 
 class Node:
-    def __init__(self, env, node):
+    def __init__(self, id, env, node):
+        self.id = id
         self.next_available_time = 0
         self.cpu = NUMBER_OF_PROCESSORS
         self.storage = STORAGE_CAPACITY
@@ -38,19 +39,25 @@ class Node:
         self.env = env
 
     def receive(self, packet, distance):            #how do I perform multi processes
-        if(self.next_available_time >= self.env.now):
+        # Check if the node is busy
+        print("env now: " + str(env.now))
+        print("self.next_available_time: " + str(self.next_available_time))
+        if(self.next_available_time >= env.now):
             self.nextNode.receive(packet, self.nextDistance)
-            return
-        
+
+        # If Not
         # set the node to busy
+        print(self.id)
         self.next_available_time = self.env.now + packet.processTime
 
-        yield self.env.timeout(distance)            # the time used to send the packet
+        # Send the packet
+        # simulate the time used to send the packet
+        yield self.env.timeout(distance)
         print("received the packet")
 
         # create instance vairiable and update it to check time
-
-        yield self.env.timeout(packet.processTime)  # the time of processing the packet
+        # simulate the time of processing the packet
+        yield self.env.timeout(packet.processTime)
         print("processed the packet")
 
 
@@ -60,6 +67,7 @@ class Packets:
         self.processTime = MEAN_SERVICE_TIME
         self.destination = destination
 
+
 class Users:
     def __init__(self, node, env):
         self.closestNode = node
@@ -67,12 +75,10 @@ class Users:
         self.env = env
 
     def request(self):
-        #the time generating a request
-        yield self.env.timeout(10)
         #create a packet that need to be send
         packet = Packets(destination=1)
-        print(self.env.now)
-        self.env.process(self.closestNode.receive(packet, self.distance))
+        print(env.now)
+        yield from self.closestNode.receive(packet, self.distance)
 
 
 def node(env):
@@ -87,8 +93,8 @@ def node(env):
 
 env = simpy.Environment()
 
-node1 = Node(env, None)
-node2 = Node(env, None)
+node1 = Node(1, env, None)
+node2 = Node(2, env, None)
 
 node1.nextNode = node2
 
