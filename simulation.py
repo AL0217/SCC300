@@ -5,7 +5,7 @@ from urllib import response
 import simpy
 import numpy as np
 import networkx as nx
-import matplotlib.pyplot as plt
+import random
 
 #Settings of the networl
 NUM_OF_ENTITY_1 = 8     #1 user connect to each edge node
@@ -15,7 +15,7 @@ NUMBER_OF_PROCESSORS = 4
 STORAGE_CAPACITY = 100
 DISTANCE = 10
 #Variables Controlled
-MEAN_SERVICE_TIME = 90
+MEAN_SERVICE_TIME = 50
 MEAN_TIME_BETWEEN_ARRIVALS = 10
 #Size of Data pushed to the network but what's the proper size to simulate?  Let's assume its fixed for now
 DATA_SIZE_MAX = 110
@@ -37,22 +37,38 @@ class Node:
         self.cpu = NUMBER_OF_PROCESSORS
         self.storage = STORAGE_CAPACITY
         self.nextNode = node
-        self.nextDistance = DISTANCE
         self.env = env
+
+    def request(self):
+        #create a packet that need to be send
+        packet = Packets(destination=1)
+        yield from self.nextNode.receive(packet, DISTANCE)
 
     def receive(self, packet, distance):            #how do I perform multi processes
         print(f"my id is: {self.id}")
         # Check if the node is busy
         print("env now: " + str(env.now))
         print("self.next_available_time: " + str(self.next_available_time))
+
         if(self.next_available_time > env.now):
-            print("passed")
-            yield from self.nextNode.receive(packet, self.nextDistance)
+            if(self.nextNode.id != "Cloud"):
+                print("passed")
+                yield from self.nextNode.receive(packet, DISTANCE)
+            else:
+                print("reached cloud")
+            return
+
+        if(packet.processed == True):
+            if(self.nextNode.id != "Cloud"):
+                print("passed processed packet")
+                yield from self.nextNode.receive(packet, DISTANCE)
+            else:
+                print("processed packet reached cloud")
             return
 
         # If Not
         # set the node to busy
-        self.next_available_time = self.env.now + packet.processTime
+        self.next_available_time = env.now + packet.processTime
 
         # Send the packet
         # simulate the time used to send the packet
@@ -63,11 +79,15 @@ class Node:
         # simulate the time of processing the packet
         yield self.env.timeout(packet.processTime)
         print(f"processed the packet by node{self.id}")
+        packet.processed = True
+
+
 
 
 #statistics of a packet
 class Packets:
     def __init__(self, destination):
+        self.processed = False
         self.processTime = MEAN_SERVICE_TIME
         self.destination = destination
 
@@ -107,31 +127,36 @@ def graph():
                     ('Node6', 'User7'), ('Node6', 'User8'),])
     return G
 
-def simulate_network(env, graph):
-    nodes = {node_id: Node(env, node_id) for node_id in graph.nodes}
 
+def simulate_network(env, graph):
+    nodes = {}
+
+    # Create nodes based on their names
+    for node_id in graph.nodes:
+        nodes[node_id] = Node(node_id, env, None)
+
+    # Establish relationships based on edges
     for edge in graph.edges:
         parent, child = edge
-        graph.nodes[child]['parent'] = parent
+        parent_node = nodes[parent]
+        child_node = nodes[child]
 
-    for node_id, attributes in graph.nodes(data=True):
-        node = nodes[node_id]
-        if 'parent' in attributes:
-            parent_id = attributes['parent']
-            parent_node = nodes[parent_id]
-            env.process(node.receive_packet(parent_node))
+        child_node.nextNode = parent_node
+
+    return nodes
+
+
+def random_Senders(env, nodes):
+    while True:
+        sender = random.randint(1, 8)
+        senderStr = "User" + str(sender)
+        sender_Node = nodes[senderStr]
+        env.process(sender_Node.request())
+        print(f"requested by {senderStr}")
+        yield env.timeout(10)
+
 
 env = simpy.Environment()
-
-node1 = Node(1, env, None)
-node2 = Node(2, env, None)
-
-node1.nextNode = node2
-
-user = Users(node1, env)
-user2 = Users(node2, env)
-
-env.process(user.request())
-env.process(user.request())
-
+nodes = simulate_network(env, graph())
+random_Senders(env, nodes)
 env.run(until = 200)
