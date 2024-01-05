@@ -15,11 +15,14 @@ NUMBER_OF_PROCESSORS = 4
 STORAGE_CAPACITY = 100
 DISTANCE = 10
 #Variables Controlled
-MEAN_SERVICE_TIME = 50
+MEAN_SERVICE_TIME = 15
 MEAN_TIME_BETWEEN_ARRIVALS = 10
 #Size of Data pushed to the network but what's the proper size to simulate?  Let's assume its fixed for now
 DATA_SIZE_MAX = 110
 DATA_SIZE_MIN = 10
+
+packetCount = 0
+receivedCount = 0
 
 #minimise the data im sending
 #add a deadline and meet the deadline
@@ -59,11 +62,13 @@ class Node:
             return
 
         if(packet.processed == True):
-            if(self.nextNode.id != "Cloud"):
+            if(self.id != "Cloud"):
                 print("passed processed packet")
                 yield from self.nextNode.receive(packet, DISTANCE)
             else:
                 print("processed packet reached cloud")
+                global receivedCount
+                receivedCount += 1
             return
 
         # If Not
@@ -73,13 +78,14 @@ class Node:
         # Send the packet
         # simulate the time used to send the packet
         yield self.env.timeout(distance)
-        print(f"received the packet by node{self.id}")
+        print(f"received the packet by {self.id}")
 
         # create instance vairiable and update it to check time
         # simulate the time of processing the packet
         yield self.env.timeout(packet.processTime)
-        print(f"processed the packet by node{self.id}")
+        print(f"processed the packet by {self.id}")
         packet.processed = True
+        yield from self.nextNode.receive(packet, DISTANCE)
 
 
 
@@ -152,11 +158,18 @@ def random_Senders(env, nodes):
         senderStr = "User" + str(sender)
         sender_Node = nodes[senderStr]
         env.process(sender_Node.request())
+        global packetCount
+        packetCount += 1
         print(f"requested by {senderStr}")
         yield env.timeout(10)
+    print(packetCount)
+
 
 
 env = simpy.Environment()
 nodes = simulate_network(env, graph())
-random_Senders(env, nodes)
-env.run(until = 200)
+env.process(random_Senders(env, nodes))
+env.run(until = 300)
+
+print(f"packets sent: {packetCount}")
+print(f"received: {receivedCount}")
