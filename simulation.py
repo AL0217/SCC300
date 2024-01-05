@@ -4,6 +4,8 @@ from struct import pack
 from urllib import response
 import simpy
 import numpy as np
+import networkx as nx
+import matplotlib.pyplot as plt
 
 #Settings of the networl
 NUM_OF_ENTITY_1 = 8     #1 user connect to each edge node
@@ -39,26 +41,28 @@ class Node:
         self.env = env
 
     def receive(self, packet, distance):            #how do I perform multi processes
+        print(f"my id is: {self.id}")
         # Check if the node is busy
         print("env now: " + str(env.now))
         print("self.next_available_time: " + str(self.next_available_time))
-        if(self.next_available_time >= env.now):
-            self.nextNode.receive(packet, self.nextDistance)
+        if(self.next_available_time > env.now):
+            print("passed")
+            yield from self.nextNode.receive(packet, self.nextDistance)
+            return
 
         # If Not
         # set the node to busy
-        print(self.id)
         self.next_available_time = self.env.now + packet.processTime
 
         # Send the packet
         # simulate the time used to send the packet
         yield self.env.timeout(distance)
-        print("received the packet")
+        print(f"received the packet by node{self.id}")
 
         # create instance vairiable and update it to check time
         # simulate the time of processing the packet
         yield self.env.timeout(packet.processTime)
-        print("processed the packet")
+        print(f"processed the packet by node{self.id}")
 
 
 #statistics of a packet
@@ -77,7 +81,6 @@ class Users:
     def request(self):
         #create a packet that need to be send
         packet = Packets(destination=1)
-        print(env.now)
         yield from self.closestNode.receive(packet, self.distance)
 
 
@@ -91,6 +94,33 @@ def node(env):
         response_duration = 5
         yield env.timeout(response_duration)
 
+def graph():
+    # Create a simple graph (you can customize this based on your network topology)
+    G = nx.Graph()
+    G.add_nodes_from(['Cloud', 'Node1', 'Node2', 'Node3', 'Node4', 'Node5', 'Node6','User1', 'User2', 'User3', 'User4', 'User5', 'User6', 'User7', 'User8'])
+    G.add_edges_from([('Cloud', 'Node1'), ('Cloud', 'Node2'),
+                    ('Node1', 'Node3'), ('Node1', 'Node4'),
+                    ('Node2', 'Node5'), ('Node2', 'Node6'),
+                    ('Node3', 'User1'), ('Node3', 'User2'),
+                    ('Node4', 'User3'), ('Node4', 'User4'),
+                    ('Node5', 'User5'), ('Node5', 'User6'),
+                    ('Node6', 'User7'), ('Node6', 'User8'),])
+    return G
+
+def simulate_network(env, graph):
+    nodes = {node_id: Node(env, node_id) for node_id in graph.nodes}
+
+    for edge in graph.edges:
+        parent, child = edge
+        graph.nodes[child]['parent'] = parent
+
+    for node_id, attributes in graph.nodes(data=True):
+        node = nodes[node_id]
+        if 'parent' in attributes:
+            parent_id = attributes['parent']
+            parent_node = nodes[parent_id]
+            env.process(node.receive_packet(parent_node))
+
 env = simpy.Environment()
 
 node1 = Node(1, env, None)
@@ -99,6 +129,7 @@ node2 = Node(2, env, None)
 node1.nextNode = node2
 
 user = Users(node1, env)
+user2 = Users(node2, env)
 
 env.process(user.request())
 env.process(user.request())
