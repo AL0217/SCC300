@@ -1,5 +1,6 @@
 from concurrent.futures import process
 from importlib import resources
+from multiprocessing import cpu_count
 from struct import pack
 from urllib import response
 import simpy
@@ -8,15 +9,12 @@ import networkx as nx
 import random
 
 #Settings of the networl
-NUM_OF_ENTITY_1 = 8     #1 user connect to each edge node
-NUM_OF_ENTITY_2 = 16    #2 users connect to each edge node
-HEIGHT_OF_TREE = 5
 NUMBER_OF_PROCESSORS = 4
 STORAGE_CAPACITY = 100
 DISTANCE = 10
 #Variables Controlled
-MEAN_SERVICE_TIME = 15
-MEAN_TIME_BETWEEN_ARRIVALS = 10
+PROCESS_TIME = 15
+TIME_BETWEEN_ARRIVALS = 10
 #Size of Data pushed to the network but what's the proper size to simulate?  Let's assume its fixed for now
 DATA_SIZE_MAX = 110
 DATA_SIZE_MIN = 10
@@ -33,60 +31,103 @@ receivedCount = 0
 
 #each node is advertising 
 
+class cpu:
+    def __init__(self, env):
+        self.next_available_time = 0
+        self.env = env
+
+    def checkBusy(self):
+        if self.next_available_time > env.now:
+            return True
+        else:
+            return False
+    
+    def process(self, packet):
+        # set the cpu to busy
+        self.next_available_time = env.now + packet.processTime
+
+        # create instance vairiable and update it to check time
+        # simulate the time of processing the packet
+        yield self.env.timeout(packet.processTime)
+        
+
 class Node:
     def __init__(self, id, env, node):
         self.id = id
-        self.next_available_time = 0
-        self.cpu = NUMBER_OF_PROCESSORS
-        self.storage = STORAGE_CAPACITY
+
+        self.cpu_num = NUMBER_OF_PROCESSORS
+        self.cpuList= [cpu(env), cpu(env), cpu(env), cpu(env)]
+        self.cpu_in_use = 0
+
         self.nextNode = node
         self.env = env
 
     def request(self):
         #create a packet that need to be send
         packet = Packets(destination=1)
-        yield from self.nextNode.receive(packet, DISTANCE)
+        # Send the packet
+        # simulate the time used to send the packet
+        yield self.env.timeout(DISTANCE)
+        print("Transmitted")
 
-    def receive(self, packet, distance):            #how do I perform multi processes
+        yield from self.nextNode.receive(packet)
+
+    def receive(self, packet):
         print(f"my id is: {self.id}")
-        # Check if the node is busy
         print("env now: " + str(env.now))
-        print("self.next_available_time: " + str(self.next_available_time))
 
-        if(self.next_available_time > env.now):
-            if(self.nextNode.id != "Cloud"):
+        # Check if the node is busy
+        if(self.cpu_in_use >= self.cpu_num):
+            for cpus in self.cpuList:
+                print(cpus.next_available_time)
+            if(self.id != "Cloud"):
                 print("passed")
-                yield from self.nextNode.receive(packet, DISTANCE)
+                
+                # simulate the time used to send the packet
+                yield self.env.timeout(DISTANCE)
+
+                #call the receive function
+                yield from self.nextNode.receive(packet)
             else:
                 print("reached cloud")
             return
 
-        if(packet.processed == True):
+        # if the packet is not processed
+        if(packet.processed):
             if(self.id != "Cloud"):
                 print("passed processed packet")
-                yield from self.nextNode.receive(packet, DISTANCE)
+                # simulate the time used to send the packet
+                yield self.env.timeout(DISTANCE)
+
+                #call the receive function
+                yield from self.nextNode.receive(packet)
             else:
                 print("processed packet reached cloud")
                 global receivedCount
                 receivedCount += 1
             return
 
-        # If Not
-        # set the node to busy
-        self.next_available_time = env.now + packet.processTime
+        print("not processed")
 
-        # Send the packet
-        # simulate the time used to send the packet
-        yield self.env.timeout(distance)
-        print(f"received the packet by {self.id}")
+        #init a opt_cpu variable
+        opt_cpu = self.cpuList[0]
 
-        # create instance vairiable and update it to check time
-        # simulate the time of processing the packet
-        yield self.env.timeout(packet.processTime)
-        print(f"processed the packet by {self.id}")
+        #find an available cpu from the cpuList
+        for cpus in self.cpuList:
+            #select the cpu and break the loop
+            if not cpus.checkBusy():
+                opt_cpu = cpus
+                break
+        
+        # The distance here is the distance from last node
+        self.cpu_in_use += 1
+        yield from opt_cpu.process(packet)
+        self.cpu_in_use -= 1
         packet.processed = True
-        yield from self.nextNode.receive(packet, DISTANCE)
-
+        # the distance here is the DISTANCE to next node
+        yield from self.nextNode.receive(packet)
+        
+        
 
 
 
@@ -94,31 +135,9 @@ class Node:
 class Packets:
     def __init__(self, destination):
         self.processed = False
-        self.processTime = MEAN_SERVICE_TIME
+        self.processTime = PROCESS_TIME
         self.destination = destination
 
-
-class Users:
-    def __init__(self, node, env):
-        self.closestNode = node
-        self.distance = 10
-        self.env = env
-
-    def request(self):
-        #create a packet that need to be send
-        packet = Packets(destination=1)
-        yield from self.closestNode.receive(packet, self.distance)
-
-
-def node(env):
-    while True:
-        print("push data")
-        duration = 10
-        yield env.timeout(duration)
-
-        print("response")
-        response_duration = 5
-        yield env.timeout(response_duration)
 
 def graph():
     # Create a simple graph (you can customize this based on your network topology)
@@ -161,14 +180,16 @@ def random_Senders(env, nodes):
         global packetCount
         packetCount += 1
         print(f"requested by {senderStr}")
-        yield env.timeout(10)
-    print(packetCount)
+        yield env.timeout(5)
 
 
 
 env = simpy.Environment()
 nodes = simulate_network(env, graph())
+
 env.process(random_Senders(env, nodes))
+
+
 env.run(until = 300)
 
 print(f"packets sent: {packetCount}")
