@@ -1,8 +1,3 @@
-from concurrent.futures import process
-from importlib import resources
-from multiprocessing import cpu_count
-from struct import pack
-from urllib import response
 import simpy
 import numpy as np
 import networkx as nx
@@ -13,7 +8,7 @@ NUMBER_OF_PROCESSORS = 4
 STORAGE_CAPACITY = 100
 DISTANCE = 10
 #Variables Controlled
-PROCESS_TIME = 15
+PROCESS_TIME = 10
 TIME_BETWEEN_ARRIVALS = 10
 #Size of Data pushed to the network but what's the proper size to simulate?  Let's assume its fixed for now
 DATA_SIZE_MAX = 110
@@ -56,7 +51,7 @@ class Node:
         self.id = id
 
         self.cpu_num = NUMBER_OF_PROCESSORS
-        self.cpuList= [cpu(env), cpu(env), cpu(env), cpu(env)]
+        self.cpuList = [cpu(env), cpu(env), cpu(env), cpu(env)]
         self.cpu_in_use = 0
 
         self.nextNode = node
@@ -187,6 +182,9 @@ def random_Senders(env, nodes):
 env = simpy.Environment()
 nodes = simulate_network(env, graph())
 
+env.process(random_Senders(env, nodes))
+env.process(random_Senders(env, nodes))
+env.process(random_Senders(env, nodes))
 env.process(random_Senders(env, nodes))
 
 
