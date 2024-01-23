@@ -1,15 +1,18 @@
 from cpu import cpu
 from packets import Packets
+import config as c
 import simpy
+import random
+import data
 
 
 class Node:
-    def __init__(self, id, env, node, distance, number_of_processors):
+    def __init__(self, id, env, node, num_processor, distance):
         self.id = id
         self.distance_to_nextNode = distance
         self.queue = []
 
-        self.cpu_num = number_of_processors
+        self.cpu_num = num_processor
         self.cpuList = [cpu(env), cpu(env), cpu(env), cpu(env)]
         self.cpu_in_use = 0
 
@@ -18,7 +21,7 @@ class Node:
 
     def request(self):
         #create a packet that need to be send
-        packet = Packets(destination=1)
+        packet = Packets(destination=1, processTime=c.PROCESS_TIME, sendTime=self.env.now, deadline=(self.env.now + random.randint(60, 80)), enable_deadline=True)
         # Send the packet
         # simulate the time used to send the packet
         yield self.env.timeout(self.distance_to_nextNode)
@@ -56,39 +59,44 @@ class Node:
         print(f"my id is: {self.id}")
         print("env now: " + str(self.env.now))
 
+        if self.id == "Cloud":
+            if packet.processed:
+                print("processed packet arrived cloud")
+                data.processedCount += 1
+                # Do something to record this
+            else:
+                print("unprocessed packet arrived cloud")
+                # Do something to record this
+                data.unprocessedCount += 1
+            # record a packet arrived cloud
+            data.receivedCount += 1
+            return
+
         # Check if the node is busy
         if(self.cpu_in_use >= self.cpu_num):
             for cpus in self.cpuList:
                 print(cpus.next_available_time)
-            if(self.id != "Cloud"):
-                if len(self.queue) > 4:
-                    self.queue.append(packet)
-                    return
+            if len(self.queue) > 4:
+                self.queue.append(packet)
+                return
 
-                print("passed")
-                
-                # simulate the time used to send the packet
-                yield self.env.timeout(self.distance_to_nextNode)
+            print("passed")
+            
+            # simulate the time used to send the packet
+            yield self.env.timeout(self.distance_to_nextNode)
 
-                #call the receive function
-                yield from self.nextNode.receive(packet)
-            else:
-                print("reached cloud")
+            #call the receive function
+            yield from self.nextNode.receive(packet)
             return
 
         # if the packet processed
         if(packet.processed):
-            if(self.id != "Cloud"):
-                print("passed processed packet")
-                # simulate the time used to send the packet
-                yield self.env.timeout(self.distance_to_nextNode)
+            print("passed processed packet")
+            # simulate the time used to send the packet
+            yield self.env.timeout(self.distance_to_nextNode)
 
-                #call the receive function
-                yield from self.nextNode.receive(packet)
-            else:
-                print("processed packet reached cloud")
-                global receivedCount
-                receivedCount += 1
+            #call the receive function
+            yield from self.nextNode.receive(packet)
             return
 
         print("not processed")
