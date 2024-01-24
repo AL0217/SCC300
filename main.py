@@ -10,10 +10,23 @@ def main():
     top = topology()
     
     nodes = top.simulate_network(env, "TREE")
+
+    for node in nodes:
+        env.process(nodes[node].handle_queue())
+
     env.process(c.random_Senders(env, nodes))
-    
+    env.process(c.random_Senders(env, nodes))
+    env.process(c.random_Senders(env, nodes))
+    env.process(c.random_Senders(env, nodes))
+    env.process(c.random_Senders(env, nodes))
+    env.process(c.random_Senders(env, nodes))
+
     env.run(until = 300)
-    print(data.packetCount)
-    print(data.receivedCount)
+    print(f"packet count: {data.packetCount}")
+    print(f"received count: {data.receivedCount}")
+    print(f"meet deadline count: {data.meetDeadline}")
+    print(f"processed count: {data.processedCount}")
+    for latencies in data.latencyList:
+        print(latencies)
 
 main()

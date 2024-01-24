@@ -32,7 +32,8 @@ class Node:
     def handle_queue(self):
         while True:
             # Check if the queue is not empty and a CPU is available
-            while self.queue and self.cpu_in_use < self.cpu_num:
+            while len(self.queue) != 0:
+                print("I am working")
                 opt_cpu = self.cpuList[0]
                 for cpus in self.cpuList:
                     #select the cpu and break the loop
@@ -47,12 +48,10 @@ class Node:
 
                 # the distance here is the DISTANCE to the next node
                 yield from self.nextNode.receive(queued_packet)
+                print("prcocessed queue packet")
 
             # Wait for a short period before checking the queue again
             yield self.env.timeout(1)
-    
-    def start_queue_handler(self):
-        self.env.process(self.handle_queue())
 
 
     def receive(self, packet):
@@ -69,15 +68,21 @@ class Node:
                 # Do something to record this
                 data.unprocessedCount += 1
             # record a packet arrived cloud
+            if packet.processedTime <= packet.deadline:
+                data.meetDeadline += 1
             data.receivedCount += 1
+            data.latencyList.append(packet.processedTime - packet.sendTime)
             return
 
         # Check if the node is busy
         if(self.cpu_in_use >= self.cpu_num):
             for cpus in self.cpuList:
                 print(cpus.next_available_time)
-            if len(self.queue) > 4:
+            if len(self.queue) < c.SIZE_OF_QUEUE:
                 self.queue.append(packet)
+                print("append to queue")
+                for packet in self.queue:
+                    print(packet)
                 return
 
             print("passed")
@@ -114,6 +119,7 @@ class Node:
         # The distance here is the distance from last node
         self.cpu_in_use += 1
         yield from opt_cpu.process(packet)
+        packet.processedTime = self.env.now
         self.cpu_in_use -= 1
         packet.processed = True
         # the distance here is the DISTANCE to next node

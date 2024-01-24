@@ -3,6 +3,7 @@ import data
 
 # Settings of the network
 NUMBER_OF_PROCESSORS = 4
+SIZE_OF_QUEUE = 2
 
 # Option for enable multiple processes
 MULTIPLE_PROCESS = True 
