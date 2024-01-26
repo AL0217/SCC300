@@ -26,7 +26,6 @@ def main():
     print(f"received count: {data.receivedCount}")
     print(f"meet deadline count: {data.meetDeadline}")
     print(f"processed count: {data.processedCount}")
-    for latencies in data.latencyList:
-        print(latencies)
+    data.plotLatency()
 
 main()
