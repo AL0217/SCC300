@@ -14,12 +14,13 @@ def main():
     for node in nodes:
         env.process(nodes[node].handle_queue())
 
+    # There will be 6 packets per process (in a settings of 5s send) not delivered to cloud because simulation end
     env.process(c.random_Senders(env, nodes))
     env.process(c.random_Senders(env, nodes))
     env.process(c.random_Senders(env, nodes))
     env.process(c.random_Senders(env, nodes))
-    env.process(c.random_Senders(env, nodes))
-    env.process(c.random_Senders(env, nodes))
+    # env.process(c.random_Senders(env, nodes))
+    # env.process(c.random_Senders(env, nodes))
 
     env.run(until = 300)
 
