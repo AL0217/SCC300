@@ -22,6 +22,7 @@ def main():
     env.process(c.random_Senders(env, nodes))
 
     env.run(until = 300)
+
     print(f"packet count: {data.packetCount}")
     print(f"received count: {data.receivedCount}")
     print(f"meet deadline count: {data.meetDeadline}")
