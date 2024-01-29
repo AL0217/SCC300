@@ -19,8 +19,8 @@ def main():
     env.process(c.random_Senders(env, nodes))
     env.process(c.random_Senders(env, nodes))
     env.process(c.random_Senders(env, nodes))
-    # env.process(c.random_Senders(env, nodes))
-    # env.process(c.random_Senders(env, nodes))
+    env.process(c.random_Senders(env, nodes))
+    env.process(c.random_Senders(env, nodes))
 
     env.run(until = 300)
 

@@ -1,7 +1,6 @@
 from cpu import cpu
 from packets import Packets
 import config as c
-import simpy
 import random
 import data
 
@@ -55,6 +54,9 @@ class Node:
 
 
     def receive(self, packet):
+        # simulate the time used to send the packet
+        yield self.env.timeout(self.distance_to_nextNode)
+
         print(f"my id is: {self.id}")
         print("env now: " + str(self.env.now))
 
@@ -67,10 +69,13 @@ class Node:
                 print("unprocessed packet arrived cloud")
                 # Do something to record this
                 data.unprocessedCount += 1
+
             # record a packet arrived cloud
             if packet.processedTime <= packet.deadline:
                 data.meetDeadline += 1
             data.receivedCount += 1
+            print(packet.processedTime)
+            print(packet.sendTime)
             data.latencyList.append(packet.processedTime - packet.sendTime)
             return
 
@@ -86,9 +91,6 @@ class Node:
                 return
 
             print("passed")
-            
-            # simulate the time used to send the packet
-            yield self.env.timeout(self.distance_to_nextNode)
 
             #call the receive function
             yield from self.nextNode.receive(packet)
@@ -97,8 +99,6 @@ class Node:
         # if the packet processed
         if(packet.processed):
             print("passed processed packet")
-            # simulate the time used to send the packet
-            yield self.env.timeout(self.distance_to_nextNode)
 
             #call the receive function
             yield from self.nextNode.receive(packet)
@@ -123,4 +123,4 @@ class Node:
         self.cpu_in_use -= 1
         packet.processed = True
         # the distance here is the DISTANCE to next node
-        yield from self.nextNode.receive(packet)
+        self.nextNode.receive(packet)
