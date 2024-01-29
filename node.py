@@ -12,7 +12,7 @@ class Node:
         self.queue = []
 
         self.cpu_num = num_processor
-        self.cpuList = [cpu(env), cpu(env), cpu(env), cpu(env)]
+        self.cpuList = [cpu(env, self), cpu(env, self), cpu(env, self), cpu(env, self)]
         self.cpu_in_use = 0
 
         self.nextNode = node
@@ -71,7 +71,7 @@ class Node:
                 data.unprocessedCount += 1
 
             # record a packet arrived cloud
-            if packet.processedTime <= packet.deadline:
+            if self.env.now <= packet.deadline:
                 data.meetDeadline += 1
             data.receivedCount += 1
             print(packet.processedTime)
@@ -116,7 +116,6 @@ class Node:
                 opt_cpu = cpus
                 break
         
-        # The distance here is the distance from last node
         self.cpu_in_use += 1
         yield from opt_cpu.process(packet)
         packet.processedTime = self.env.now
