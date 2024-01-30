@@ -22,10 +22,12 @@ class cpu:
         yield self.env.timeout(packet.processTime)
         
         # update the status of the packet
+        packet.processedTime = self.env.now
         packet.processed = True
         
         # send it to the next node
-        self.node.nextNode.receive(packet)
+        # maybe we need "yield from" here
+        yield from self.node.nextNode.receive(packet)
 
         if len(self.node.queue) != 0:
             nextPacket = self.node.queue.pop(0)

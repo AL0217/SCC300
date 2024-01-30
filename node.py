@@ -74,7 +74,7 @@ class Node:
             if self.env.now <= packet.deadline:
                 data.meetDeadline += 1
             data.receivedCount += 1
-            print(packet.processedTime)
+            print(f"processed time: {packet.processedTime}")
             print(packet.sendTime)
             data.latencyList.append(packet.processedTime - packet.sendTime)
             return
@@ -116,10 +116,10 @@ class Node:
                 opt_cpu = cpus
                 break
         
-        self.cpu_in_use += 1
+        # self.cpu_in_use += 1
         yield from opt_cpu.process(packet)
-        packet.processedTime = self.env.now
-        self.cpu_in_use -= 1
-        packet.processed = True
+        # packet.processedTime = self.env.now
+        # self.cpu_in_use -= 1
+        # packet.processed = True
         # the distance here is the DISTANCE to next node
-        self.nextNode.receive(packet)
+        # self.nextNode.receive(packet)
