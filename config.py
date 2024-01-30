@@ -41,4 +41,4 @@ def random_Senders(env, nodes):
         env.process(sender_Node.request())
         data.packetCount += 1
         print(f"requested by {senderStr}")
-        yield env.timeout(5)
+        yield env.timeout(10)

@@ -45,5 +45,5 @@ class topology:
 
     def drawing(self):    
         # Visualize the network topology
-        nx.draw(self.G, with_labels=True, font_weight='bold')
+        nx.draw(self.__Tree(), with_labels=True, font_weight='bold')
         plt.show()

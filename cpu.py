@@ -23,6 +23,7 @@ class cpu:
         
         # update the status of the packet
         packet.processedTime = self.env.now
+        packet.processTime = packet.processTime % 2
         packet.processed = True
         
         # send it to the next node
@@ -31,6 +32,7 @@ class cpu:
 
         if len(self.node.queue) != 0:
             nextPacket = self.node.queue.pop(0)
+            print(f" the length: {len(self.node.queue)}")
             self.process(nextPacket)
         
         self.node.cpu_in_use -= 1

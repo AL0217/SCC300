@@ -68,6 +68,9 @@ class Node:
             else:
                 print("unprocessed packet arrived cloud")
                 # Do something to record this
+                # simulate the time for process it at cloud
+                yield self.env.timeout(packet.processTime)
+                packet.processedTime = self.env.now
                 data.unprocessedCount += 1
 
             # record a packet arrived cloud
