@@ -14,7 +14,7 @@ latencyList = []
 
 
 def plotLatency():
-    x_values = range(len(latencyList))
+    x_values = range(1, len(latencyList) + 1)
     plt.bar(x_values, latencyList)
 
     # Add labels and title

@@ -4,6 +4,7 @@ import data
 # Settings of the network
 NUMBER_OF_PROCESSORS = 4
 SIZE_OF_QUEUE = 2
+SEND_INTERVAL = 5
 
 # Option for enable multiple processes
 MULTIPLE_PROCESS = True 
@@ -41,4 +42,4 @@ def random_Senders(env, nodes):
         env.process(sender_Node.request())
         data.packetCount += 1
         print(f"requested by {senderStr}")
-        yield env.timeout(10)
+        yield env.timeout(SEND_INTERVAL)

@@ -28,29 +28,29 @@ class Node:
 
         yield from self.nextNode.receive(packet)
 
-    def handle_queue(self):
-        while True:
-            # Check if the queue is not empty and a CPU is available
-            while len(self.queue) != 0:
-                print("I am working")
-                opt_cpu = self.cpuList[0]
-                for cpus in self.cpuList:
-                    #select the cpu and break the loop
-                    if not cpus.checkBusy():
-                        opt_cpu = cpus
-                        break
-                queued_packet = self.queue.pop(0)  # Get the first packet from the queue
-                self.cpu_in_use += 1
-                yield from opt_cpu.process(queued_packet)  # Assuming you use the first CPU for queue processing
-                self.cpu_in_use -= 1
-                queued_packet.processed = True
+    # def handle_queue(self):
+    #     while True:
+    #         # Check if the queue is not empty and a CPU is available
+    #         while len(self.queue) != 0:
+    #             print("I am working")
+    #             opt_cpu = self.cpuList[0]
+    #             for cpus in self.cpuList:
+    #                 #select the cpu and break the loop
+    #                 if not cpus.checkBusy():
+    #                     opt_cpu = cpus
+    #                     break
+    #             queued_packet = self.queue.pop(0)  # Get the first packet from the queue
+    #             self.cpu_in_use += 1
+    #             yield from opt_cpu.process(queued_packet)  # Assuming you use the first CPU for queue processing
+    #             self.cpu_in_use -= 1
+    #             queued_packet.processed = True
 
-                # the distance here is the DISTANCE to the next node
-                yield from self.nextNode.receive(queued_packet)
-                print("prcocessed queue packet")
+    #             # the distance here is the DISTANCE to the next node
+    #             yield from self.nextNode.receive(queued_packet)
+    #             print("prcocessed queue packet")
 
-            # Wait for a short period before checking the queue again
-            yield self.env.timeout(1)
+    #         # Wait for a short period before checking the queue again
+    #         yield self.env.timeout(1)
 
 
     def receive(self, packet):
@@ -118,11 +118,5 @@ class Node:
             if not cpus.checkBusy():
                 opt_cpu = cpus
                 break
-        
-        # self.cpu_in_use += 1
+
         yield from opt_cpu.process(packet)
-        # packet.processedTime = self.env.now
-        # self.cpu_in_use -= 1
-        # packet.processed = True
-        # the distance here is the DISTANCE to next node
-        # self.nextNode.receive(packet)
