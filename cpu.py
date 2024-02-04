@@ -23,16 +23,21 @@ class cpu:
         
         # update the status of the packet
         packet.processedTime = self.env.now
-        packet.processTime = packet.processTime % 2
+        packet.transmit_time = packet.transmit_time / 2
         packet.processed = True
         
         # send it to the next node
         # maybe we need "yield from" here
         yield from self.node.nextNode.receive(packet)
 
-        if len(self.node.queue) != 0:
+        # print(f"process id: {packet.packetID}")
+        # print(f"node id {self.node.id}")
+        for packet in self.node.queue:
+                print(packet)
+        if len(self.node.queue) > 0:
             nextPacket = self.node.queue.pop(0)
-            print(f" the length: {len(self.node.queue)}")
-            self.process(nextPacket)
-        
+            print(f"next packet: {nextPacket}")
+            
+            # should i do this?
+            self.env.process(self.process(nextPacket))
         self.node.cpu_in_use -= 1

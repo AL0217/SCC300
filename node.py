@@ -4,7 +4,6 @@ import config as c
 import random
 import data
 
-
 class Node:
     def __init__(self, id, env, node, num_processor, distance):
         self.id = id
@@ -17,48 +16,31 @@ class Node:
 
         self.nextNode = node
         self.env = env
+        
 
     def request(self):
-        #create a packet that need to be send
-        packet = Packets(destination=1, processTime=c.PROCESS_TIME, sendTime=self.env.now, deadline=(self.env.now + random.randint(60, 80)), enable_deadline=True)
+        # create a packet that need to be send
+        packet = Packets(destination=1, processTime=c.PROCESS_TIME, sendTime=self.env.now, deadline=(self.env.now + random.randint(20, 80)), enable_deadline=True)
+
+        # add the packet to the list
+        data.latencyList[packet.packetID] = 0
+        print(f"packet id: {packet.packetID}")
+        print(f"time now: {self.env.now}")
         # Send the packet
-        # simulate the time used to send the packet
-        yield self.env.timeout(self.distance_to_nextNode)
-        print("Transmitted")
-
+    
         yield from self.nextNode.receive(packet)
-
-    # def handle_queue(self):
-    #     while True:
-    #         # Check if the queue is not empty and a CPU is available
-    #         while len(self.queue) != 0:
-    #             print("I am working")
-    #             opt_cpu = self.cpuList[0]
-    #             for cpus in self.cpuList:
-    #                 #select the cpu and break the loop
-    #                 if not cpus.checkBusy():
-    #                     opt_cpu = cpus
-    #                     break
-    #             queued_packet = self.queue.pop(0)  # Get the first packet from the queue
-    #             self.cpu_in_use += 1
-    #             yield from opt_cpu.process(queued_packet)  # Assuming you use the first CPU for queue processing
-    #             self.cpu_in_use -= 1
-    #             queued_packet.processed = True
-
-    #             # the distance here is the DISTANCE to the next node
-    #             yield from self.nextNode.receive(queued_packet)
-    #             print("prcocessed queue packet")
-
-    #         # Wait for a short period before checking the queue again
-    #         yield self.env.timeout(1)
 
 
     def receive(self, packet):
         # simulate the time used to send the packet
-        yield self.env.timeout(self.distance_to_nextNode)
+        yield self.env.timeout(packet.transmit_time)
+        print("Transmitted")
+
+        packet.setDistance(self.distance_to_nextNode)
 
         print(f"my id is: {self.id}")
-        print("env now: " + str(self.env.now))
+        print(f"packet id: {packet.packetID}")
+        print(f"env now: {self.env.now}")
 
         if self.id == "Cloud":
             if packet.processed:
@@ -78,8 +60,18 @@ class Node:
                 data.meetDeadline += 1
             data.receivedCount += 1
             print(f"processed time: {packet.processedTime}")
-            print(packet.sendTime)
-            data.latencyList.append(packet.processedTime - packet.sendTime)
+            # print(packet.sendTime)
+            # print(packet.packetID)
+            data.latencyList[packet.packetID] = packet.processedTime - packet.sendTime
+            return
+        
+        # if the packet processed
+        if(packet.processed):
+            print("passed processed packet")
+
+            #call the receive function
+            packet.setDistance(self.distance_to_nextNode / 2)
+            yield from self.nextNode.receive(packet)
             return
 
         # Check if the node is busy
@@ -96,16 +88,11 @@ class Node:
             print("passed")
 
             #call the receive function
+            packet.setDistance(self.distance_to_nextNode)
             yield from self.nextNode.receive(packet)
             return
 
-        # if the packet processed
-        if(packet.processed):
-            print("passed processed packet")
 
-            #call the receive function
-            yield from self.nextNode.receive(packet)
-            return
 
         print("not processed")
 

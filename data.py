@@ -8,19 +8,22 @@ unprocessedCount = 0
 
 meetDeadline = 0
 
-latencyList = []
+latencyList = {}
+
+
 # packetLossRate = (receivedCount / packetCount) * 100
 # processedRate = unprocessedCount / receivedCount
 
 
 def plotLatency():
-    x_values = range(1, len(latencyList) + 1)
-    plt.bar(x_values, latencyList)
+    x_values = range(1, packetCount + 1)
+    plt.bar(x_values, list(latencyList.values()))
 
     # Add labels and title
     plt.xlabel('Packets id')
     plt.ylabel('Latency')
     plt.title('Latency of packets')
+    print(latencyList)
 
     # Show the plot
     plt.show()

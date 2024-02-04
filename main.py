@@ -12,17 +12,26 @@ def main():
     nodes = top.simulate_network(env, "TREE")
 
     # There will be 6 packets per process (in a settings of 5s send) not delivered to cloud because simulation end
-    env.process(c.random_Senders(env, nodes))
-    env.process(c.random_Senders(env, nodes))
-    env.process(c.random_Senders(env, nodes))
+    env.process(c.random_Senders(env, nodes, c.END_TIME - c.SMALLEST_TOTAL_TIME))
+    env.process(c.random_Senders(env, nodes, c.END_TIME - c.SMALLEST_TOTAL_TIME))
+    env.process(c.random_Senders(env, nodes, c.END_TIME - c.SMALLEST_TOTAL_TIME))
+    env.process(c.random_Senders(env, nodes, c.END_TIME - c.SMALLEST_TOTAL_TIME))
+    env.process(c.random_Senders(env, nodes, c.END_TIME - c.SMALLEST_TOTAL_TIME))
+    env.process(c.random_Senders(env, nodes, c.END_TIME - c.SMALLEST_TOTAL_TIME))
+    env.process(c.random_Senders(env, nodes, c.END_TIME - c.SMALLEST_TOTAL_TIME))
+    env.process(c.random_Senders(env, nodes, c.END_TIME - c.SMALLEST_TOTAL_TIME))
+    env.process(c.random_Senders(env, nodes, c.END_TIME - c.SMALLEST_TOTAL_TIME))
+    env.process(c.random_Senders(env, nodes, c.END_TIME - c.SMALLEST_TOTAL_TIME))
+    env.process(c.random_Senders(env, nodes, c.END_TIME - c.SMALLEST_TOTAL_TIME))
+    env.process(c.random_Senders(env, nodes, c.END_TIME - c.SMALLEST_TOTAL_TIME))
 
-    env.run(until = 300)
+    env.run(until = 301)
 
     print(f"packet count: {data.packetCount}")
     print(f"received count: {data.receivedCount}")
     print(f"meet deadline count: {data.meetDeadline}")
     print(f"processed count: {data.processedCount}")
-    # top.drawing()
+    top.drawing()
     data.plotLatency()
 
 main()

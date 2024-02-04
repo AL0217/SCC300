@@ -1,7 +1,12 @@
 import random
 import data
 
+# Settings of simulation
+END_TIME = 300
+SMALLEST_TOTAL_TIME = 30
+
 # Settings of the network
+LEVEL_OF_TOPOLOGY = 3
 NUMBER_OF_PROCESSORS = 4
 SIZE_OF_QUEUE = 2
 SEND_INTERVAL = 5
@@ -34,8 +39,10 @@ DATA_COLLECTORS = [
 SCHEDULING_METHOD = 'FCFS'
 
 
-def random_Senders(env, nodes):
-    while True:
+def random_Senders(env, nodes, until_time):
+    random.seed(1)
+
+    while env.now <= until_time:
         sender = random.randint(1, 8)
         senderStr = "User" + str(sender)
         sender_Node = nodes[senderStr]
