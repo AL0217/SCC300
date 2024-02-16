@@ -9,6 +9,7 @@ unprocessedCount = 0
 meetDeadline = 0
 
 latencyList = {}
+failed = {}
 
 record = open("record.txt", "w")
 

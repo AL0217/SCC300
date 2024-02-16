@@ -4,12 +4,14 @@ import data
 # Settings of simulation
 END_TIME = 300
 SMALLEST_TOTAL_TIME = 30
-CPU_MODE = 'high'
+CPU_MODE = 'equal'
+SIMULATION_TIME = 300
 
 # Settings of the network
 LEVEL_OF_TOPOLOGY = 3
 TOTAL_NUMBER_OF_PROCESSORS = 24       #should be any reasonable number can be divided by 4
-NUMBER_OF_PROCESSORS = int((TOTAL_NUMBER_OF_PROCESSORS / 2) / 2**(LEVEL_OF_TOPOLOGY-1))
+NUMBER_OF_PROCESSORS = 4
+# int((TOTAL_NUMBER_OF_PROCESSORS / 2) / 2**(LEVEL_OF_TOPOLOGY-1))
 SIZE_OF_QUEUE = 4
 SEND_INTERVAL = 1
 
