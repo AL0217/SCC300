@@ -95,52 +95,53 @@ class Node:
         # For admitted packet
         # Check if the node is busy
         # Only allow one packet to look at this
+        
+        if(self.cpu_in_use.count >= self.cpu_num):
+            # print the states of the cpus
+            data.record.write(f"packet waiting: {packet.packetID}\n")
+            data.record.write(f"cpu in use: {self.cpu_in_use.count}\n")
+            for cpus in self.cpuList:
+                data.record.write(str(cpus.next_available_time) + "\n")
+
+            # scheduling method to use
+            match c.SCHEDULING_METHOD:
+                case "FIFO":        # First In First Out
+                    if len(self.queue) < c.SIZE_OF_QUEUE:
+                        self.queue.append(packet)
+                        data.record.write("append to queue\n")
+                        for packet in self.queue:
+                            data.record.write(f"this is queue: {packet.packetID}\n")
+                        return
+                    
+                case "EDF":         # Earliest Deadline First
+                    queue = copy.deepcopy(self.queue)
+                    queue.append(packet)
+                    if self.edf_complete_time(queue):
+                        self.queue = queue
+
+                        for packet in self.queue:
+                                data.record.write(f"this is queue: {packet.packetID}\n")
+                        return
+                    else:
+                        # if didn't append to the queue
+                        pass
+        
+            #call the receive function
+            packet.setDistance(self.distance_to_nextNode)
+            data.record.write("passing\n")
+            self.env.process(self.nextNode.receive(packet))
+            return
+        
+        data.record.write("not processed\n")
+        data.record.write(f"dllm\n")
+        data.record.write(f"cpu in use: {self.cpu_in_use.count}\n")
+        #init a opt_cpu variable
+        opt_cpu = self.cpuList[0]
+
+        #find an available cpu from the cpuList
+
         with self.scheduler.request() as req:
             yield req
-            if(self.cpu_in_use.count >= self.cpu_num):
-                # print the states of the cpus
-                data.record.write(f"packet waiting: {packet.packetID}\n")
-                data.record.write(f"cpu in use: {self.cpu_in_use.count}\n")
-                for cpus in self.cpuList:
-                    data.record.write(str(cpus.next_available_time) + "\n")
-
-                # scheduling method to use
-                match c.SCHEDULING_METHOD:
-                    case "FIFO":        # First In First Out
-                        if len(self.queue) < c.SIZE_OF_QUEUE:
-                            self.queue.append(packet)
-                            data.record.write("append to queue\n")
-                            for packet in self.queue:
-                                data.record.write(f"this is queue: {packet.packetID}\n")
-                            return
-                        
-                    case "EDF":         # Earliest Deadline First
-                        queue = copy.deepcopy(self.queue)
-                        queue.append(packet)
-                        if self.edf_complete_time(queue):
-                            self.queue = queue
-
-                            for packet in self.queue:
-                                    data.record.write(f"this is queue: {packet.packetID}\n")
-                            return
-                        else:
-                            # if didn't append to the queue
-                            pass
-            
-                #call the receive function
-                packet.setDistance(self.distance_to_nextNode)
-                data.record.write("passing\n")
-                self.env.process(self.nextNode.receive(packet))
-                return
-            
-            data.record.write("not processed\n")
-            data.record.write(f"dllm\n")
-            data.record.write(f"cpu in use: {self.cpu_in_use.count}\n")
-            #init a opt_cpu variable
-            opt_cpu = self.cpuList[0]
-
-            #find an available cpu from the cpuList
-
             data.record.write(f"packet waiting: {packet.packetID}\n")
             for cpus in self.cpuList:
                 #select the cpu and break the loop
