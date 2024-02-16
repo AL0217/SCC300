@@ -24,6 +24,7 @@ class Packets:
 
         # measuring delay
         self.sendTime = sendTime
+        self.completionTime = 0
         self.processedTime = 0
         self.reached_cloud = 0
     

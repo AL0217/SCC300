@@ -4,12 +4,14 @@ import data
 # Settings of simulation
 END_TIME = 300
 SMALLEST_TOTAL_TIME = 30
+CPU_MODE = 'high'
 
 # Settings of the network
 LEVEL_OF_TOPOLOGY = 3
-NUMBER_OF_PROCESSORS = 4
-SIZE_OF_QUEUE = 2
-SEND_INTERVAL = 5
+TOTAL_NUMBER_OF_PROCESSORS = 24       #should be any reasonable number can be divided by 4
+NUMBER_OF_PROCESSORS = int((TOTAL_NUMBER_OF_PROCESSORS / 2) / 2**(LEVEL_OF_TOPOLOGY-1))
+SIZE_OF_QUEUE = 4
+SEND_INTERVAL = 1
 
 # Option for enable multiple processes
 MULTIPLE_PROCESS = True 
@@ -26,17 +28,10 @@ PROCESS_TIME = 10
 DATA_SIZE_MAX = 100
 DATA_SIZE_MIN = 10
 
-# metrics of the simulations
-DATA_COLLECTORS = [
-    "PROCESSED_RATIO",  # Measure the ratio of processed packets
-    "LATENCY",  # Measure request and response latency
-    "LINK_LOAD",  # Measure link loads
-    "PATH_STRETCH",  # Measure path stretch
-]
-
 # the scheduling method
-# FCFS = First come first serve
-SCHEDULING_METHOD = 'FCFS'
+# FCFS = First In First Out
+# EDF = Earliest Deadline First
+SCHEDULING_METHOD = 'EDF'
 
 
 def random_Senders(env, nodes, until_time):

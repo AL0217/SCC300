@@ -1,0 +1,7912 @@
+packet id: 1
+time now: 0
+packet id: 2
+time now: 1
+packet id: 3
+time now: 2
+packet id: 4
+time now: 3
+packet id: 5
+time now: 4
+packet id: 6
+time now: 5
+packet id: 7
+time now: 6
+packet id: 8
+time now: 7
+packet id: 9
+time now: 8
+packet id: 10
+time now: 9
+Transmitted
+my id is: Node4
+packet id: 1
+env now: 10
+not processed
+processing: 1
+packet id: 11
+time now: 10
+Transmitted
+my id is: Node3
+packet id: 2
+env now: 11
+not processed
+processing: 2
+packet id: 12
+time now: 11
+Transmitted
+my id is: Node3
+packet id: 3
+env now: 12
+not processed
+processing: 3
+packet id: 13
+time now: 12
+Transmitted
+my id is: Node6
+packet id: 4
+env now: 13
+not processed
+processing: 4
+packet id: 14
+time now: 13
+Transmitted
+my id is: Node6
+packet id: 5
+env now: 14
+not processed
+processing: 5
+packet id: 15
+time now: 14
+Transmitted
+my id is: Node4
+packet id: 6
+env now: 15
+not processed
+processing: 6
+packet id: 16
+time now: 15
+Transmitted
+my id is: Node6
+packet id: 7
+env now: 16
+not processed
+processing: 7
+packet id: 17
+time now: 16
+Transmitted
+my id is: Node6
+packet id: 8
+env now: 17
+23
+24
+26
+this is queue: 8
+packet id: 18
+time now: 17
+Transmitted
+my id is: Node3
+packet id: 9
+env now: 18
+not processed
+processing: 9
+packet id: 19
+time now: 18
+Transmitted
+my id is: Node6
+packet id: 10
+env now: 19
+23
+24
+26
+this is queue: 10
+this is queue: 8
+packet id: 20
+time now: 19
+processed Time: 20
+Transmitted
+my id is: Node4
+packet id: 11
+env now: 20
+not processed
+processing: 11
+packet id: 21
+time now: 20
+processed Time: 21
+Transmitted
+my id is: Node3
+packet id: 12
+env now: 21
+21
+22
+28
+this is queue: 12
+packet id: 22
+time now: 21
+processed Time: 22
+Transmitted
+my id is: Node5
+packet id: 13
+env now: 22
+not processed
+processing: 13
+packet id: 23
+time now: 22
+processed Time: 23
+Transmitted
+my id is: Node3
+packet id: 14
+env now: 23
+21
+22
+28
+this is queue: 14
+this is queue: 12
+packet id: 24
+time now: 23
+processed Time: 24
+Transmitted
+my id is: Node3
+packet id: 15
+env now: 24
+21
+22
+28
+this is queue: 14
+this is queue: 12
+this is queue: 15
+packet id: 25
+time now: 24
+processed Time: 25
+Transmitted
+my id is: Node6
+packet id: 16
+env now: 25
+23
+24
+26
+this is queue: 10
+this is queue: 8
+this is queue: 16
+Transmitted
+my id is: Node1
+packet id: 1
+env now: 25.0
+passed processed packet
+packet id: 26
+time now: 25
+processed Time: 26
+Transmitted
+my id is: Node4
+packet id: 17
+env now: 26
+30
+25
+0
+this is queue: 17
+Transmitted
+my id is: Node1
+packet id: 2
+env now: 26.0
+passed processed packet
+packet id: 27
+time now: 26
+Transmitted
+my id is: Node3
+packet id: 18
+env now: 27
+21
+22
+28
+this is queue: 14
+this is queue: 18
+this is queue: 12
+this is queue: 15
+Transmitted
+my id is: Node1
+packet id: 3
+env now: 27.0
+passed processed packet
+packet id: 28
+time now: 27
+processed Time: 28
+Transmitted
+my id is: Node4
+packet id: 19
+env now: 28
+30
+25
+0
+this is queue: 17
+this is queue: 19
+Transmitted
+my id is: Node2
+packet id: 4
+env now: 28.0
+passed processed packet
+packet id: 29
+time now: 28
+Transmitted
+my id is: Node6
+packet id: 20
+env now: 29
+23
+24
+26
+this is queue: 10
+this is queue: 8
+this is queue: 16
+this is queue: 20
+Transmitted
+my id is: Node2
+packet id: 5
+env now: 29.0
+passed processed packet
+packet id: 30
+time now: 29
+processed Time: 30
+Transmitted
+my id is: Node6
+packet id: 21
+env now: 30
+23
+24
+26
+this is queue: 10
+this is queue: 8
+this is queue: 16
+this is queue: 21
+this is queue: 20
+Transmitted
+my id is: Node1
+packet id: 6
+env now: 30.0
+passed processed packet
+Transmitted
+my id is: Cloud
+packet id: 1
+env now: 30.0
+processed packet arrived cloud
+processed time: 20
+next packet: <packets.Packets object at 0x1162a2650>
+processing: 17
+packet id: 31
+time now: 30
+Transmitted
+my id is: Node4
+packet id: 22
+env now: 31
+40.0
+25
+0
+this is queue: 22
+this is queue: 19
+Transmitted
+my id is: Node2
+packet id: 7
+env now: 31.0
+passed processed packet
+Transmitted
+my id is: Cloud
+packet id: 2
+env now: 31.0
+processed packet arrived cloud
+processed time: 21
+next packet: <packets.Packets object at 0x1162a2690>
+processing: 14
+packet id: 32
+time now: 31
+processed Time: 32
+Transmitted
+my id is: Node4
+packet id: 23
+env now: 32
+40.0
+25
+0
+this is queue: 22
+this is queue: 19
+this is queue: 23
+Transmitted
+my id is: Cloud
+packet id: 3
+env now: 32.0
+processed packet arrived cloud
+processed time: 22
+next packet: <packets.Packets object at 0x1162ac710>
+processing: 18
+packet id: 33
+time now: 32
+Transmitted
+my id is: Node4
+packet id: 24
+env now: 33
+40.0
+25
+0
+this is queue: 22
+this is queue: 19
+this is queue: 23
+this is queue: 24
+Transmitted
+my id is: Node1
+packet id: 9
+env now: 33.0
+passed processed packet
+Transmitted
+my id is: Cloud
+packet id: 4
+env now: 33.0
+processed packet arrived cloud
+processed time: 23
+next packet: <packets.Packets object at 0x1162a31d0>
+processing: 10
+packet id: 34
+time now: 33
+Transmitted
+my id is: Node6
+packet id: 25
+env now: 34
+43.0
+24
+26
+this is queue: 8
+this is queue: 16
+this is queue: 21
+this is queue: 20
+this is queue: 25
+Transmitted
+my id is: Cloud
+packet id: 5
+env now: 34.0
+processed packet arrived cloud
+processed time: 24
+next packet: <packets.Packets object at 0x1162a2050>
+processing: 8
+packet id: 35
+time now: 34
+Transmitted
+my id is: Node5
+packet id: 26
+env now: 35
+not processed
+processing: 26
+Transmitted
+my id is: Node1
+packet id: 11
+env now: 35.0
+passed processed packet
+Transmitted
+my id is: Cloud
+packet id: 6
+env now: 35.0
+processed packet arrived cloud
+processed time: 25
+next packet: <packets.Packets object at 0x1162a2010>
+processing: 22
+packet id: 36
+time now: 35
+Transmitted
+my id is: Node3
+packet id: 27
+env now: 36
+41.0
+42.0
+28
+this is queue: 12
+this is queue: 27
+this is queue: 15
+Transmitted
+my id is: Cloud
+packet id: 7
+env now: 36.0
+processed packet arrived cloud
+processed time: 26
+next packet: <packets.Packets object at 0x1162af7d0>
+processing: 16
+packet id: 37
+time now: 36
+Transmitted
+my id is: Node3
+packet id: 28
+env now: 37
+41.0
+42.0
+28
+this is queue: 28
+this is queue: 12
+this is queue: 27
+this is queue: 15
+Transmitted
+my id is: Node2
+packet id: 13
+env now: 37.0
+passed processed packet
+packet id: 38
+time now: 37
+Transmitted
+my id is: Node5
+packet id: 29
+env now: 38
+not processed
+processing: 29
+Transmitted
+my id is: Cloud
+packet id: 9
+env now: 38.0
+processed packet arrived cloud
+processed time: 28
+next packet: <packets.Packets object at 0x1162ae0d0>
+processing: 28
+packet id: 39
+time now: 38
+Transmitted
+my id is: Node5
+packet id: 30
+env now: 39
+45
+48
+0
+this is queue: 30
+packet id: 40
+time now: 39
+processed Time: 40.0
+Transmitted
+my id is: Node6
+packet id: 31
+env now: 40
+43.0
+44.0
+46.0
+this is queue: 21
+this is queue: 31
+this is queue: 20
+this is queue: 25
+Transmitted
+my id is: Cloud
+packet id: 11
+env now: 40.0
+processed packet arrived cloud
+processed time: 30
+next packet: <packets.Packets object at 0x1162af490>
+processing: 19
+packet id: 41
+time now: 40
+processed Time: 41.0
+Transmitted
+my id is: Node4
+packet id: 32
+env now: 41
+50.0
+45.0
+0
+this is queue: 32
+this is queue: 23
+this is queue: 24
+packet id: 42
+time now: 41
+processed Time: 42.0
+Transmitted
+my id is: Node5
+packet id: 33
+env now: 42
+45
+48
+0
+this is queue: 33
+this is queue: 30
+Transmitted
+my id is: Cloud
+packet id: 13
+env now: 42.0
+processed packet arrived cloud
+processed time: 32
+next packet: <packets.Packets object at 0x1162af050>
+processing: 33
+packet id: 43
+time now: 42
+processed Time: 43.0
+Transmitted
+my id is: Node6
+packet id: 34
+env now: 43
+43.0
+44.0
+46.0
+this is queue: 21
+this is queue: 31
+this is queue: 20
+this is queue: 25
+this is queue: 34
+packet id: 44
+time now: 43
+processed Time: 44.0
+Transmitted
+my id is: Node6
+packet id: 35
+env now: 44
+43.0
+44.0
+46.0
+this is queue: 21
+this is queue: 31
+this is queue: 20
+this is queue: 35
+this is queue: 25
+this is queue: 34
+packet id: 45
+time now: 44
+processed Time: 45
+processed Time: 45.0
+Transmitted
+my id is: Node3
+packet id: 36
+env now: 45
+41.0
+42.0
+48.0
+this is queue: 12
+this is queue: 27
+this is queue: 15
+this is queue: 36
+Transmitted
+my id is: Node1
+packet id: 17
+env now: 45.0
+passed processed packet
+packet id: 46
+time now: 45
+processed Time: 46.0
+Transmitted
+my id is: Node4
+packet id: 37
+env now: 46
+50.0
+45.0
+0
+this is queue: 32
+this is queue: 23
+this is queue: 24
+this is queue: 37
+Transmitted
+my id is: Node1
+packet id: 14
+env now: 46.0
+passed processed packet
+packet id: 47
+time now: 46
+Transmitted
+my id is: Node6
+packet id: 38
+env now: 47
+43.0
+44.0
+46.0
+this is queue: 21
+this is queue: 31
+this is queue: 20
+this is queue: 38
+this is queue: 35
+this is queue: 25
+this is queue: 34
+Transmitted
+my id is: Node1
+packet id: 18
+env now: 47.0
+passed processed packet
+packet id: 48
+time now: 47
+processed Time: 48
+processed Time: 48.0
+Transmitted
+my id is: Node4
+packet id: 39
+env now: 48
+50.0
+45.0
+0
+this is queue: 32
+this is queue: 23
+this is queue: 24
+this is queue: 39
+this is queue: 37
+Transmitted
+my id is: Node2
+packet id: 10
+env now: 48.0
+passed processed packet
+packet id: 49
+time now: 48
+Transmitted
+my id is: Node5
+packet id: 40
+env now: 49
+52.0
+48
+0
+this is queue: 40
+this is queue: 30
+Transmitted
+my id is: Node2
+packet id: 8
+env now: 49.0
+passed processed packet
+packet id: 50
+time now: 49
+processed Time: 50.0
+Transmitted
+my id is: Node6
+packet id: 41
+env now: 50
+43.0
+44.0
+46.0
+this is queue: 21
+this is queue: 31
+this is queue: 20
+this is queue: 38
+this is queue: 35
+this is queue: 25
+this is queue: 34
+this is queue: 41
+Transmitted
+my id is: Node2
+packet id: 26
+env now: 50.0
+passed processed packet
+Transmitted
+my id is: Node1
+packet id: 22
+env now: 50.0
+passed processed packet
+Transmitted
+my id is: Cloud
+packet id: 17
+env now: 50.0
+processed packet arrived cloud
+processed time: 40.0
+next packet: <packets.Packets object at 0x1162ada10>
+processing: 32
+packet id: 51
+time now: 50
+Transmitted
+my id is: Node3
+packet id: 42
+env now: 51
+41.0
+42.0
+48.0
+this is queue: 12
+this is queue: 27
+this is queue: 15
+this is queue: 36
+this is queue: 42
+Transmitted
+my id is: Node2
+packet id: 16
+env now: 51.0
+passed processed packet
+Transmitted
+my id is: Cloud
+packet id: 14
+env now: 51.0
+processed packet arrived cloud
+processed time: 41.0
+next packet: <packets.Packets object at 0x1162ae590>
+processing: 12
+packet id: 52
+time now: 51
+processed Time: 52.0
+Transmitted
+my id is: Node4
+packet id: 43
+env now: 52
+60.0
+45.0
+0
+this is queue: 23
+this is queue: 24
+this is queue: 39
+this is queue: 43
+this is queue: 37
+Transmitted
+my id is: Cloud
+packet id: 18
+env now: 52.0
+processed packet arrived cloud
+processed time: 42.0
+next packet: <packets.Packets object at 0x1162ad610>
+processing: 27
+packet id: 53
+time now: 52
+Transmitted
+my id is: Node6
+packet id: 44
+env now: 53
+43.0
+44.0
+46.0
+this is queue: 21
+this is queue: 31
+this is queue: 20
+this is queue: 38
+this is queue: 35
+this is queue: 25
+this is queue: 44
+this is queue: 34
+this is queue: 41
+Transmitted
+my id is: Node2
+packet id: 29
+env now: 53.0
+passed processed packet
+Transmitted
+my id is: Node1
+packet id: 28
+env now: 53.0
+passed processed packet
+Transmitted
+my id is: Cloud
+packet id: 10
+env now: 53.0
+processed packet arrived cloud
+processed time: 43.0
+next packet: <packets.Packets object at 0x1162aecd0>
+processing: 21
+packet id: 54
+time now: 53
+Transmitted
+my id is: Node6
+packet id: 45
+env now: 54
+63.0
+44.0
+46.0
+this is queue: 31
+this is queue: 20
+this is queue: 38
+this is queue: 35
+this is queue: 25
+this is queue: 44
+this is queue: 34
+this is queue: 41
+this is queue: 45
+Transmitted
+my id is: Cloud
+packet id: 8
+env now: 54.0
+processed packet arrived cloud
+processed time: 44.0
+next packet: <packets.Packets object at 0x1162adbd0>
+processing: 31
+packet id: 55
+time now: 54
+Transmitted
+my id is: Node3
+packet id: 46
+env now: 55
+61.0
+62.0
+48.0
+this is queue: 15
+this is queue: 36
+this is queue: 46
+this is queue: 42
+Transmitted
+my id is: Node1
+packet id: 19
+env now: 55.0
+passed processed packet
+Transmitted
+my id is: Cloud
+packet id: 26
+env now: 55.0
+processed packet arrived cloud
+processed time: 45
+next packet: <packets.Packets object at 0x1162b0590>
+processing: 40
+Transmitted
+my id is: Cloud
+packet id: 22
+env now: 55.0
+processed packet arrived cloud
+processed time: 45.0
+next packet: <packets.Packets object at 0x1162ade50>
+processing: 23
+packet id: 56
+time now: 55
+Transmitted
+my id is: Node3
+packet id: 47
+env now: 56
+61.0
+62.0
+48.0
+this is queue: 15
+this is queue: 36
+this is queue: 47
+this is queue: 46
+this is queue: 42
+Transmitted
+my id is: Cloud
+packet id: 16
+env now: 56.0
+processed packet arrived cloud
+processed time: 46.0
+next packet: <packets.Packets object at 0x1162aca50>
+processing: 20
+packet id: 57
+time now: 56
+Transmitted
+my id is: Node6
+packet id: 48
+env now: 57
+63.0
+64.0
+66.0
+this is queue: 38
+this is queue: 35
+this is queue: 25
+this is queue: 44
+this is queue: 34
+this is queue: 41
+this is queue: 45
+this is queue: 48
+Transmitted
+my id is: Node2
+packet id: 33
+env now: 57.0
+passed processed packet
+packet id: 58
+time now: 57
+Transmitted
+my id is: Node4
+packet id: 49
+env now: 58
+60.0
+65.0
+0
+this is queue: 24
+this is queue: 39
+this is queue: 49
+this is queue: 43
+this is queue: 37
+Transmitted
+my id is: Cloud
+packet id: 29
+env now: 58.0
+processed packet arrived cloud
+processed time: 48
+next packet: <packets.Packets object at 0x1162ad910>
+processing: 30
+Transmitted
+my id is: Cloud
+packet id: 28
+env now: 58.0
+processed packet arrived cloud
+processed time: 48.0
+next packet: <packets.Packets object at 0x1162afa10>
+processing: 15
+packet id: 59
+time now: 58
+Transmitted
+my id is: Node4
+packet id: 50
+env now: 59
+60.0
+65.0
+0
+this is queue: 24
+this is queue: 39
+this is queue: 50
+this is queue: 49
+this is queue: 43
+this is queue: 37
+packet id: 60
+time now: 59
+processed Time: 60.0
+Transmitted
+my id is: Node4
+packet id: 51
+env now: 60
+60.0
+65.0
+0
+this is queue: 24
+this is queue: 39
+this is queue: 50
+this is queue: 49
+this is queue: 43
+this is queue: 37
+this is queue: 51
+Transmitted
+my id is: Cloud
+packet id: 19
+env now: 60.0
+processed packet arrived cloud
+processed time: 50.0
+next packet: <packets.Packets object at 0x1162ace90>
+processing: 24
+packet id: 61
+time now: 60
+processed Time: 61.0
+Transmitted
+my id is: Node4
+packet id: 52
+env now: 61
+70.0
+65.0
+0
+this is queue: 39
+this is queue: 50
+this is queue: 49
+this is queue: 43
+this is queue: 37
+this is queue: 52
+this is queue: 51
+packet id: 62
+time now: 61
+processed Time: 62.0
+Transmitted
+my id is: Node5
+packet id: 53
+env now: 62
+65.0
+68.0
+0
+this is queue: 53
+Transmitted
+my id is: Cloud
+packet id: 33
+env now: 62.0
+processed packet arrived cloud
+processed time: 52.0
+next packet: <packets.Packets object at 0x1162ad310>
+processing: 53
+packet id: 63
+time now: 62
+processed Time: 63.0
+Transmitted
+my id is: Node5
+packet id: 54
+env now: 63
+72.0
+68.0
+0
+this is queue: 54
+packet id: 64
+time now: 63
+processed Time: 64.0
+Transmitted
+my id is: Node5
+packet id: 55
+env now: 64
+72.0
+68.0
+0
+this is queue: 54
+this is queue: 55
+packet id: 65
+time now: 64
+processed Time: 65.0
+processed Time: 65.0
+Transmitted
+my id is: Node3
+packet id: 56
+env now: 65
+61.0
+62.0
+68.0
+this is queue: 36
+this is queue: 47
+this is queue: 46
+this is queue: 42
+this is queue: 56
+Transmitted
+my id is: Node1
+packet id: 32
+env now: 65.0
+passed processed packet
+packet id: 66
+time now: 65
+processed Time: 66.0
+Transmitted
+my id is: Node4
+packet id: 57
+env now: 66
+70.0
+65.0
+0
+this is queue: 39
+this is queue: 50
+this is queue: 49
+this is queue: 43
+this is queue: 37
+this is queue: 52
+this is queue: 51
+this is queue: 57
+Transmitted
+my id is: Node1
+packet id: 12
+env now: 66.0
+passed processed packet
+packet id: 67
+time now: 66
+Transmitted
+my id is: Node4
+packet id: 58
+env now: 67
+70.0
+65.0
+0
+this is queue: 39
+this is queue: 50
+this is queue: 49
+this is queue: 43
+this is queue: 37
+this is queue: 52
+this is queue: 51
+this is queue: 58
+this is queue: 57
+Transmitted
+my id is: Node1
+packet id: 27
+env now: 67.0
+passed processed packet
+packet id: 68
+time now: 67
+processed Time: 68.0
+processed Time: 68.0
+Transmitted
+my id is: Node3
+packet id: 59
+env now: 68
+61.0
+62.0
+68.0
+this is queue: 36
+this is queue: 47
+this is queue: 46
+this is queue: 42
+this is queue: 56
+this is queue: 59
+Transmitted
+my id is: Node2
+packet id: 21
+env now: 68.0
+passed processed packet
+packet id: 69
+time now: 68
+Transmitted
+my id is: Node5
+packet id: 60
+env now: 69
+72.0
+68.0
+0
+this is queue: 54
+this is queue: 55
+this is queue: 60
+Transmitted
+my id is: Node2
+packet id: 31
+env now: 69.0
+passed processed packet
+packet id: 70
+time now: 69
+processed Time: 70.0
+Transmitted
+my id is: Node4
+packet id: 61
+env now: 70
+70.0
+65.0
+0
+this is queue: 39
+this is queue: 50
+this is queue: 49
+this is queue: 43
+this is queue: 37
+this is queue: 52
+this is queue: 51
+this is queue: 58
+this is queue: 57
+this is queue: 61
+Transmitted
+my id is: Node2
+packet id: 40
+env now: 70.0
+passed processed packet
+Transmitted
+my id is: Node1
+packet id: 23
+env now: 70.0
+passed processed packet
+Transmitted
+my id is: Cloud
+packet id: 32
+env now: 70.0
+processed packet arrived cloud
+processed time: 60.0
+next packet: <packets.Packets object at 0x1162a2a50>
+processing: 39
+packet id: 71
+time now: 70
+Transmitted
+my id is: Node6
+packet id: 62
+env now: 71
+63.0
+64.0
+66.0
+this is queue: 38
+this is queue: 35
+this is queue: 25
+this is queue: 44
+this is queue: 34
+this is queue: 41
+this is queue: 45
+this is queue: 48
+this is queue: 62
+Transmitted
+my id is: Node2
+packet id: 20
+env now: 71.0
+passed processed packet
+Transmitted
+my id is: Cloud
+packet id: 12
+env now: 71.0
+processed packet arrived cloud
+processed time: 61.0
+next packet: <packets.Packets object at 0x1162ae0d0>
+processing: 36
+packet id: 72
+time now: 71
+processed Time: 72.0
+Transmitted
+my id is: Node5
+packet id: 63
+env now: 72
+72.0
+68.0
+0
+this is queue: 54
+this is queue: 55
+this is queue: 63
+this is queue: 60
+Transmitted
+my id is: Cloud
+packet id: 27
+env now: 72.0
+processed packet arrived cloud
+processed time: 62.0
+next packet: <packets.Packets object at 0x1162b02d0>
+processing: 47
+packet id: 73
+time now: 72
+Transmitted
+my id is: Node5
+packet id: 64
+env now: 73
+72.0
+68.0
+0
+this is queue: 64
+this is queue: 54
+this is queue: 55
+this is queue: 63
+this is queue: 60
+Transmitted
+my id is: Node2
+packet id: 30
+env now: 73.0
+passed processed packet
+Transmitted
+my id is: Node1
+packet id: 15
+env now: 73.0
+passed processed packet
+Transmitted
+my id is: Cloud
+packet id: 21
+env now: 73.0
+processed packet arrived cloud
+processed time: 63.0
+next packet: <packets.Packets object at 0x1162a3390>
+processing: 38
+packet id: 74
+time now: 73
+Transmitted
+my id is: Node5
+packet id: 65
+env now: 74
+72.0
+68.0
+0
+this is queue: 64
+this is queue: 54
+this is queue: 55
+this is queue: 63
+this is queue: 60
+this is queue: 65
+Transmitted
+my id is: Cloud
+packet id: 31
+env now: 74.0
+processed packet arrived cloud
+processed time: 64.0
+next packet: <packets.Packets object at 0x1162a3d10>
+processing: 35
+packet id: 75
+time now: 74
+Transmitted
+my id is: Node3
+packet id: 66
+env now: 75
+81.0
+82.0
+68.0
+this is queue: 46
+this is queue: 42
+this is queue: 56
+this is queue: 59
+this is queue: 66
+Transmitted
+my id is: Node1
+packet id: 24
+env now: 75.0
+passed processed packet
+Transmitted
+my id is: Cloud
+packet id: 40
+env now: 75.0
+processed packet arrived cloud
+processed time: 65.0
+next packet: <packets.Packets object at 0x1162ad8d0>
+processing: 64
+Transmitted
+my id is: Cloud
+packet id: 23
+env now: 75.0
+processed packet arrived cloud
+processed time: 65.0
+next packet: <packets.Packets object at 0x1162a2650>
+processing: 50
+packet id: 76
+time now: 75
+Transmitted
+my id is: Node4
+packet id: 67
+env now: 76
+80.0
+85.0
+0
+this is queue: 49
+this is queue: 43
+this is queue: 37
+this is queue: 52
+this is queue: 51
+this is queue: 58
+this is queue: 57
+this is queue: 67
+this is queue: 61
+Transmitted
+my id is: Cloud
+packet id: 20
+env now: 76.0
+processed packet arrived cloud
+processed time: 66.0
+next packet: <packets.Packets object at 0x1162a32d0>
+processing: 25
+packet id: 77
+time now: 76
+Transmitted
+my id is: Node4
+packet id: 68
+env now: 77
+80.0
+85.0
+0
+this is queue: 49
+this is queue: 43
+this is queue: 37
+this is queue: 52
+this is queue: 51
+this is queue: 58
+this is queue: 57
+this is queue: 68
+this is queue: 67
+this is queue: 61
+Transmitted
+my id is: Node2
+packet id: 53
+env now: 77.0
+passed processed packet
+packet id: 78
+time now: 77
+Transmitted
+my id is: Node4
+packet id: 69
+env now: 78
+80.0
+85.0
+0
+this is queue: 49
+this is queue: 43
+this is queue: 37
+this is queue: 52
+this is queue: 51
+this is queue: 58
+this is queue: 57
+this is queue: 68
+this is queue: 67
+this is queue: 61
+this is queue: 69
+Transmitted
+my id is: Cloud
+packet id: 30
+env now: 78.0
+processed packet arrived cloud
+processed time: 68.0
+next packet: <packets.Packets object at 0x1162ac4d0>
+processing: 54
+Transmitted
+my id is: Cloud
+packet id: 15
+env now: 78.0
+processed packet arrived cloud
+processed time: 68.0
+next packet: <packets.Packets object at 0x1162add90>
+processing: 46
+packet id: 79
+time now: 78
+Transmitted
+my id is: Node3
+packet id: 70
+env now: 79
+81.0
+82.0
+88.0
+this is queue: 42
+this is queue: 56
+this is queue: 59
+this is queue: 66
+this is queue: 70
+packet id: 80
+time now: 79
+processed Time: 80.0
+Transmitted
+my id is: Node5
+packet id: 71
+env now: 80
+85.0
+88.0
+0
+this is queue: 71
+this is queue: 55
+this is queue: 63
+this is queue: 60
+this is queue: 65
+Transmitted
+my id is: Cloud
+packet id: 24
+env now: 80.0
+processed packet arrived cloud
+processed time: 70.0
+next packet: <packets.Packets object at 0x1162a2450>
+processing: 49
+packet id: 81
+time now: 80
+processed Time: 81.0
+Transmitted
+my id is: Node3
+packet id: 72
+env now: 81
+81.0
+82.0
+88.0
+this is queue: 42
+this is queue: 56
+this is queue: 59
+this is queue: 72
+this is queue: 66
+this is queue: 70
+packet id: 82
+time now: 81
+processed Time: 82.0
+Transmitted
+my id is: Node3
+packet id: 73
+env now: 82
+81.0
+82.0
+88.0
+this is queue: 42
+this is queue: 56
+this is queue: 59
+this is queue: 72
+this is queue: 73
+this is queue: 66
+this is queue: 70
+Transmitted
+my id is: Cloud
+packet id: 53
+env now: 82.0
+processed packet arrived cloud
+processed time: 72.0
+next packet: <packets.Packets object at 0x1162a2f50>
+processing: 71
+packet id: 83
+time now: 82
+processed Time: 83.0
+Transmitted
+my id is: Node3
+packet id: 74
+env now: 83
+81.0
+82.0
+88.0
+this is queue: 42
+this is queue: 56
+this is queue: 59
+this is queue: 72
+this is queue: 73
+this is queue: 66
+this is queue: 70
+this is queue: 74
+packet id: 84
+time now: 83
+processed Time: 84.0
+Transmitted
+my id is: Node5
+packet id: 75
+env now: 84
+92.0
+88.0
+0
+this is queue: 55
+this is queue: 63
+this is queue: 60
+this is queue: 65
+this is queue: 75
+packet id: 85
+time now: 84
+processed Time: 85.0
+processed Time: 85.0
+Transmitted
+my id is: Node5
+packet id: 76
+env now: 85
+92.0
+88.0
+0
+this is queue: 55
+this is queue: 63
+this is queue: 60
+this is queue: 65
+this is queue: 76
+this is queue: 75
+Transmitted
+my id is: Node1
+packet id: 39
+env now: 85.0
+passed processed packet
+packet id: 86
+time now: 85
+processed Time: 86.0
+Transmitted
+my id is: Node4
+packet id: 77
+env now: 86
+90.0
+85.0
+0
+this is queue: 43
+this is queue: 37
+this is queue: 52
+this is queue: 51
+this is queue: 58
+this is queue: 57
+this is queue: 68
+this is queue: 67
+this is queue: 77
+this is queue: 61
+this is queue: 69
+Transmitted
+my id is: Node1
+packet id: 36
+env now: 86.0
+passed processed packet
+packet id: 87
+time now: 86
+Transmitted
+my id is: Node5
+packet id: 78
+env now: 87
+92.0
+88.0
+0
+this is queue: 55
+this is queue: 63
+this is queue: 60
+this is queue: 65
+this is queue: 76
+this is queue: 78
+this is queue: 75
+Transmitted
+my id is: Node1
+packet id: 47
+env now: 87.0
+passed processed packet
+packet id: 88
+time now: 87
+processed Time: 88.0
+processed Time: 88.0
+Transmitted
+my id is: Node4
+packet id: 79
+env now: 88
+90.0
+85.0
+0
+this is queue: 43
+this is queue: 37
+this is queue: 52
+this is queue: 51
+this is queue: 58
+this is queue: 57
+this is queue: 79
+this is queue: 68
+this is queue: 67
+this is queue: 77
+this is queue: 61
+this is queue: 69
+Transmitted
+my id is: Node2
+packet id: 38
+env now: 88.0
+passed processed packet
+packet id: 89
+time now: 88
+Transmitted
+my id is: Node5
+packet id: 80
+env now: 89
+92.0
+88.0
+0
+this is queue: 55
+this is queue: 63
+this is queue: 60
+this is queue: 65
+this is queue: 76
+this is queue: 78
+this is queue: 75
+this is queue: 80
+Transmitted
+my id is: Node2
+packet id: 35
+env now: 89.0
+passed processed packet
+packet id: 90
+time now: 89
+processed Time: 90.0
+Transmitted
+my id is: Node4
+packet id: 81
+env now: 90
+90.0
+85.0
+0
+this is queue: 43
+this is queue: 37
+this is queue: 52
+this is queue: 51
+this is queue: 58
+this is queue: 57
+this is queue: 79
+this is queue: 68
+this is queue: 67
+this is queue: 77
+this is queue: 61
+this is queue: 69
+this is queue: 81
+Transmitted
+my id is: Node2
+packet id: 64
+env now: 90.0
+passed processed packet
+Transmitted
+my id is: Node1
+packet id: 50
+env now: 90.0
+passed processed packet
+Transmitted
+my id is: Cloud
+packet id: 39
+env now: 90.0
+processed packet arrived cloud
+processed time: 80.0
+next packet: <packets.Packets object at 0x1162a21d0>
+processing: 43
+packet id: 91
+time now: 90
+Transmitted
+my id is: Node5
+packet id: 82
+env now: 91
+92.0
+88.0
+0
+this is queue: 55
+this is queue: 63
+this is queue: 60
+this is queue: 65
+this is queue: 76
+this is queue: 78
+this is queue: 75
+this is queue: 80
+this is queue: 82
+Transmitted
+my id is: Node2
+packet id: 25
+env now: 91.0
+passed processed packet
+Transmitted
+my id is: Cloud
+packet id: 36
+env now: 91.0
+processed packet arrived cloud
+processed time: 81.0
+next packet: <packets.Packets object at 0x1162a26d0>
+processing: 42
+packet id: 92
+time now: 91
+processed Time: 92.0
+Transmitted
+my id is: Node5
+packet id: 83
+env now: 92
+92.0
+88.0
+0
+this is queue: 55
+this is queue: 63
+this is queue: 60
+this is queue: 65
+this is queue: 76
+this is queue: 78
+this is queue: 75
+this is queue: 80
+this is queue: 83
+this is queue: 82
+Transmitted
+my id is: Cloud
+packet id: 47
+env now: 92.0
+processed packet arrived cloud
+processed time: 82.0
+next packet: <packets.Packets object at 0x1162ad790>
+processing: 56
+packet id: 93
+time now: 92
+Transmitted
+my id is: Node5
+packet id: 84
+env now: 93
+92.0
+88.0
+0
+this is queue: 55
+this is queue: 63
+this is queue: 60
+this is queue: 65
+this is queue: 76
+this is queue: 78
+this is queue: 75
+this is queue: 80
+this is queue: 83
+this is queue: 84
+this is queue: 82
+Transmitted
+my id is: Node2
+packet id: 54
+env now: 93.0
+passed processed packet
+Transmitted
+my id is: Node1
+packet id: 46
+env now: 93.0
+passed processed packet
+Transmitted
+my id is: Cloud
+packet id: 38
+env now: 93.0
+processed packet arrived cloud
+processed time: 83.0
+next packet: <packets.Packets object at 0x1162a2010>
+processing: 44
+packet id: 94
+time now: 93
+Transmitted
+my id is: Node6
+packet id: 85
+env now: 94
+103.0
+84.0
+86.0
+failed
+passing
+Transmitted
+my id is: Cloud
+packet id: 35
+env now: 94.0
+processed packet arrived cloud
+processed time: 84.0
+next packet: <packets.Packets object at 0x1162a35d0>
+processing: 34
+packet id: 95
+time now: 94
+Transmitted
+my id is: Node3
+packet id: 86
+env now: 95
+101.0
+102.0
+88.0
+failed
+passing
+Transmitted
+my id is: Node1
+packet id: 49
+env now: 95.0
+passed processed packet
+Transmitted
+my id is: Cloud
+packet id: 64
+env now: 95.0
+processed packet arrived cloud
+processed time: 85.0
+next packet: <packets.Packets object at 0x1162a3e90>
+processing: 55
+Transmitted
+my id is: Cloud
+packet id: 50
+env now: 95.0
+processed packet arrived cloud
+processed time: 85.0
+next packet: <packets.Packets object at 0x1162b0210>
+processing: 37
+packet id: 96
+time now: 95
+Transmitted
+my id is: Node6
+packet id: 87
+env now: 96
+103.0
+104.0
+86.0
+failed
+passing
+Transmitted
+my id is: Cloud
+packet id: 25
+env now: 96.0
+processed packet arrived cloud
+processed time: 86.0
+next packet: <packets.Packets object at 0x1162a2550>
+processing: 41
+packet id: 97
+time now: 96
+Transmitted
+my id is: Node6
+packet id: 88
+env now: 97
+103.0
+104.0
+106.0
+failed
+passing
+Transmitted
+my id is: Node2
+packet id: 71
+env now: 97.0
+passed processed packet
+packet id: 98
+time now: 97
+Transmitted
+my id is: Node4
+packet id: 89
+env now: 98
+100.0
+105.0
+0
+this is queue: 52
+this is queue: 51
+this is queue: 58
+this is queue: 57
+this is queue: 79
+this is queue: 68
+this is queue: 67
+this is queue: 77
+this is queue: 61
+this is queue: 69
+this is queue: 89
+this is queue: 81
+Transmitted
+my id is: Cloud
+packet id: 54
+env now: 98.0
+processed packet arrived cloud
+processed time: 88.0
+next packet: <packets.Packets object at 0x1162adad0>
+processing: 63
+Transmitted
+my id is: Cloud
+packet id: 46
+env now: 98.0
+processed packet arrived cloud
+processed time: 88.0
+next packet: <packets.Packets object at 0x1162ac3d0>
+processing: 59
+packet id: 99
+time now: 98
+Transmitted
+my id is: Node3
+packet id: 90
+env now: 99
+101.0
+102.0
+108.0
+failed
+passing
+packet id: 100
+time now: 99
+processed Time: 100.0
+Transmitted
+my id is: Node4
+packet id: 91
+env now: 100
+100.0
+105.0
+0
+this is queue: 52
+this is queue: 51
+this is queue: 58
+this is queue: 57
+this is queue: 79
+this is queue: 68
+this is queue: 67
+this is queue: 77
+this is queue: 61
+this is queue: 69
+this is queue: 89
+this is queue: 81
+this is queue: 91
+Transmitted
+my id is: Cloud
+packet id: 49
+env now: 100.0
+processed packet arrived cloud
+processed time: 90.0
+next packet: <packets.Packets object at 0x1162b02d0>
+processing: 52
+packet id: 101
+time now: 100
+processed Time: 101.0
+Transmitted
+my id is: Node6
+packet id: 92
+env now: 101
+103.0
+104.0
+106.0
+failed
+passing
+packet id: 102
+time now: 101
+processed Time: 102.0
+Transmitted
+my id is: Node3
+packet id: 93
+env now: 102
+101.0
+102.0
+108.0
+failed
+passing
+Transmitted
+my id is: Cloud
+packet id: 71
+env now: 102.0
+processed packet arrived cloud
+processed time: 92.0
+next packet: <packets.Packets object at 0x1162ace10>
+processing: 60
+packet id: 103
+time now: 102
+processed Time: 103.0
+Transmitted
+my id is: Node3
+packet id: 94
+env now: 103
+101.0
+102.0
+108.0
+failed
+passing
+packet id: 104
+time now: 103
+Transmitted
+my id is: Node2
+packet id: 85
+env now: 104
+not processed
+processing: 85
+processed Time: 104.0
+Transmitted
+my id is: Node4
+packet id: 95
+env now: 104
+110.0
+105.0
+0
+this is queue: 51
+this is queue: 58
+this is queue: 57
+this is queue: 79
+this is queue: 68
+this is queue: 67
+this is queue: 77
+this is queue: 61
+this is queue: 69
+this is queue: 95
+this is queue: 89
+this is queue: 81
+this is queue: 91
+packet id: 105
+time now: 104
+Transmitted
+my id is: Node1
+packet id: 86
+env now: 105
+not processed
+processing: 86
+processed Time: 105.0
+processed Time: 105.0
+Transmitted
+my id is: Node4
+packet id: 96
+env now: 105
+110.0
+105.0
+0
+this is queue: 51
+this is queue: 58
+this is queue: 57
+this is queue: 79
+this is queue: 68
+this is queue: 67
+this is queue: 77
+this is queue: 61
+this is queue: 69
+this is queue: 95
+this is queue: 89
+this is queue: 81
+this is queue: 96
+this is queue: 91
+Transmitted
+my id is: Node1
+packet id: 43
+env now: 105.0
+passed processed packet
+packet id: 106
+time now: 105
+Transmitted
+my id is: Node2
+packet id: 87
+env now: 106
+not processed
+processing: 87
+processed Time: 106.0
+Transmitted
+my id is: Node6
+packet id: 97
+env now: 106
+103.0
+104.0
+106.0
+failed
+passing
+Transmitted
+my id is: Node1
+packet id: 42
+env now: 106.0
+passed processed packet
+packet id: 107
+time now: 106
+Transmitted
+my id is: Node2
+packet id: 88
+env now: 107
+not processed
+processing: 88
+Transmitted
+my id is: Node4
+packet id: 98
+env now: 107
+110.0
+105.0
+0
+this is queue: 51
+this is queue: 58
+this is queue: 57
+this is queue: 79
+this is queue: 68
+this is queue: 67
+this is queue: 77
+this is queue: 61
+this is queue: 69
+this is queue: 95
+this is queue: 89
+this is queue: 81
+this is queue: 96
+this is queue: 98
+this is queue: 91
+Transmitted
+my id is: Node1
+packet id: 56
+env now: 107.0
+passed processed packet
+packet id: 108
+time now: 107
+processed Time: 108.0
+processed Time: 108.0
+Transmitted
+my id is: Node6
+packet id: 99
+env now: 108
+103.0
+104.0
+106.0
+failed
+passing
+Transmitted
+my id is: Node2
+packet id: 44
+env now: 108.0
+passed processed packet
+packet id: 109
+time now: 108
+Transmitted
+my id is: Node1
+packet id: 90
+env now: 109
+not processed
+processing: 90
+Transmitted
+my id is: Node3
+packet id: 100
+env now: 109
+101.0
+102.0
+108.0
+failed
+passing
+Transmitted
+my id is: Node2
+packet id: 34
+env now: 109.0
+passed processed packet
+packet id: 110
+time now: 109
+processed Time: 110.0
+Transmitted
+my id is: Node5
+packet id: 101
+env now: 110
+112.0
+108.0
+0
+this is queue: 65
+this is queue: 76
+this is queue: 78
+this is queue: 75
+this is queue: 80
+this is queue: 83
+this is queue: 84
+this is queue: 82
+this is queue: 101
+Transmitted
+my id is: Node2
+packet id: 55
+env now: 110.0
+passed processed packet
+Transmitted
+my id is: Node1
+packet id: 37
+env now: 110.0
+passed processed packet
+Transmitted
+my id is: Cloud
+packet id: 43
+env now: 110.0
+processed packet arrived cloud
+processed time: 100.0
+next packet: <packets.Packets object at 0x1162b2e90>
+processing: 51
+packet id: 111
+time now: 110
+Transmitted
+my id is: Node2
+packet id: 92
+env now: 111
+not processed
+processing: 92
+Transmitted
+my id is: Node6
+packet id: 102
+env now: 111
+103.0
+104.0
+106.0
+failed
+passing
+Transmitted
+my id is: Node2
+packet id: 41
+env now: 111.0
+passed processed packet
+Transmitted
+my id is: Cloud
+packet id: 42
+env now: 111.0
+processed packet arrived cloud
+processed time: 101.0
+next packet: <packets.Packets object at 0x1162ae850>
+processing: 72
+packet id: 112
+time now: 111
+Transmitted
+my id is: Node1
+packet id: 93
+env now: 112
+not processed
+processing: 93
+processed Time: 112.0
+Transmitted
+my id is: Node5
+packet id: 103
+env now: 112
+112.0
+108.0
+0
+this is queue: 65
+this is queue: 76
+this is queue: 78
+this is queue: 75
+this is queue: 80
+this is queue: 83
+this is queue: 84
+this is queue: 82
+this is queue: 103
+this is queue: 101
+Transmitted
+my id is: Cloud
+packet id: 56
+env now: 112.0
+processed packet arrived cloud
+processed time: 102.0
+next packet: <packets.Packets object at 0x1162aeb50>
+processing: 73
+packet id: 113
+time now: 112
+Transmitted
+my id is: Node1
+packet id: 94
+env now: 113
+not processed
+processing: 94
+Transmitted
+my id is: Node4
+packet id: 104
+env now: 113
+120.0
+105.0
+0
+this is queue: 58
+this is queue: 57
+this is queue: 79
+this is queue: 68
+this is queue: 67
+this is queue: 77
+this is queue: 61
+this is queue: 69
+this is queue: 95
+this is queue: 89
+this is queue: 81
+this is queue: 96
+this is queue: 98
+this is queue: 91
+this is queue: 104
+Transmitted
+my id is: Node2
+packet id: 63
+env now: 113.0
+passed processed packet
+Transmitted
+my id is: Node1
+packet id: 59
+env now: 113.0
+passed processed packet
+Transmitted
+my id is: Cloud
+packet id: 44
+env now: 113.0
+processed packet arrived cloud
+processed time: 103.0
+next packet: <packets.Packets object at 0x1162a3950>
+processing: 45
+packet id: 114
+time now: 113
+processed Time: 114
+Transmitted
+my id is: Node3
+packet id: 105
+env now: 114
+121.0
+122.0
+108.0
+failed
+passing
+Transmitted
+my id is: Cloud
+packet id: 34
+env now: 114.0
+processed packet arrived cloud
+processed time: 104.0
+next packet: <packets.Packets object at 0x1162a24d0>
+processing: 48
+packet id: 115
+time now: 114
+processed Time: 115
+Transmitted
+my id is: Node3
+packet id: 106
+env now: 115
+121.0
+122.0
+108.0
+failed
+passing
+Transmitted
+my id is: Node1
+packet id: 52
+env now: 115.0
+passed processed packet
+Transmitted
+my id is: Cloud
+packet id: 55
+env now: 115.0
+processed packet arrived cloud
+processed time: 105.0
+next packet: <packets.Packets object at 0x1162a2f50>
+processing: 65
+Transmitted
+my id is: Cloud
+packet id: 37
+env now: 115.0
+processed packet arrived cloud
+processed time: 105.0
+next packet: <packets.Packets object at 0x1162b1b10>
+processing: 58
+packet id: 116
+time now: 115
+processed Time: 116
+Transmitted
+my id is: Node2
+packet id: 97
+env now: 116
+not processed
+processing: 97
+Transmitted
+my id is: Node3
+packet id: 107
+env now: 116
+121.0
+122.0
+108.0
+failed
+passing
+Transmitted
+my id is: Cloud
+packet id: 41
+env now: 116.0
+processed packet arrived cloud
+processed time: 106.0
+next packet: <packets.Packets object at 0x1162a2b50>
+processing: 62
+packet id: 117
+time now: 116
+processed Time: 117
+Transmitted
+my id is: Node5
+packet id: 108
+env now: 117
+125.0
+108.0
+0
+this is queue: 76
+this is queue: 78
+this is queue: 75
+this is queue: 80
+this is queue: 83
+this is queue: 84
+this is queue: 82
+this is queue: 103
+this is queue: 101
+this is queue: 108
+Transmitted
+my id is: Node2
+packet id: 60
+env now: 117.0
+passed processed packet
+packet id: 118
+time now: 117
+Transmitted
+my id is: Node2
+packet id: 99
+env now: 118
+not processed
+processing: 99
+Transmitted
+my id is: Node4
+packet id: 109
+env now: 118
+120.0
+125.0
+0
+this is queue: 57
+this is queue: 79
+this is queue: 68
+this is queue: 67
+this is queue: 77
+this is queue: 61
+this is queue: 69
+this is queue: 95
+this is queue: 89
+this is queue: 81
+this is queue: 96
+this is queue: 98
+this is queue: 91
+this is queue: 109
+this is queue: 104
+Transmitted
+my id is: Cloud
+packet id: 63
+env now: 118.0
+processed packet arrived cloud
+processed time: 108.0
+next packet: <packets.Packets object at 0x1162a36d0>
+processing: 76
+Transmitted
+my id is: Cloud
+packet id: 59
+env now: 118.0
+processed packet arrived cloud
+processed time: 108.0
+next packet: <packets.Packets object at 0x1162afd90>
+processing: 66
+packet id: 119
+time now: 118
+processed Time: 119
+Transmitted
+my id is: Node1
+packet id: 100
+env now: 119
+not processed
+processing: 100
+Transmitted
+my id is: Node5
+packet id: 110
+env now: 119
+125.0
+128.0
+0
+this is queue: 78
+this is queue: 75
+this is queue: 80
+this is queue: 83
+this is queue: 84
+this is queue: 82
+this is queue: 103
+this is queue: 110
+this is queue: 101
+this is queue: 108
+Transmitted
+my id is: Cloud
+packet id: 85
+env now: 119.0
+processed packet arrived cloud
+processed time: 114
+packet id: 120
+time now: 119
+processed Time: 120.0
+Transmitted
+my id is: Node3
+packet id: 111
+env now: 120
+121.0
+122.0
+128.0
+failed
+passing
+Transmitted
+my id is: Cloud
+packet id: 86
+env now: 120.0
+processed packet arrived cloud
+processed time: 115
+Transmitted
+my id is: Cloud
+packet id: 52
+env now: 120.0
+processed packet arrived cloud
+processed time: 110.0
+next packet: <packets.Packets object at 0x1162b3410>
+processing: 57
+packet id: 121
+time now: 120
+processed Time: 121
+Transmitted
+my id is: Node2
+packet id: 102
+env now: 121
+not processed
+processing: 102
+processed Time: 121.0
+Transmitted
+my id is: Node3
+packet id: 112
+env now: 121
+121.0
+122.0
+128.0
+failed
+passing
+Transmitted
+my id is: Cloud
+packet id: 87
+env now: 121.0
+processed packet arrived cloud
+processed time: 116
+packet id: 122
+time now: 121
+processed Time: 122
+processed Time: 122.0
+Transmitted
+my id is: Node4
+packet id: 113
+env now: 122
+130.0
+125.0
+0
+this is queue: 79
+this is queue: 68
+this is queue: 67
+this is queue: 77
+this is queue: 61
+this is queue: 69
+this is queue: 95
+this is queue: 89
+this is queue: 81
+this is queue: 96
+this is queue: 98
+this is queue: 91
+this is queue: 109
+this is queue: 104
+this is queue: 113
+Transmitted
+my id is: Cloud
+packet id: 88
+env now: 122.0
+processed packet arrived cloud
+processed time: 117
+Transmitted
+my id is: Cloud
+packet id: 60
+env now: 122.0
+processed packet arrived cloud
+processed time: 112.0
+next packet: <packets.Packets object at 0x1162b3a90>
+processing: 78
+packet id: 123
+time now: 122
+processed Time: 123
+processed Time: 123.0
+Transmitted
+my id is: Node6
+packet id: 114
+env now: 123
+123.0
+124.0
+126.0
+this is queue: 114
+packet id: 124
+time now: 123
+Transmitted
+my id is: Node1
+packet id: 105
+env now: 124
+not processed
+processing: 105
+processed Time: 124.0
+Transmitted
+my id is: Node3
+packet id: 115
+env now: 124
+121.0
+122.0
+128.0
+failed
+passing
+Transmitted
+my id is: Cloud
+packet id: 90
+env now: 124.0
+processed packet arrived cloud
+processed time: 119
+packet id: 125
+time now: 124
+Transmitted
+my id is: Node1
+packet id: 106
+env now: 125
+not processed
+processing: 106
+processed Time: 125.0
+processed Time: 125.0
+Transmitted
+my id is: Node4
+packet id: 116
+env now: 125
+130.0
+125.0
+0
+this is queue: 79
+this is queue: 68
+this is queue: 67
+this is queue: 77
+this is queue: 61
+this is queue: 69
+this is queue: 95
+this is queue: 89
+this is queue: 81
+this is queue: 96
+this is queue: 98
+this is queue: 91
+this is queue: 109
+this is queue: 116
+this is queue: 104
+this is queue: 113
+Transmitted
+my id is: Node1
+packet id: 51
+env now: 125.0
+passed processed packet
+packet id: 126
+time now: 125
+processed Time: 126
+Transmitted
+my id is: Node1
+packet id: 107
+env now: 126
+not processed
+processing: 107
+processed Time: 126.0
+Transmitted
+my id is: Node3
+packet id: 117
+env now: 126
+121.0
+122.0
+128.0
+failed
+passing
+Transmitted
+my id is: Cloud
+packet id: 92
+env now: 126.0
+processed packet arrived cloud
+processed time: 121
+Transmitted
+my id is: Node1
+packet id: 72
+env now: 126.0
+passed processed packet
+packet id: 127
+time now: 126
+Transmitted
+my id is: Node6
+packet id: 118
+env now: 127
+123.0
+124.0
+126.0
+this is queue: 114
+this is queue: 118
+Transmitted
+my id is: Cloud
+packet id: 93
+env now: 127.0
+processed packet arrived cloud
+processed time: 122
+Transmitted
+my id is: Node1
+packet id: 73
+env now: 127.0
+passed processed packet
+packet id: 128
+time now: 127
+processed Time: 128
+processed Time: 128.0
+processed Time: 128.0
+Transmitted
+my id is: Node4
+packet id: 119
+env now: 128
+130.0
+125.0
+0
+this is queue: 79
+this is queue: 68
+this is queue: 67
+this is queue: 77
+this is queue: 61
+this is queue: 69
+this is queue: 95
+this is queue: 89
+this is queue: 81
+this is queue: 96
+this is queue: 98
+this is queue: 91
+this is queue: 109
+this is queue: 116
+this is queue: 104
+this is queue: 119
+this is queue: 113
+Transmitted
+my id is: Cloud
+packet id: 94
+env now: 128.0
+processed packet arrived cloud
+processed time: 123
+Transmitted
+my id is: Node2
+packet id: 45
+env now: 128.0
+passed processed packet
+packet id: 129
+time now: 128
+processed Time: 129
+Transmitted
+my id is: Node3
+packet id: 120
+env now: 129
+121.0
+122.0
+128.0
+failed
+passing
+Transmitted
+my id is: Node2
+packet id: 48
+env now: 129.0
+passed processed packet
+packet id: 130
+time now: 129
+Transmitted
+my id is: Node1
+packet id: 111
+env now: 130
+not processed
+processing: 111
+processed Time: 130.0
+Transmitted
+my id is: Node6
+packet id: 121
+env now: 130
+123.0
+124.0
+126.0
+this is queue: 114
+this is queue: 121
+this is queue: 118
+Transmitted
+my id is: Node2
+packet id: 65
+env now: 130.0
+passed processed packet
+Transmitted
+my id is: Node1
+packet id: 58
+env now: 130.0
+passed processed packet
+Transmitted
+my id is: Cloud
+packet id: 51
+env now: 130.0
+processed packet arrived cloud
+processed time: 120.0
+next packet: <packets.Packets object at 0x1162aee50>
+processing: 79
+packet id: 131
+time now: 130
+processed Time: 131
+Transmitted
+my id is: Node1
+packet id: 112
+env now: 131
+not processed
+processing: 112
+Transmitted
+my id is: Node6
+packet id: 122
+env now: 131
+123.0
+124.0
+126.0
+this is queue: 114
+this is queue: 122
+this is queue: 121
+this is queue: 118
+Transmitted
+my id is: Cloud
+packet id: 97
+env now: 131.0
+processed packet arrived cloud
+processed time: 126
+Transmitted
+my id is: Node2
+packet id: 62
+env now: 131.0
+passed processed packet
+Transmitted
+my id is: Cloud
+packet id: 72
+env now: 131.0
+processed packet arrived cloud
+processed time: 121.0
+next packet: <packets.Packets object at 0x1162ad2d0>
+processing: 70
+packet id: 132
+time now: 131
+processed Time: 132.0
+Transmitted
+my id is: Node5
+packet id: 123
+env now: 132
+132.0
+128.0
+0
+this is queue: 75
+this is queue: 80
+this is queue: 83
+this is queue: 84
+this is queue: 82
+this is queue: 103
+this is queue: 110
+this is queue: 101
+this is queue: 108
+this is queue: 123
+Transmitted
+my id is: Cloud
+packet id: 73
+env now: 132.0
+processed packet arrived cloud
+processed time: 122.0
+next packet: <packets.Packets object at 0x1162ae490>
+processing: 74
+packet id: 133
+time now: 132
+Transmitted
+my id is: Node6
+packet id: 124
+env now: 133
+123.0
+124.0
+126.0
+this is queue: 114
+this is queue: 122
+this is queue: 121
+this is queue: 118
+this is queue: 124
+Transmitted
+my id is: Cloud
+packet id: 99
+env now: 133.0
+processed packet arrived cloud
+processed time: 128
+Transmitted
+my id is: Node2
+packet id: 76
+env now: 133.0
+passed processed packet
+Transmitted
+my id is: Node1
+packet id: 66
+env now: 133.0
+passed processed packet
+Transmitted
+my id is: Cloud
+packet id: 45
+env now: 133.0
+processed packet arrived cloud
+processed time: 123.0
+next packet: <packets.Packets object at 0x1162afbd0>
+processing: 114
+packet id: 134
+time now: 133
+processed Time: 134
+Transmitted
+my id is: Node1
+packet id: 115
+env now: 134
+not processed
+processing: 115
+Transmitted
+my id is: Node5
+packet id: 125
+env now: 134
+132.0
+128.0
+0
+this is queue: 75
+this is queue: 80
+this is queue: 83
+this is queue: 84
+this is queue: 82
+this is queue: 103
+this is queue: 110
+this is queue: 101
+this is queue: 125
+this is queue: 108
+this is queue: 123
+Transmitted
+my id is: Cloud
+packet id: 100
+env now: 134.0
+processed packet arrived cloud
+processed time: 129
+Transmitted
+my id is: Cloud
+packet id: 48
+env now: 134.0
+processed packet arrived cloud
+processed time: 124.0
+next packet: <packets.Packets object at 0x1162a33d0>
+processing: 122
+packet id: 135
+time now: 134
+processed Time: 135
+Transmitted
+my id is: Node4
+packet id: 126
+env now: 135
+140.0
+125.0
+0
+this is queue: 68
+this is queue: 67
+this is queue: 77
+this is queue: 61
+this is queue: 69
+this is queue: 95
+this is queue: 89
+this is queue: 81
+this is queue: 96
+this is queue: 98
+this is queue: 91
+this is queue: 109
+this is queue: 116
+this is queue: 104
+this is queue: 126
+this is queue: 119
+this is queue: 113
+Transmitted
+my id is: Node1
+packet id: 57
+env now: 135.0
+passed processed packet
+Transmitted
+my id is: Cloud
+packet id: 65
+env now: 135.0
+processed packet arrived cloud
+processed time: 125.0
+next packet: <packets.Packets object at 0x1162adf50>
+processing: 75
+Transmitted
+my id is: Cloud
+packet id: 58
+env now: 135.0
+processed packet arrived cloud
+processed time: 125.0
+next packet: <packets.Packets object at 0x1162afe90>
+processing: 68
+packet id: 136
+time now: 135
+processed Time: 136
+Transmitted
+my id is: Node1
+packet id: 117
+env now: 136
+not processed
+processing: 117
+Transmitted
+my id is: Node5
+packet id: 127
+env now: 136
+145.0
+128.0
+0
+this is queue: 80
+this is queue: 83
+this is queue: 84
+this is queue: 82
+this is queue: 103
+this is queue: 110
+this is queue: 101
+this is queue: 125
+this is queue: 108
+this is queue: 123
+this is queue: 127
+Transmitted
+my id is: Cloud
+packet id: 102
+env now: 136.0
+processed packet arrived cloud
+processed time: 131
+Transmitted
+my id is: Cloud
+packet id: 62
+env now: 136.0
+processed packet arrived cloud
+processed time: 126.0
+next packet: <packets.Packets object at 0x1162a2290>
+processing: 121
+packet id: 137
+time now: 136
+Transmitted
+my id is: Node4
+packet id: 128
+env now: 137
+140.0
+145.0
+0
+this is queue: 67
+this is queue: 77
+this is queue: 61
+this is queue: 69
+this is queue: 95
+this is queue: 89
+this is queue: 81
+this is queue: 96
+this is queue: 98
+this is queue: 91
+this is queue: 109
+this is queue: 116
+this is queue: 104
+this is queue: 126
+this is queue: 119
+this is queue: 128
+this is queue: 113
+Transmitted
+my id is: Node2
+packet id: 78
+env now: 137.0
+passed processed packet
+packet id: 138
+time now: 137
+Transmitted
+my id is: Node6
+packet id: 129
+env now: 138
+143.0
+144.0
+146.0
+this is queue: 129
+this is queue: 118
+this is queue: 124
+Transmitted
+my id is: Cloud
+packet id: 76
+env now: 138.0
+processed packet arrived cloud
+processed time: 128.0
+next packet: <packets.Packets object at 0x1162af690>
+processing: 80
+Transmitted
+my id is: Cloud
+packet id: 66
+env now: 138.0
+processed packet arrived cloud
+processed time: 128.0
+packet id: 139
+time now: 138
+Transmitted
+my id is: Node1
+packet id: 120
+env now: 139
+not processed
+processing: 120
+Transmitted
+my id is: Node5
+packet id: 130
+env now: 139
+145.0
+148.0
+0
+this is queue: 83
+this is queue: 84
+this is queue: 82
+this is queue: 103
+this is queue: 110
+this is queue: 101
+this is queue: 125
+this is queue: 108
+this is queue: 123
+this is queue: 130
+this is queue: 127
+Transmitted
+my id is: Cloud
+packet id: 105
+env now: 139.0
+processed packet arrived cloud
+processed time: 134
+packet id: 140
+time now: 139
+processed Time: 140
+processed Time: 140.0
+Transmitted
+my id is: Node3
+packet id: 131
+env now: 140
+not processed
+processing: 131
+Transmitted
+my id is: Cloud
+packet id: 106
+env now: 140.0
+processed packet arrived cloud
+processed time: 135
+Transmitted
+my id is: Cloud
+packet id: 57
+env now: 140.0
+processed packet arrived cloud
+processed time: 130.0
+next packet: <packets.Packets object at 0x1162af1d0>
+processing: 67
+packet id: 141
+time now: 140
+processed Time: 141
+processed Time: 141.0
+Transmitted
+my id is: Node6
+packet id: 132
+env now: 141
+143.0
+144.0
+146.0
+this is queue: 129
+this is queue: 118
+this is queue: 124
+this is queue: 132
+Transmitted
+my id is: Cloud
+packet id: 107
+env now: 141.0
+processed packet arrived cloud
+processed time: 136
+packet id: 142
+time now: 141
+processed Time: 142.0
+Transmitted
+my id is: Node5
+packet id: 133
+env now: 142
+145.0
+148.0
+0
+this is queue: 83
+this is queue: 84
+this is queue: 82
+this is queue: 103
+this is queue: 110
+this is queue: 101
+this is queue: 125
+this is queue: 108
+this is queue: 123
+this is queue: 130
+this is queue: 127
+this is queue: 133
+Transmitted
+my id is: Cloud
+packet id: 78
+env now: 142.0
+processed packet arrived cloud
+processed time: 132.0
+next packet: <packets.Packets object at 0x1162af3d0>
+processing: 83
+packet id: 143
+time now: 142
+processed Time: 143.0
+Transmitted
+my id is: Node6
+packet id: 134
+env now: 143
+143.0
+144.0
+146.0
+this is queue: 129
+this is queue: 118
+this is queue: 124
+this is queue: 134
+this is queue: 132
+packet id: 144
+time now: 143
+processed Time: 144
+processed Time: 144.0
+Transmitted
+my id is: Node4
+packet id: 135
+env now: 144
+150.0
+145.0
+0
+this is queue: 77
+this is queue: 61
+this is queue: 69
+this is queue: 95
+this is queue: 89
+this is queue: 81
+this is queue: 96
+this is queue: 98
+this is queue: 91
+this is queue: 109
+this is queue: 116
+this is queue: 104
+this is queue: 126
+this is queue: 119
+this is queue: 135
+this is queue: 128
+this is queue: 113
+packet id: 145
+time now: 144
+processed Time: 145.0
+processed Time: 145.0
+Transmitted
+my id is: Node3
+packet id: 136
+env now: 145
+141.0
+142.0
+150
+this is queue: 136
+Transmitted
+my id is: Cloud
+packet id: 111
+env now: 145.0
+processed packet arrived cloud
+processed time: 140
+Transmitted
+my id is: Node1
+packet id: 79
+env now: 145.0
+passed processed packet
+packet id: 146
+time now: 145
+processed Time: 146
+processed Time: 146.0
+Transmitted
+my id is: Node4
+packet id: 137
+env now: 146
+150.0
+145.0
+0
+this is queue: 77
+this is queue: 61
+this is queue: 69
+this is queue: 95
+this is queue: 89
+this is queue: 81
+this is queue: 96
+this is queue: 98
+this is queue: 91
+this is queue: 109
+this is queue: 116
+this is queue: 104
+this is queue: 126
+this is queue: 119
+this is queue: 135
+this is queue: 128
+this is queue: 137
+this is queue: 113
+Transmitted
+my id is: Cloud
+packet id: 112
+env now: 146.0
+processed packet arrived cloud
+processed time: 141
+Transmitted
+my id is: Node1
+packet id: 70
+env now: 146.0
+passed processed packet
+packet id: 147
+time now: 146
+Transmitted
+my id is: Node4
+packet id: 138
+env now: 147
+150.0
+145.0
+0
+this is queue: 77
+this is queue: 61
+this is queue: 69
+this is queue: 95
+this is queue: 89
+this is queue: 81
+this is queue: 96
+this is queue: 98
+this is queue: 91
+this is queue: 109
+this is queue: 116
+this is queue: 104
+this is queue: 126
+this is queue: 119
+this is queue: 135
+this is queue: 128
+this is queue: 137
+this is queue: 113
+this is queue: 138
+Transmitted
+my id is: Node1
+packet id: 74
+env now: 147.0
+passed processed packet
+packet id: 148
+time now: 147
+processed Time: 148.0
+Transmitted
+my id is: Node4
+packet id: 139
+env now: 148
+150.0
+145.0
+0
+this is queue: 77
+this is queue: 61
+this is queue: 69
+this is queue: 95
+this is queue: 89
+this is queue: 81
+this is queue: 96
+this is queue: 98
+this is queue: 91
+this is queue: 109
+this is queue: 116
+this is queue: 104
+this is queue: 126
+this is queue: 119
+this is queue: 135
+this is queue: 128
+this is queue: 137
+this is queue: 113
+this is queue: 139
+this is queue: 138
+Transmitted
+my id is: Node2
+packet id: 114
+env now: 148.0
+passed processed packet
+packet id: 149
+time now: 148
+processed Time: 149
+Transmitted
+my id is: Node5
+packet id: 140
+env now: 149
+152.0
+148.0
+0
+this is queue: 84
+this is queue: 82
+this is queue: 103
+this is queue: 110
+this is queue: 101
+this is queue: 125
+this is queue: 108
+this is queue: 123
+this is queue: 130
+this is queue: 127
+this is queue: 140
+this is queue: 133
+Transmitted
+my id is: Cloud
+packet id: 115
+env now: 149.0
+processed packet arrived cloud
+processed time: 144
+Transmitted
+my id is: Node2
+packet id: 122
+env now: 149.0
+passed processed packet
+packet id: 150
+time now: 149
+processed Time: 150
+processed Time: 150.0
+Transmitted
+my id is: Node5
+packet id: 141
+env now: 150
+152.0
+148.0
+0
+this is queue: 84
+this is queue: 82
+this is queue: 103
+this is queue: 110
+this is queue: 101
+this is queue: 125
+this is queue: 108
+this is queue: 123
+this is queue: 130
+this is queue: 127
+this is queue: 141
+this is queue: 140
+this is queue: 133
+Transmitted
+my id is: Node2
+packet id: 75
+env now: 150.0
+passed processed packet
+Transmitted
+my id is: Node1
+packet id: 68
+env now: 150.0
+passed processed packet
+Transmitted
+my id is: Cloud
+packet id: 79
+env now: 150.0
+processed packet arrived cloud
+processed time: 140.0
+next packet: <packets.Packets object at 0x1162a3890>
+processing: 77
+packet id: 151
+time now: 150
+Transmitted
+my id is: Node5
+packet id: 142
+env now: 151
+152.0
+148.0
+0
+this is queue: 84
+this is queue: 82
+this is queue: 103
+this is queue: 110
+this is queue: 101
+this is queue: 125
+this is queue: 108
+this is queue: 123
+this is queue: 130
+this is queue: 127
+this is queue: 141
+this is queue: 142
+this is queue: 140
+this is queue: 133
+Transmitted
+my id is: Cloud
+packet id: 117
+env now: 151.0
+processed packet arrived cloud
+processed time: 146
+Transmitted
+my id is: Node2
+packet id: 121
+env now: 151.0
+passed processed packet
+Transmitted
+my id is: Cloud
+packet id: 70
+env now: 151.0
+processed packet arrived cloud
+processed time: 141.0
+next packet: <packets.Packets object at 0x1162ac810>
+processing: 136
+packet id: 152
+time now: 151
+processed Time: 152.0
+Transmitted
+my id is: Node3
+packet id: 143
+env now: 152
+161.0
+142.0
+150
+this is queue: 143
+Transmitted
+my id is: Cloud
+packet id: 74
+env now: 152.0
+processed packet arrived cloud
+processed time: 142.0
+next packet: <packets.Packets object at 0x1162af5d0>
+processing: 143
+packet id: 153
+time now: 152
+Transmitted
+my id is: Node4
+packet id: 144
+env now: 153
+160.0
+145.0
+0
+this is queue: 61
+this is queue: 69
+this is queue: 95
+this is queue: 89
+this is queue: 81
+this is queue: 96
+this is queue: 98
+this is queue: 91
+this is queue: 109
+this is queue: 116
+this is queue: 104
+this is queue: 126
+this is queue: 119
+this is queue: 135
+this is queue: 128
+this is queue: 137
+this is queue: 113
+this is queue: 139
+this is queue: 138
+this is queue: 144
+Transmitted
+my id is: Node2
+packet id: 80
+env now: 153.0
+passed processed packet
+Transmitted
+my id is: Cloud
+packet id: 114
+env now: 153.0
+processed packet arrived cloud
+processed time: 143.0
+next packet: <packets.Packets object at 0x1153c6f90>
+processing: 129
+packet id: 154
+time now: 153
+Transmitted
+my id is: Node6
+packet id: 145
+env now: 154
+163.0
+144.0
+146.0
+this is queue: 118
+this is queue: 145
+this is queue: 124
+this is queue: 134
+this is queue: 132
+Transmitted
+my id is: Cloud
+packet id: 120
+env now: 154.0
+processed packet arrived cloud
+processed time: 149
+Transmitted
+my id is: Cloud
+packet id: 122
+env now: 154.0
+processed packet arrived cloud
+processed time: 144.0
+next packet: <packets.Packets object at 0x1162a2990>
+processing: 118
+packet id: 155
+time now: 154
+Transmitted
+my id is: Node3
+packet id: 146
+env now: 155
+161.0
+162.0
+150
+this is queue: 146
+Transmitted
+my id is: Node1
+packet id: 131
+env now: 155.0
+passed processed packet
+Transmitted
+my id is: Node1
+packet id: 67
+env now: 155.0
+passed processed packet
+Transmitted
+my id is: Cloud
+packet id: 75
+env now: 155.0
+processed packet arrived cloud
+processed time: 145.0
+next packet: <packets.Packets object at 0x1162a3450>
+processing: 84
+Transmitted
+my id is: Cloud
+packet id: 68
+env now: 155.0
+processed packet arrived cloud
+processed time: 145.0
+next packet: <packets.Packets object at 0x1162a3310>
+processing: 61
+packet id: 156
+time now: 155
+Transmitted
+my id is: Node3
+packet id: 147
+env now: 156
+161.0
+162.0
+150
+this is queue: 146
+this is queue: 147
+Transmitted
+my id is: Cloud
+packet id: 121
+env now: 156.0
+processed packet arrived cloud
+processed time: 146.0
+next packet: <packets.Packets object at 0x1162a2ad0>
+processing: 145
+packet id: 157
+time now: 156
+Transmitted
+my id is: Node3
+packet id: 148
+env now: 157
+161.0
+162.0
+150
+this is queue: 146
+this is queue: 147
+this is queue: 148
+Transmitted
+my id is: Node2
+packet id: 83
+env now: 157.0
+passed processed packet
+packet id: 158
+time now: 157
+Transmitted
+my id is: Node4
+packet id: 149
+env now: 158
+160.0
+165.0
+0
+this is queue: 69
+this is queue: 95
+this is queue: 89
+this is queue: 81
+this is queue: 96
+this is queue: 98
+this is queue: 91
+this is queue: 109
+this is queue: 116
+this is queue: 104
+this is queue: 126
+this is queue: 119
+this is queue: 135
+this is queue: 128
+this is queue: 137
+this is queue: 113
+this is queue: 139
+this is queue: 138
+this is queue: 144
+this is queue: 149
+Transmitted
+my id is: Cloud
+packet id: 80
+env now: 158.0
+processed packet arrived cloud
+processed time: 148.0
+next packet: <packets.Packets object at 0x1162ae4d0>
+processing: 82
+packet id: 159
+time now: 158
+Transmitted
+my id is: Node4
+packet id: 150
+env now: 159
+160.0
+165.0
+0
+this is queue: 69
+this is queue: 95
+this is queue: 89
+this is queue: 81
+this is queue: 96
+this is queue: 98
+this is queue: 91
+this is queue: 109
+this is queue: 116
+this is queue: 104
+this is queue: 126
+this is queue: 119
+this is queue: 135
+this is queue: 128
+this is queue: 137
+this is queue: 113
+this is queue: 139
+this is queue: 150
+this is queue: 138
+this is queue: 144
+this is queue: 149
+packet id: 160
+time now: 159
+processed Time: 160.0
+Transmitted
+my id is: Node3
+packet id: 151
+env now: 160
+161.0
+162.0
+150
+this is queue: 146
+this is queue: 147
+this is queue: 148
+this is queue: 151
+Transmitted
+my id is: Cloud
+packet id: 131
+env now: 160.0
+processed packet arrived cloud
+processed time: 150
+next packet: <packets.Packets object at 0x1162aee50>
+processing: 146
+Transmitted
+my id is: Cloud
+packet id: 67
+env now: 160.0
+processed packet arrived cloud
+processed time: 150.0
+next packet: <packets.Packets object at 0x1162ae950>
+processing: 69
+packet id: 161
+time now: 160
+processed Time: 161.0
+Transmitted
+my id is: Node6
+packet id: 152
+env now: 161
+163.0
+164.0
+166.0
+this is queue: 124
+this is queue: 152
+this is queue: 134
+this is queue: 132
+packet id: 162
+time now: 161
+processed Time: 162.0
+Transmitted
+my id is: Node4
+packet id: 153
+env now: 162
+170.0
+165.0
+0
+this is queue: 95
+this is queue: 89
+this is queue: 81
+this is queue: 96
+this is queue: 98
+this is queue: 91
+this is queue: 109
+this is queue: 116
+this is queue: 104
+this is queue: 126
+this is queue: 119
+this is queue: 135
+this is queue: 128
+this is queue: 137
+this is queue: 113
+this is queue: 139
+this is queue: 150
+this is queue: 138
+this is queue: 144
+this is queue: 153
+this is queue: 149
+Transmitted
+my id is: Cloud
+packet id: 83
+env now: 162.0
+processed packet arrived cloud
+processed time: 152.0
+next packet: <packets.Packets object at 0x1162ade50>
+processing: 103
+packet id: 163
+time now: 162
+processed Time: 163.0
+Transmitted
+my id is: Node3
+packet id: 154
+env now: 163
+161.0
+162.0
+170.0
+this is queue: 147
+this is queue: 148
+this is queue: 151
+this is queue: 154
+packet id: 164
+time now: 163
+processed Time: 164.0
+Transmitted
+my id is: Node5
+packet id: 155
+env now: 164
+172.0
+168.0
+0
+this is queue: 110
+this is queue: 101
+this is queue: 125
+this is queue: 108
+this is queue: 123
+this is queue: 130
+this is queue: 127
+this is queue: 141
+this is queue: 142
+this is queue: 140
+this is queue: 133
+this is queue: 155
+packet id: 165
+time now: 164
+processed Time: 165.0
+processed Time: 165.0
+Transmitted
+my id is: Node5
+packet id: 156
+env now: 165
+172.0
+168.0
+0
+this is queue: 110
+this is queue: 101
+this is queue: 125
+this is queue: 108
+this is queue: 123
+this is queue: 130
+this is queue: 127
+this is queue: 141
+this is queue: 142
+this is queue: 140
+this is queue: 133
+this is queue: 155
+this is queue: 156
+Transmitted
+my id is: Node1
+packet id: 77
+env now: 165.0
+passed processed packet
+packet id: 166
+time now: 165
+processed Time: 166.0
+Transmitted
+my id is: Node3
+packet id: 157
+env now: 166
+161.0
+162.0
+170.0
+this is queue: 147
+this is queue: 148
+this is queue: 151
+this is queue: 157
+this is queue: 154
+Transmitted
+my id is: Node1
+packet id: 136
+env now: 166.0
+passed processed packet
+packet id: 167
+time now: 166
+Transmitted
+my id is: Node5
+packet id: 158
+env now: 167
+172.0
+168.0
+0
+this is queue: 110
+this is queue: 101
+this is queue: 125
+this is queue: 108
+this is queue: 123
+this is queue: 130
+this is queue: 127
+this is queue: 141
+this is queue: 142
+this is queue: 140
+this is queue: 158
+this is queue: 133
+this is queue: 155
+this is queue: 156
+Transmitted
+my id is: Node1
+packet id: 143
+env now: 167.0
+passed processed packet
+packet id: 168
+time now: 167
+processed Time: 168.0
+Transmitted
+my id is: Node3
+packet id: 159
+env now: 168
+161.0
+162.0
+170.0
+this is queue: 147
+this is queue: 148
+this is queue: 151
+this is queue: 157
+this is queue: 154
+this is queue: 159
+Transmitted
+my id is: Node2
+packet id: 129
+env now: 168.0
+passed processed packet
+packet id: 169
+time now: 168
+Transmitted
+my id is: Node5
+packet id: 160
+env now: 169
+172.0
+168.0
+0
+this is queue: 110
+this is queue: 101
+this is queue: 125
+this is queue: 108
+this is queue: 123
+this is queue: 130
+this is queue: 127
+this is queue: 141
+this is queue: 142
+this is queue: 140
+this is queue: 160
+this is queue: 158
+this is queue: 133
+this is queue: 155
+this is queue: 156
+Transmitted
+my id is: Node2
+packet id: 118
+env now: 169.0
+passed processed packet
+packet id: 170
+time now: 169
+processed Time: 170.0
+processed Time: 170.0
+Transmitted
+my id is: Node3
+packet id: 161
+env now: 170
+161.0
+162.0
+170.0
+this is queue: 147
+this is queue: 148
+this is queue: 161
+this is queue: 151
+this is queue: 157
+this is queue: 154
+this is queue: 159
+Transmitted
+my id is: Node2
+packet id: 84
+env now: 170.0
+passed processed packet
+Transmitted
+my id is: Node1
+packet id: 61
+env now: 170.0
+passed processed packet
+Transmitted
+my id is: Cloud
+packet id: 77
+env now: 170.0
+processed packet arrived cloud
+processed time: 160.0
+next packet: <packets.Packets object at 0x1162ae390>
+processing: 95
+packet id: 171
+time now: 170
+Transmitted
+my id is: Node6
+packet id: 162
+env now: 171
+163.0
+164.0
+166.0
+this is queue: 124
+this is queue: 152
+this is queue: 134
+this is queue: 132
+this is queue: 162
+Transmitted
+my id is: Node2
+packet id: 145
+env now: 171.0
+passed processed packet
+Transmitted
+my id is: Cloud
+packet id: 136
+env now: 171.0
+processed packet arrived cloud
+processed time: 161.0
+next packet: <packets.Packets object at 0x1162ac950>
+processing: 147
+packet id: 172
+time now: 171
+processed Time: 172.0
+Transmitted
+my id is: Node3
+packet id: 163
+env now: 172
+181.0
+162.0
+170.0
+this is queue: 148
+this is queue: 161
+this is queue: 163
+this is queue: 151
+this is queue: 157
+this is queue: 154
+this is queue: 159
+Transmitted
+my id is: Cloud
+packet id: 143
+env now: 172.0
+processed packet arrived cloud
+processed time: 162.0
+next packet: <packets.Packets object at 0x1162ae910>
+processing: 148
+packet id: 173
+time now: 172
+Transmitted
+my id is: Node4
+packet id: 164
+env now: 173
+180.0
+165.0
+0
+this is queue: 89
+this is queue: 81
+this is queue: 96
+this is queue: 98
+this is queue: 91
+this is queue: 109
+this is queue: 116
+this is queue: 104
+this is queue: 126
+this is queue: 119
+this is queue: 135
+this is queue: 128
+this is queue: 137
+this is queue: 113
+this is queue: 139
+this is queue: 150
+this is queue: 138
+this is queue: 144
+this is queue: 153
+this is queue: 149
+this is queue: 164
+Transmitted
+my id is: Node2
+packet id: 82
+env now: 173.0
+passed processed packet
+Transmitted
+my id is: Cloud
+packet id: 129
+env now: 173.0
+processed packet arrived cloud
+processed time: 163.0
+next packet: <packets.Packets object at 0x1162ad710>
+processing: 124
+packet id: 174
+time now: 173
+Transmitted
+my id is: Node6
+packet id: 165
+env now: 174
+183.0
+164.0
+166.0
+this is queue: 152
+this is queue: 134
+this is queue: 132
+this is queue: 162
+this is queue: 165
+Transmitted
+my id is: Cloud
+packet id: 118
+env now: 174.0
+processed packet arrived cloud
+processed time: 164.0
+next packet: <packets.Packets object at 0x1162a3e90>
+processing: 152
+packet id: 175
+time now: 174
+Transmitted
+my id is: Node3
+packet id: 166
+env now: 175
+181.0
+182.0
+170.0
+this is queue: 161
+this is queue: 163
+this is queue: 151
+this is queue: 157
+this is queue: 166
+this is queue: 154
+this is queue: 159
+Transmitted
+my id is: Node1
+packet id: 146
+env now: 175.0
+passed processed packet
+Transmitted
+my id is: Node1
+packet id: 69
+env now: 175.0
+passed processed packet
+Transmitted
+my id is: Cloud
+packet id: 84
+env now: 175.0
+processed packet arrived cloud
+processed time: 165.0
+next packet: <packets.Packets object at 0x1162ac250>
+processing: 110
+Transmitted
+my id is: Cloud
+packet id: 61
+env now: 175.0
+processed packet arrived cloud
+processed time: 165.0
+next packet: <packets.Packets object at 0x1162a3ad0>
+processing: 89
+packet id: 176
+time now: 175
+Transmitted
+my id is: Node4
+packet id: 167
+env now: 176
+180.0
+185.0
+0
+this is queue: 81
+this is queue: 96
+this is queue: 98
+this is queue: 91
+this is queue: 109
+this is queue: 116
+this is queue: 104
+this is queue: 126
+this is queue: 119
+this is queue: 135
+this is queue: 128
+this is queue: 137
+this is queue: 113
+this is queue: 139
+this is queue: 150
+this is queue: 138
+this is queue: 144
+this is queue: 153
+this is queue: 149
+this is queue: 167
+this is queue: 164
+Transmitted
+my id is: Cloud
+packet id: 145
+env now: 176.0
+processed packet arrived cloud
+processed time: 166.0
+next packet: <packets.Packets object at 0x1162adc50>
+processing: 134
+packet id: 177
+time now: 176
+Transmitted
+my id is: Node4
+packet id: 168
+env now: 177
+180.0
+185.0
+0
+this is queue: 81
+this is queue: 96
+this is queue: 98
+this is queue: 91
+this is queue: 109
+this is queue: 116
+this is queue: 104
+this is queue: 126
+this is queue: 119
+this is queue: 135
+this is queue: 128
+this is queue: 137
+this is queue: 113
+this is queue: 139
+this is queue: 150
+this is queue: 138
+this is queue: 144
+this is queue: 153
+this is queue: 168
+this is queue: 149
+this is queue: 167
+this is queue: 164
+Transmitted
+my id is: Node2
+packet id: 103
+env now: 177.0
+passed processed packet
+packet id: 178
+time now: 177
+Transmitted
+my id is: Node3
+packet id: 169
+env now: 178
+181.0
+182.0
+170.0
+this is queue: 161
+this is queue: 163
+this is queue: 151
+this is queue: 157
+this is queue: 166
+this is queue: 169
+this is queue: 154
+this is queue: 159
+Transmitted
+my id is: Cloud
+packet id: 82
+env now: 178.0
+processed packet arrived cloud
+processed time: 168.0
+next packet: <packets.Packets object at 0x1162a2550>
+processing: 101
+packet id: 179
+time now: 178
+Transmitted
+my id is: Node6
+packet id: 170
+env now: 179
+183.0
+184.0
+186.0
+failed
+passing
+packet id: 180
+time now: 179
+processed Time: 180.0
+Transmitted
+my id is: Node5
+packet id: 171
+env now: 180
+185.0
+188.0
+0
+this is queue: 125
+this is queue: 108
+this is queue: 123
+this is queue: 130
+this is queue: 127
+this is queue: 141
+this is queue: 142
+this is queue: 140
+this is queue: 160
+this is queue: 158
+this is queue: 133
+this is queue: 155
+this is queue: 156
+this is queue: 171
+Transmitted
+my id is: Cloud
+packet id: 146
+env now: 180.0
+processed packet arrived cloud
+processed time: 170.0
+next packet: <packets.Packets object at 0x1162af590>
+processing: 161
+Transmitted
+my id is: Cloud
+packet id: 69
+env now: 180.0
+processed packet arrived cloud
+processed time: 170.0
+next packet: <packets.Packets object at 0x1162a2cd0>
+processing: 81
+packet id: 181
+time now: 180
+processed Time: 181.0
+Transmitted
+my id is: Node5
+packet id: 172
+env now: 181
+185.0
+188.0
+0
+this is queue: 125
+this is queue: 108
+this is queue: 123
+this is queue: 130
+this is queue: 127
+this is queue: 141
+this is queue: 142
+this is queue: 140
+this is queue: 160
+this is queue: 158
+this is queue: 133
+this is queue: 155
+this is queue: 156
+this is queue: 171
+this is queue: 172
+packet id: 182
+time now: 181
+processed Time: 182.0
+Transmitted
+my id is: Node6
+packet id: 173
+env now: 182
+183.0
+184.0
+186.0
+failed
+passing
+Transmitted
+my id is: Cloud
+packet id: 103
+env now: 182.0
+processed packet arrived cloud
+processed time: 172.0
+next packet: <packets.Packets object at 0x1162a3790>
+processing: 125
+packet id: 183
+time now: 182
+processed Time: 183.0
+Transmitted
+my id is: Node3
+packet id: 174
+env now: 183
+181.0
+182.0
+190.0
+this is queue: 163
+this is queue: 151
+this is queue: 157
+this is queue: 166
+this is queue: 174
+this is queue: 169
+this is queue: 154
+this is queue: 159
+packet id: 184
+time now: 183
+processed Time: 184.0
+Transmitted
+my id is: Node5
+packet id: 175
+env now: 184
+192.0
+188.0
+0
+this is queue: 108
+this is queue: 123
+this is queue: 130
+this is queue: 127
+this is queue: 141
+this is queue: 142
+this is queue: 140
+this is queue: 160
+this is queue: 158
+this is queue: 133
+this is queue: 155
+this is queue: 156
+this is queue: 175
+this is queue: 171
+this is queue: 172
+packet id: 185
+time now: 184
+processed Time: 185.0
+processed Time: 185.0
+Transmitted
+my id is: Node3
+packet id: 176
+env now: 185
+181.0
+182.0
+190.0
+failed
+passing
+Transmitted
+my id is: Node1
+packet id: 95
+env now: 185.0
+passed processed packet
+packet id: 186
+time now: 185
+processed Time: 186.0
+Transmitted
+my id is: Node5
+packet id: 177
+env now: 186
+192.0
+188.0
+0
+this is queue: 108
+this is queue: 123
+this is queue: 130
+this is queue: 127
+this is queue: 141
+this is queue: 142
+this is queue: 140
+this is queue: 160
+this is queue: 158
+this is queue: 133
+this is queue: 155
+this is queue: 156
+this is queue: 175
+this is queue: 171
+this is queue: 172
+this is queue: 177
+Transmitted
+my id is: Node1
+packet id: 147
+env now: 186.0
+passed processed packet
+packet id: 187
+time now: 186
+Transmitted
+my id is: Node5
+packet id: 178
+env now: 187
+192.0
+188.0
+0
+this is queue: 108
+this is queue: 123
+this is queue: 130
+this is queue: 127
+this is queue: 141
+this is queue: 142
+this is queue: 140
+this is queue: 160
+this is queue: 158
+this is queue: 133
+this is queue: 155
+this is queue: 156
+this is queue: 175
+this is queue: 171
+this is queue: 178
+this is queue: 172
+this is queue: 177
+Transmitted
+my id is: Node1
+packet id: 148
+env now: 187.0
+passed processed packet
+packet id: 188
+time now: 187
+processed Time: 188.0
+Transmitted
+my id is: Node6
+packet id: 179
+env now: 188
+183.0
+184.0
+186.0
+failed
+passing
+Transmitted
+my id is: Node2
+packet id: 124
+env now: 188.0
+passed processed packet
+packet id: 189
+time now: 188
+Transmitted
+my id is: Node2
+packet id: 170
+env now: 189
+not processed
+processing: 170
+Transmitted
+my id is: Node6
+packet id: 180
+env now: 189
+183.0
+184.0
+186.0
+failed
+passing
+Transmitted
+my id is: Node2
+packet id: 152
+env now: 189.0
+passed processed packet
+packet id: 190
+time now: 189
+processed Time: 190.0
+processed Time: 190.0
+Transmitted
+my id is: Node3
+packet id: 181
+env now: 190
+181.0
+182.0
+190.0
+this is queue: 163
+this is queue: 151
+this is queue: 157
+this is queue: 166
+this is queue: 174
+this is queue: 169
+this is queue: 154
+this is queue: 159
+this is queue: 181
+Transmitted
+my id is: Node2
+packet id: 110
+env now: 190.0
+passed processed packet
+Transmitted
+my id is: Node1
+packet id: 89
+env now: 190.0
+passed processed packet
+Transmitted
+my id is: Cloud
+packet id: 95
+env now: 190.0
+processed packet arrived cloud
+processed time: 180.0
+next packet: <packets.Packets object at 0x1162a3150>
+processing: 96
+packet id: 191
+time now: 190
+Transmitted
+my id is: Node5
+packet id: 182
+env now: 191
+192.0
+188.0
+0
+this is queue: 108
+this is queue: 123
+this is queue: 130
+this is queue: 127
+this is queue: 141
+this is queue: 142
+this is queue: 140
+this is queue: 160
+this is queue: 158
+this is queue: 133
+this is queue: 155
+this is queue: 156
+this is queue: 175
+this is queue: 171
+this is queue: 178
+this is queue: 172
+this is queue: 177
+this is queue: 182
+Transmitted
+my id is: Node2
+packet id: 134
+env now: 191.0
+passed processed packet
+Transmitted
+my id is: Cloud
+packet id: 147
+env now: 191.0
+processed packet arrived cloud
+processed time: 181.0
+next packet: <packets.Packets object at 0x1162a2790>
+processing: 163
+packet id: 192
+time now: 191
+Transmitted
+my id is: Node2
+packet id: 173
+env now: 192
+not processed
+processing: 173
+processed Time: 192.0
+Transmitted
+my id is: Node6
+packet id: 183
+env now: 192
+183.0
+184.0
+186.0
+failed
+passing
+Transmitted
+my id is: Cloud
+packet id: 148
+env now: 192.0
+processed packet arrived cloud
+processed time: 182.0
+next packet: <packets.Packets object at 0x1162b1750>
+processing: 151
+packet id: 193
+time now: 192
+Transmitted
+my id is: Node5
+packet id: 184
+env now: 193
+192.0
+188.0
+0
+this is queue: 108
+this is queue: 123
+this is queue: 130
+this is queue: 127
+this is queue: 141
+this is queue: 142
+this is queue: 140
+this is queue: 160
+this is queue: 158
+this is queue: 133
+this is queue: 155
+this is queue: 156
+this is queue: 175
+this is queue: 171
+this is queue: 184
+this is queue: 178
+this is queue: 172
+this is queue: 177
+this is queue: 182
+Transmitted
+my id is: Node2
+packet id: 101
+env now: 193.0
+passed processed packet
+Transmitted
+my id is: Cloud
+packet id: 124
+env now: 193.0
+processed packet arrived cloud
+processed time: 183.0
+next packet: <packets.Packets object at 0x1162ae850>
+processing: 132
+packet id: 194
+time now: 193
+Transmitted
+my id is: Node6
+packet id: 185
+env now: 194
+203.0
+184.0
+186.0
+this is queue: 162
+this is queue: 165
+this is queue: 185
+Transmitted
+my id is: Cloud
+packet id: 152
+env now: 194.0
+processed packet arrived cloud
+processed time: 184.0
+next packet: <packets.Packets object at 0x1162a2290>
+processing: 162
+packet id: 195
+time now: 194
+Transmitted
+my id is: Node1
+packet id: 176
+env now: 195
+not processed
+processing: 176
+Transmitted
+my id is: Node5
+packet id: 186
+env now: 195
+192.0
+188.0
+0
+this is queue: 108
+this is queue: 123
+this is queue: 130
+this is queue: 127
+this is queue: 141
+this is queue: 142
+this is queue: 140
+this is queue: 160
+this is queue: 158
+this is queue: 133
+this is queue: 155
+this is queue: 156
+this is queue: 175
+this is queue: 171
+this is queue: 184
+this is queue: 178
+this is queue: 172
+this is queue: 186
+this is queue: 177
+this is queue: 182
+Transmitted
+my id is: Node1
+packet id: 161
+env now: 195.0
+passed processed packet
+Transmitted
+my id is: Node1
+packet id: 81
+env now: 195.0
+passed processed packet
+Transmitted
+my id is: Cloud
+packet id: 110
+env now: 195.0
+processed packet arrived cloud
+processed time: 185.0
+next packet: <packets.Packets object at 0x1162a2350>
+processing: 108
+Transmitted
+my id is: Cloud
+packet id: 89
+env now: 195.0
+processed packet arrived cloud
+processed time: 185.0
+next packet: <packets.Packets object at 0x1162a3350>
+processing: 98
+packet id: 196
+time now: 195
+Transmitted
+my id is: Node4
+packet id: 187
+env now: 196
+200.0
+205.0
+0
+this is queue: 91
+this is queue: 109
+this is queue: 116
+this is queue: 104
+this is queue: 126
+this is queue: 119
+this is queue: 135
+this is queue: 128
+this is queue: 137
+this is queue: 113
+this is queue: 139
+this is queue: 150
+this is queue: 138
+this is queue: 144
+this is queue: 153
+this is queue: 168
+this is queue: 149
+this is queue: 167
+this is queue: 164
+this is queue: 187
+Transmitted
+my id is: Cloud
+packet id: 134
+env now: 196.0
+processed packet arrived cloud
+processed time: 186.0
+next packet: <packets.Packets object at 0x1162b2990>
+processing: 165
+packet id: 197
+time now: 196
+Transmitted
+my id is: Node4
+packet id: 188
+env now: 197
+200.0
+205.0
+0
+this is queue: 91
+this is queue: 109
+this is queue: 116
+this is queue: 104
+this is queue: 126
+this is queue: 119
+this is queue: 135
+this is queue: 128
+this is queue: 137
+this is queue: 113
+this is queue: 139
+this is queue: 150
+this is queue: 138
+this is queue: 144
+this is queue: 153
+this is queue: 168
+this is queue: 149
+this is queue: 167
+this is queue: 164
+this is queue: 188
+this is queue: 187
+Transmitted
+my id is: Node2
+packet id: 125
+env now: 197.0
+passed processed packet
+packet id: 198
+time now: 197
+Transmitted
+my id is: Node2
+packet id: 179
+env now: 198
+not processed
+processing: 179
+Transmitted
+my id is: Node4
+packet id: 189
+env now: 198
+200.0
+205.0
+0
+this is queue: 91
+this is queue: 109
+this is queue: 116
+this is queue: 104
+this is queue: 126
+this is queue: 119
+this is queue: 135
+this is queue: 128
+this is queue: 137
+this is queue: 113
+this is queue: 139
+this is queue: 150
+this is queue: 138
+this is queue: 144
+this is queue: 153
+this is queue: 168
+this is queue: 149
+this is queue: 167
+this is queue: 164
+this is queue: 189
+this is queue: 188
+this is queue: 187
+Transmitted
+my id is: Cloud
+packet id: 101
+env now: 198.0
+processed packet arrived cloud
+processed time: 188.0
+next packet: <packets.Packets object at 0x1162a3d10>
+processing: 123
+packet id: 199
+time now: 198
+processed Time: 199
+Transmitted
+my id is: Node2
+packet id: 180
+env now: 199
+not processed
+processing: 180
+Transmitted
+my id is: Node5
+packet id: 190
+env now: 199
+205.0
+208.0
+0
+this is queue: 130
+this is queue: 127
+this is queue: 141
+this is queue: 142
+this is queue: 140
+this is queue: 160
+this is queue: 158
+this is queue: 133
+this is queue: 155
+this is queue: 156
+this is queue: 175
+this is queue: 171
+this is queue: 184
+this is queue: 178
+this is queue: 190
+this is queue: 172
+this is queue: 186
+this is queue: 177
+this is queue: 182
+packet id: 200
+time now: 199
+processed Time: 200.0
+Transmitted
+my id is: Node5
+packet id: 191
+env now: 200
+205.0
+208.0
+0
+this is queue: 130
+this is queue: 127
+this is queue: 141
+this is queue: 142
+this is queue: 140
+this is queue: 160
+this is queue: 158
+this is queue: 133
+this is queue: 155
+this is queue: 156
+this is queue: 175
+this is queue: 171
+this is queue: 184
+this is queue: 178
+this is queue: 190
+this is queue: 191
+this is queue: 172
+this is queue: 186
+this is queue: 177
+this is queue: 182
+Transmitted
+my id is: Cloud
+packet id: 161
+env now: 200.0
+processed packet arrived cloud
+processed time: 190.0
+next packet: <packets.Packets object at 0x1162b2490>
+processing: 157
+Transmitted
+my id is: Cloud
+packet id: 81
+env now: 200.0
+processed packet arrived cloud
+processed time: 190.0
+next packet: <packets.Packets object at 0x1162ad4d0>
+processing: 91
+packet id: 201
+time now: 200
+processed Time: 201.0
+Transmitted
+my id is: Node6
+packet id: 192
+env now: 201
+203.0
+204.0
+206.0
+this is queue: 192
+this is queue: 185
+packet id: 202
+time now: 201
+processed Time: 202
+Transmitted
+my id is: Node2
+packet id: 183
+env now: 202
+not processed
+processing: 183
+processed Time: 202.0
+Transmitted
+my id is: Node5
+packet id: 193
+env now: 202
+205.0
+208.0
+0
+this is queue: 130
+this is queue: 127
+this is queue: 141
+this is queue: 142
+this is queue: 140
+this is queue: 160
+this is queue: 158
+this is queue: 133
+this is queue: 155
+this is queue: 156
+this is queue: 175
+this is queue: 171
+this is queue: 184
+this is queue: 178
+this is queue: 190
+this is queue: 191
+this is queue: 172
+this is queue: 186
+this is queue: 177
+this is queue: 182
+this is queue: 193
+Transmitted
+my id is: Cloud
+packet id: 125
+env now: 202.0
+processed packet arrived cloud
+processed time: 192.0
+next packet: <packets.Packets object at 0x1162a2c50>
+processing: 130
+packet id: 203
+time now: 202
+processed Time: 203.0
+Transmitted
+my id is: Node4
+packet id: 194
+env now: 203
+210.0
+205.0
+0
+this is queue: 109
+this is queue: 116
+this is queue: 104
+this is queue: 126
+this is queue: 119
+this is queue: 135
+this is queue: 128
+this is queue: 137
+this is queue: 113
+this is queue: 139
+this is queue: 150
+this is queue: 138
+this is queue: 144
+this is queue: 153
+this is queue: 168
+this is queue: 149
+this is queue: 167
+this is queue: 164
+this is queue: 189
+this is queue: 188
+this is queue: 187
+this is queue: 194
+packet id: 204
+time now: 203
+processed Time: 204.0
+Transmitted
+my id is: Node5
+packet id: 195
+env now: 204
+212.0
+208.0
+0
+this is queue: 127
+this is queue: 141
+this is queue: 142
+this is queue: 140
+this is queue: 160
+this is queue: 158
+this is queue: 133
+this is queue: 155
+this is queue: 156
+this is queue: 175
+this is queue: 171
+this is queue: 184
+this is queue: 178
+this is queue: 190
+this is queue: 191
+this is queue: 172
+this is queue: 186
+this is queue: 195
+this is queue: 177
+this is queue: 182
+this is queue: 193
+Transmitted
+my id is: Cloud
+packet id: 170
+env now: 204.0
+processed packet arrived cloud
+processed time: 199
+packet id: 205
+time now: 204
+processed Time: 205
+processed Time: 205.0
+processed Time: 205.0
+Transmitted
+my id is: Node5
+packet id: 196
+env now: 205
+212.0
+208.0
+0
+this is queue: 127
+this is queue: 141
+this is queue: 142
+this is queue: 140
+this is queue: 160
+this is queue: 158
+this is queue: 133
+this is queue: 155
+this is queue: 156
+this is queue: 175
+this is queue: 171
+this is queue: 184
+this is queue: 178
+this is queue: 190
+this is queue: 191
+this is queue: 172
+this is queue: 186
+this is queue: 195
+this is queue: 177
+this is queue: 182
+this is queue: 196
+this is queue: 193
+Transmitted
+my id is: Node1
+packet id: 96
+env now: 205.0
+passed processed packet
+packet id: 206
+time now: 205
+processed Time: 206.0
+Transmitted
+my id is: Node5
+packet id: 197
+env now: 206
+212.0
+208.0
+0
+this is queue: 127
+this is queue: 141
+this is queue: 142
+this is queue: 140
+this is queue: 160
+this is queue: 158
+this is queue: 133
+this is queue: 155
+this is queue: 156
+this is queue: 175
+this is queue: 171
+this is queue: 184
+this is queue: 178
+this is queue: 190
+this is queue: 191
+this is queue: 172
+this is queue: 186
+this is queue: 195
+this is queue: 177
+this is queue: 182
+this is queue: 196
+this is queue: 197
+this is queue: 193
+Transmitted
+my id is: Node1
+packet id: 163
+env now: 206.0
+passed processed packet
+packet id: 207
+time now: 206
+Transmitted
+my id is: Node5
+packet id: 198
+env now: 207
+212.0
+208.0
+0
+this is queue: 127
+this is queue: 141
+this is queue: 142
+this is queue: 140
+this is queue: 160
+this is queue: 158
+this is queue: 133
+this is queue: 155
+this is queue: 156
+this is queue: 175
+this is queue: 171
+this is queue: 184
+this is queue: 178
+this is queue: 190
+this is queue: 191
+this is queue: 172
+this is queue: 186
+this is queue: 195
+this is queue: 177
+this is queue: 182
+this is queue: 196
+this is queue: 198
+this is queue: 197
+this is queue: 193
+Transmitted
+my id is: Cloud
+packet id: 173
+env now: 207.0
+processed packet arrived cloud
+processed time: 202
+Transmitted
+my id is: Node1
+packet id: 151
+env now: 207.0
+passed processed packet
+packet id: 208
+time now: 207
+processed Time: 208
+processed Time: 208.0
+Transmitted
+my id is: Node5
+packet id: 199
+env now: 208
+212.0
+208.0
+0
+this is queue: 127
+this is queue: 141
+this is queue: 142
+this is queue: 140
+this is queue: 160
+this is queue: 158
+this is queue: 133
+this is queue: 155
+this is queue: 156
+this is queue: 175
+this is queue: 171
+this is queue: 184
+this is queue: 178
+this is queue: 190
+this is queue: 191
+this is queue: 172
+this is queue: 186
+this is queue: 195
+this is queue: 177
+this is queue: 182
+this is queue: 196
+this is queue: 199
+this is queue: 198
+this is queue: 197
+this is queue: 193
+Transmitted
+my id is: Node2
+packet id: 132
+env now: 208.0
+passed processed packet
+packet id: 209
+time now: 208
+processed Time: 209
+Transmitted
+my id is: Node3
+packet id: 200
+env now: 209
+201.0
+202.0
+210.0
+failed
+passing
+Transmitted
+my id is: Node2
+packet id: 162
+env now: 209.0
+passed processed packet
+packet id: 210
+time now: 209
+processed Time: 210.0
+processed Time: 210.0
+Transmitted
+my id is: Node4
+packet id: 201
+env now: 210
+210.0
+205.0
+0
+this is queue: 109
+this is queue: 116
+this is queue: 104
+this is queue: 126
+this is queue: 119
+this is queue: 135
+this is queue: 128
+this is queue: 137
+this is queue: 113
+this is queue: 139
+this is queue: 150
+this is queue: 138
+this is queue: 144
+this is queue: 153
+this is queue: 168
+this is queue: 149
+this is queue: 167
+this is queue: 164
+this is queue: 189
+this is queue: 188
+this is queue: 201
+this is queue: 187
+this is queue: 194
+Transmitted
+my id is: Cloud
+packet id: 176
+env now: 210.0
+processed packet arrived cloud
+processed time: 205
+Transmitted
+my id is: Node2
+packet id: 108
+env now: 210.0
+passed processed packet
+Transmitted
+my id is: Node1
+packet id: 98
+env now: 210.0
+passed processed packet
+Transmitted
+my id is: Cloud
+packet id: 96
+env now: 210.0
+processed packet arrived cloud
+processed time: 200.0
+next packet: <packets.Packets object at 0x1162afcd0>
+processing: 109
+packet id: 211
+time now: 210
+Transmitted
+my id is: Node4
+packet id: 202
+env now: 211
+220.0
+205.0
+0
+this is queue: 116
+this is queue: 104
+this is queue: 126
+this is queue: 119
+this is queue: 135
+this is queue: 128
+this is queue: 137
+this is queue: 113
+this is queue: 139
+this is queue: 150
+this is queue: 138
+this is queue: 144
+this is queue: 153
+this is queue: 168
+this is queue: 149
+this is queue: 167
+this is queue: 164
+this is queue: 189
+this is queue: 188
+this is queue: 201
+this is queue: 187
+this is queue: 194
+this is queue: 202
+Transmitted
+my id is: Node2
+packet id: 165
+env now: 211.0
+passed processed packet
+Transmitted
+my id is: Cloud
+packet id: 163
+env now: 211.0
+processed packet arrived cloud
+processed time: 201.0
+next packet: <packets.Packets object at 0x1162b1910>
+processing: 166
+packet id: 212
+time now: 211
+processed Time: 212
+processed Time: 212.0
+Transmitted
+my id is: Node3
+packet id: 203
+env now: 212
+221.0
+202.0
+210.0
+failed
+passing
+Transmitted
+my id is: Cloud
+packet id: 151
+env now: 212.0
+processed packet arrived cloud
+processed time: 202.0
+next packet: <packets.Packets object at 0x1162b0690>
+processing: 174
+packet id: 213
+time now: 212
+Transmitted
+my id is: Node3
+packet id: 204
+env now: 213
+221.0
+222.0
+210.0
+failed
+passing
+Transmitted
+my id is: Cloud
+packet id: 179
+env now: 213.0
+processed packet arrived cloud
+processed time: 208
+Transmitted
+my id is: Node2
+packet id: 123
+env now: 213.0
+passed processed packet
+Transmitted
+my id is: Cloud
+packet id: 132
+env now: 213.0
+processed packet arrived cloud
+processed time: 203.0
+next packet: <packets.Packets object at 0x1162af150>
+processing: 192
+packet id: 214
+time now: 213
+Transmitted
+my id is: Node3
+packet id: 205
+env now: 214
+221.0
+222.0
+210.0
+failed
+passing
+Transmitted
+my id is: Cloud
+packet id: 180
+env now: 214.0
+processed packet arrived cloud
+processed time: 209
+Transmitted
+my id is: Cloud
+packet id: 162
+env now: 214.0
+processed packet arrived cloud
+processed time: 204.0
+next packet: <packets.Packets object at 0x1162a1fd0>
+processing: 185
+packet id: 215
+time now: 214
+Transmitted
+my id is: Node3
+packet id: 206
+env now: 215
+221.0
+222.0
+210.0
+failed
+passing
+Transmitted
+my id is: Node1
+packet id: 157
+env now: 215.0
+passed processed packet
+Transmitted
+my id is: Node1
+packet id: 91
+env now: 215.0
+passed processed packet
+Transmitted
+my id is: Cloud
+packet id: 108
+env now: 215.0
+processed packet arrived cloud
+processed time: 205.0
+next packet: <packets.Packets object at 0x115021990>
+processing: 127
+Transmitted
+my id is: Cloud
+packet id: 98
+env now: 215.0
+processed packet arrived cloud
+processed time: 205.0
+next packet: <packets.Packets object at 0x1162acb50>
+processing: 116
+packet id: 216
+time now: 215
+Transmitted
+my id is: Node5
+packet id: 207
+env now: 216
+225.0
+208.0
+0
+this is queue: 141
+this is queue: 142
+this is queue: 140
+this is queue: 160
+this is queue: 158
+this is queue: 133
+this is queue: 155
+this is queue: 156
+this is queue: 175
+this is queue: 171
+this is queue: 184
+this is queue: 178
+this is queue: 190
+this is queue: 191
+this is queue: 172
+this is queue: 186
+this is queue: 195
+this is queue: 177
+this is queue: 182
+this is queue: 196
+this is queue: 199
+this is queue: 198
+this is queue: 197
+this is queue: 207
+this is queue: 193
+Transmitted
+my id is: Cloud
+packet id: 165
+env now: 216.0
+processed packet arrived cloud
+processed time: 206.0
+packet id: 217
+time now: 216
+Transmitted
+my id is: Node6
+packet id: 208
+env now: 217
+not processed
+processing: 208
+Transmitted
+my id is: Cloud
+packet id: 183
+env now: 217.0
+processed packet arrived cloud
+processed time: 212
+Transmitted
+my id is: Node2
+packet id: 130
+env now: 217.0
+passed processed packet
+packet id: 218
+time now: 217
+Transmitted
+my id is: Node4
+packet id: 209
+env now: 218
+220.0
+225.0
+0
+this is queue: 104
+this is queue: 126
+this is queue: 119
+this is queue: 135
+this is queue: 128
+this is queue: 137
+this is queue: 113
+this is queue: 139
+this is queue: 150
+this is queue: 138
+this is queue: 144
+this is queue: 153
+this is queue: 168
+this is queue: 149
+this is queue: 167
+this is queue: 164
+this is queue: 189
+this is queue: 188
+this is queue: 201
+this is queue: 187
+this is queue: 194
+this is queue: 209
+this is queue: 202
+Transmitted
+my id is: Cloud
+packet id: 123
+env now: 218.0
+processed packet arrived cloud
+processed time: 208.0
+next packet: <packets.Packets object at 0x1162ae650>
+processing: 141
+packet id: 219
+time now: 218
+Transmitted
+my id is: Node1
+packet id: 200
+env now: 219
+not processed
+processing: 200
+Transmitted
+my id is: Node5
+packet id: 210
+env now: 219
+225.0
+228.0
+0
+this is queue: 142
+this is queue: 140
+this is queue: 160
+this is queue: 158
+this is queue: 133
+this is queue: 155
+this is queue: 156
+this is queue: 175
+this is queue: 171
+this is queue: 184
+this is queue: 178
+this is queue: 190
+this is queue: 191
+this is queue: 172
+this is queue: 186
+this is queue: 195
+this is queue: 177
+this is queue: 182
+this is queue: 196
+this is queue: 199
+this is queue: 198
+this is queue: 210
+this is queue: 197
+this is queue: 207
+this is queue: 193
+packet id: 220
+time now: 219
+processed Time: 220.0
+Transmitted
+my id is: Node4
+packet id: 211
+env now: 220
+220.0
+225.0
+0
+this is queue: 104
+this is queue: 126
+this is queue: 119
+this is queue: 135
+this is queue: 128
+this is queue: 137
+this is queue: 113
+this is queue: 139
+this is queue: 150
+this is queue: 138
+this is queue: 144
+this is queue: 153
+this is queue: 168
+this is queue: 149
+this is queue: 167
+this is queue: 164
+this is queue: 189
+this is queue: 188
+this is queue: 201
+this is queue: 187
+this is queue: 194
+this is queue: 209
+this is queue: 202
+this is queue: 211
+Transmitted
+my id is: Cloud
+packet id: 157
+env now: 220.0
+processed packet arrived cloud
+processed time: 210.0
+next packet: <packets.Packets object at 0x1162b0090>
+processing: 169
+Transmitted
+my id is: Cloud
+packet id: 91
+env now: 220.0
+processed packet arrived cloud
+processed time: 210.0
+next packet: <packets.Packets object at 0x1162aed10>
+processing: 104
+packet id: 221
+time now: 220
+processed Time: 221.0
+Transmitted
+my id is: Node4
+packet id: 212
+env now: 221
+230.0
+225.0
+0
+this is queue: 126
+this is queue: 119
+this is queue: 135
+this is queue: 128
+this is queue: 137
+this is queue: 113
+this is queue: 139
+this is queue: 150
+this is queue: 138
+this is queue: 144
+this is queue: 153
+this is queue: 168
+this is queue: 149
+this is queue: 167
+this is queue: 164
+this is queue: 189
+this is queue: 188
+this is queue: 201
+this is queue: 187
+this is queue: 194
+this is queue: 209
+this is queue: 202
+this is queue: 211
+this is queue: 212
+packet id: 222
+time now: 221
+Transmitted
+my id is: Node1
+packet id: 203
+env now: 222
+not processed
+processing: 203
+processed Time: 222.0
+Transmitted
+my id is: Node5
+packet id: 213
+env now: 222
+225.0
+228.0
+0
+this is queue: 142
+this is queue: 140
+this is queue: 160
+this is queue: 158
+this is queue: 133
+this is queue: 155
+this is queue: 156
+this is queue: 175
+this is queue: 171
+this is queue: 184
+this is queue: 178
+this is queue: 190
+this is queue: 191
+this is queue: 172
+this is queue: 186
+this is queue: 195
+this is queue: 177
+this is queue: 182
+this is queue: 196
+this is queue: 199
+this is queue: 198
+this is queue: 210
+this is queue: 197
+this is queue: 207
+this is queue: 213
+this is queue: 193
+Transmitted
+my id is: Cloud
+packet id: 130
+env now: 222.0
+processed packet arrived cloud
+processed time: 212.0
+next packet: <packets.Packets object at 0x1162ad250>
+processing: 142
+packet id: 223
+time now: 222
+Transmitted
+my id is: Node1
+packet id: 204
+env now: 223
+not processed
+processing: 204
+processed Time: 223.0
+Transmitted
+my id is: Node3
+packet id: 214
+env now: 223
+221.0
+222.0
+230.0
+failed
+passing
+packet id: 224
+time now: 223
+Transmitted
+my id is: Node1
+packet id: 205
+env now: 224
+not processed
+processing: 205
+processed Time: 224.0
+Transmitted
+my id is: Node5
+packet id: 215
+env now: 224
+232.0
+228.0
+0
+this is queue: 140
+this is queue: 160
+this is queue: 158
+this is queue: 133
+this is queue: 155
+this is queue: 156
+this is queue: 175
+this is queue: 171
+this is queue: 184
+this is queue: 178
+this is queue: 190
+this is queue: 191
+this is queue: 172
+this is queue: 186
+this is queue: 195
+this is queue: 177
+this is queue: 182
+this is queue: 196
+this is queue: 199
+this is queue: 198
+this is queue: 210
+this is queue: 215
+this is queue: 197
+this is queue: 207
+this is queue: 213
+this is queue: 193
+packet id: 225
+time now: 224
+Transmitted
+my id is: Node1
+packet id: 206
+env now: 225
+not processed
+processing: 206
+processed Time: 225.0
+processed Time: 225.0
+Transmitted
+my id is: Node4
+packet id: 216
+env now: 225
+230.0
+225.0
+0
+this is queue: 126
+this is queue: 119
+this is queue: 135
+this is queue: 128
+this is queue: 137
+this is queue: 113
+this is queue: 139
+this is queue: 150
+this is queue: 138
+this is queue: 144
+this is queue: 153
+this is queue: 168
+this is queue: 149
+this is queue: 167
+this is queue: 164
+this is queue: 189
+this is queue: 188
+this is queue: 201
+this is queue: 187
+this is queue: 194
+this is queue: 209
+this is queue: 202
+this is queue: 211
+this is queue: 212
+this is queue: 216
+Transmitted
+my id is: Node1
+packet id: 109
+env now: 225.0
+passed processed packet
+packet id: 226
+time now: 225
+Transmitted
+my id is: Node3
+packet id: 217
+env now: 226
+221.0
+222.0
+230.0
+failed
+passing
+Transmitted
+my id is: Node1
+packet id: 166
+env now: 226.0
+passed processed packet
+packet id: 227
+time now: 226
+processed Time: 227
+Transmitted
+my id is: Node5
+packet id: 218
+env now: 227
+232.0
+228.0
+0
+this is queue: 140
+this is queue: 160
+this is queue: 158
+this is queue: 133
+this is queue: 155
+this is queue: 156
+this is queue: 175
+this is queue: 171
+this is queue: 184
+this is queue: 178
+this is queue: 190
+this is queue: 191
+this is queue: 172
+this is queue: 186
+this is queue: 195
+this is queue: 177
+this is queue: 182
+this is queue: 196
+this is queue: 199
+this is queue: 198
+this is queue: 210
+this is queue: 215
+this is queue: 197
+this is queue: 207
+this is queue: 213
+this is queue: 193
+this is queue: 218
+Transmitted
+my id is: Node1
+packet id: 174
+env now: 227.0
+passed processed packet
+packet id: 228
+time now: 227
+processed Time: 228.0
+Transmitted
+my id is: Node4
+packet id: 219
+env now: 228
+230.0
+225.0
+0
+this is queue: 126
+this is queue: 119
+this is queue: 135
+this is queue: 128
+this is queue: 137
+this is queue: 113
+this is queue: 139
+this is queue: 150
+this is queue: 138
+this is queue: 144
+this is queue: 153
+this is queue: 168
+this is queue: 149
+this is queue: 167
+this is queue: 164
+this is queue: 189
+this is queue: 188
+this is queue: 201
+this is queue: 187
+this is queue: 194
+this is queue: 209
+this is queue: 202
+this is queue: 211
+this is queue: 212
+this is queue: 216
+this is queue: 219
+Transmitted
+my id is: Node2
+packet id: 192
+env now: 228.0
+passed processed packet
+packet id: 229
+time now: 228
+processed Time: 229
+Transmitted
+my id is: Node5
+packet id: 220
+env now: 229
+232.0
+228.0
+0
+this is queue: 140
+this is queue: 160
+this is queue: 158
+this is queue: 133
+this is queue: 155
+this is queue: 156
+this is queue: 175
+this is queue: 171
+this is queue: 184
+this is queue: 178
+this is queue: 190
+this is queue: 191
+this is queue: 172
+this is queue: 186
+this is queue: 195
+this is queue: 177
+this is queue: 182
+this is queue: 196
+this is queue: 199
+this is queue: 198
+this is queue: 210
+this is queue: 215
+this is queue: 197
+this is queue: 207
+this is queue: 213
+this is queue: 193
+this is queue: 220
+this is queue: 218
+Transmitted
+my id is: Node2
+packet id: 185
+env now: 229.0
+passed processed packet
+packet id: 230
+time now: 229
+processed Time: 230.0
+processed Time: 230.0
+Transmitted
+my id is: Node4
+packet id: 221
+env now: 230
+230.0
+225.0
+0
+this is queue: 126
+this is queue: 119
+this is queue: 135
+this is queue: 128
+this is queue: 137
+this is queue: 113
+this is queue: 139
+this is queue: 150
+this is queue: 138
+this is queue: 144
+this is queue: 153
+this is queue: 168
+this is queue: 149
+this is queue: 167
+this is queue: 164
+this is queue: 189
+this is queue: 188
+this is queue: 201
+this is queue: 187
+this is queue: 194
+this is queue: 209
+this is queue: 202
+this is queue: 211
+this is queue: 212
+this is queue: 216
+this is queue: 221
+this is queue: 219
+Transmitted
+my id is: Node2
+packet id: 127
+env now: 230.0
+passed processed packet
+Transmitted
+my id is: Node1
+packet id: 116
+env now: 230.0
+passed processed packet
+Transmitted
+my id is: Cloud
+packet id: 109
+env now: 230.0
+processed packet arrived cloud
+processed time: 220.0
+next packet: <packets.Packets object at 0x1162a2750>
+processing: 126
+packet id: 231
+time now: 230
+Transmitted
+my id is: Node4
+packet id: 222
+env now: 231
+240.0
+225.0
+0
+this is queue: 119
+this is queue: 135
+this is queue: 128
+this is queue: 137
+this is queue: 113
+this is queue: 139
+this is queue: 150
+this is queue: 138
+this is queue: 144
+this is queue: 153
+this is queue: 168
+this is queue: 149
+this is queue: 167
+this is queue: 164
+this is queue: 189
+this is queue: 188
+this is queue: 201
+this is queue: 187
+this is queue: 194
+this is queue: 209
+this is queue: 202
+this is queue: 211
+this is queue: 212
+this is queue: 216
+this is queue: 221
+this is queue: 219
+this is queue: 222
+Transmitted
+my id is: Cloud
+packet id: 166
+env now: 231.0
+processed packet arrived cloud
+processed time: 221.0
+next packet: <packets.Packets object at 0x1162b0410>
+processing: 154
+packet id: 232
+time now: 231
+processed Time: 232
+processed Time: 232.0
+Transmitted
+my id is: Node3
+packet id: 223
+env now: 232
+241.0
+222.0
+230.0
+failed
+passing
+Transmitted
+my id is: Node2
+packet id: 208
+env now: 232.0
+passed processed packet
+Transmitted
+my id is: Cloud
+packet id: 174
+env now: 232.0
+processed packet arrived cloud
+processed time: 222.0
+next packet: <packets.Packets object at 0x1162b3c50>
+processing: 159
+packet id: 233
+time now: 232
+processed Time: 233
+Transmitted
+my id is: Node1
+packet id: 214
+env now: 233
+not processed
+processing: 214
+Transmitted
+my id is: Node6
+packet id: 224
+env now: 233
+223.0
+224.0
+227
+this is queue: 224
+Transmitted
+my id is: Node2
+packet id: 141
+env now: 233.0
+passed processed packet
+Transmitted
+my id is: Cloud
+packet id: 192
+env now: 233.0
+processed packet arrived cloud
+processed time: 223.0
+next packet: <packets.Packets object at 0x1162ae210>
+processing: 224
+packet id: 234
+time now: 233
+processed Time: 234
+Transmitted
+my id is: Node6
+packet id: 225
+env now: 234
+243.0
+224.0
+227
+this is queue: 225
+Transmitted
+my id is: Cloud
+packet id: 200
+env now: 234.0
+processed packet arrived cloud
+processed time: 229
+Transmitted
+my id is: Cloud
+packet id: 185
+env now: 234.0
+processed packet arrived cloud
+processed time: 224.0
+next packet: <packets.Packets object at 0x1162ad750>
+processing: 225
+packet id: 235
+time now: 234
+processed Time: 235
+Transmitted
+my id is: Node5
+packet id: 226
+env now: 235
+232.0
+228.0
+0
+this is queue: 140
+this is queue: 160
+this is queue: 158
+this is queue: 133
+this is queue: 155
+this is queue: 156
+this is queue: 175
+this is queue: 171
+this is queue: 184
+this is queue: 178
+this is queue: 190
+this is queue: 191
+this is queue: 172
+this is queue: 186
+this is queue: 195
+this is queue: 177
+this is queue: 182
+this is queue: 196
+this is queue: 199
+this is queue: 198
+this is queue: 210
+this is queue: 215
+this is queue: 197
+this is queue: 207
+this is queue: 213
+this is queue: 193
+this is queue: 220
+this is queue: 226
+this is queue: 218
+Transmitted
+my id is: Node1
+packet id: 169
+env now: 235.0
+passed processed packet
+Transmitted
+my id is: Node1
+packet id: 104
+env now: 235.0
+passed processed packet
+Transmitted
+my id is: Cloud
+packet id: 127
+env now: 235.0
+processed packet arrived cloud
+processed time: 225.0
+next packet: <packets.Packets object at 0x1162add10>
+processing: 140
+Transmitted
+my id is: Cloud
+packet id: 116
+env now: 235.0
+processed packet arrived cloud
+processed time: 225.0
+next packet: <packets.Packets object at 0x1162ae3d0>
+processing: 119
+packet id: 236
+time now: 235
+Transmitted
+my id is: Node1
+packet id: 217
+env now: 236
+not processed
+processing: 217
+Transmitted
+my id is: Node6
+packet id: 227
+env now: 236
+243.0
+244.0
+227
+this is queue: 227
+packet id: 237
+time now: 236
+Transmitted
+my id is: Node6
+packet id: 228
+env now: 237
+243.0
+244.0
+227
+this is queue: 228
+this is queue: 227
+Transmitted
+my id is: Cloud
+packet id: 203
+env now: 237.0
+processed packet arrived cloud
+processed time: 232
+Transmitted
+my id is: Node2
+packet id: 142
+env now: 237.0
+passed processed packet
+Transmitted
+my id is: Cloud
+packet id: 208
+env now: 237.0
+processed packet arrived cloud
+processed time: 227
+next packet: <packets.Packets object at 0x1162ad910>
+processing: 228
+packet id: 238
+time now: 237
+Transmitted
+my id is: Node6
+packet id: 229
+env now: 238
+243.0
+244.0
+247.0
+this is queue: 227
+this is queue: 229
+Transmitted
+my id is: Cloud
+packet id: 204
+env now: 238.0
+processed packet arrived cloud
+processed time: 233
+Transmitted
+my id is: Cloud
+packet id: 141
+env now: 238.0
+processed packet arrived cloud
+processed time: 228.0
+next packet: <packets.Packets object at 0x1162acf10>
+processing: 160
+packet id: 239
+time now: 238
+Transmitted
+my id is: Node5
+packet id: 230
+env now: 239
+245.0
+248.0
+0
+this is queue: 158
+this is queue: 133
+this is queue: 155
+this is queue: 156
+this is queue: 175
+this is queue: 171
+this is queue: 184
+this is queue: 178
+this is queue: 190
+this is queue: 191
+this is queue: 172
+this is queue: 186
+this is queue: 195
+this is queue: 177
+this is queue: 182
+this is queue: 196
+this is queue: 199
+this is queue: 198
+this is queue: 210
+this is queue: 215
+this is queue: 197
+this is queue: 207
+this is queue: 213
+this is queue: 193
+this is queue: 220
+this is queue: 230
+this is queue: 226
+this is queue: 218
+Transmitted
+my id is: Cloud
+packet id: 205
+env now: 239.0
+processed packet arrived cloud
+processed time: 234
+packet id: 240
+time now: 239
+processed Time: 240.0
+Transmitted
+my id is: Node5
+packet id: 231
+env now: 240
+245.0
+248.0
+0
+this is queue: 158
+this is queue: 133
+this is queue: 155
+this is queue: 156
+this is queue: 175
+this is queue: 171
+this is queue: 184
+this is queue: 178
+this is queue: 190
+this is queue: 191
+this is queue: 172
+this is queue: 186
+this is queue: 195
+this is queue: 177
+this is queue: 182
+this is queue: 196
+this is queue: 199
+this is queue: 198
+this is queue: 210
+this is queue: 215
+this is queue: 197
+this is queue: 207
+this is queue: 213
+this is queue: 193
+this is queue: 220
+this is queue: 230
+this is queue: 226
+this is queue: 218
+this is queue: 231
+Transmitted
+my id is: Cloud
+packet id: 206
+env now: 240.0
+processed packet arrived cloud
+processed time: 235
+Transmitted
+my id is: Cloud
+packet id: 169
+env now: 240.0
+processed packet arrived cloud
+processed time: 230.0
+next packet: <packets.Packets object at 0x1162ad510>
+processing: 181
+Transmitted
+my id is: Cloud
+packet id: 104
+env now: 240.0
+processed packet arrived cloud
+processed time: 230.0
+next packet: <packets.Packets object at 0x1162b1a90>
+processing: 135
+packet id: 241
+time now: 240
+processed Time: 241.0
+Transmitted
+my id is: Node3
+packet id: 232
+env now: 241
+241.0
+242.0
+250.0
+this is queue: 232
+packet id: 242
+time now: 241
+Transmitted
+my id is: Node1
+packet id: 223
+env now: 242
+not processed
+processing: 223
+processed Time: 242.0
+Transmitted
+my id is: Node6
+packet id: 233
+env now: 242
+243.0
+244.0
+247.0
+this is queue: 233
+this is queue: 227
+this is queue: 229
+Transmitted
+my id is: Cloud
+packet id: 142
+env now: 242.0
+processed packet arrived cloud
+processed time: 232.0
+next packet: <packets.Packets object at 0x1162ae2d0>
+processing: 158
+packet id: 243
+time now: 242
+processed Time: 243
+processed Time: 243.0
+Transmitted
+my id is: Node3
+packet id: 234
+env now: 243
+241.0
+242.0
+250.0
+this is queue: 234
+this is queue: 232
+packet id: 244
+time now: 243
+processed Time: 244.0
+Transmitted
+my id is: Node5
+packet id: 235
+env now: 244
+252.0
+248.0
+0
+this is queue: 133
+this is queue: 155
+this is queue: 156
+this is queue: 175
+this is queue: 171
+this is queue: 184
+this is queue: 178
+this is queue: 190
+this is queue: 191
+this is queue: 172
+this is queue: 186
+this is queue: 195
+this is queue: 177
+this is queue: 182
+this is queue: 196
+this is queue: 199
+this is queue: 198
+this is queue: 210
+this is queue: 215
+this is queue: 197
+this is queue: 207
+this is queue: 213
+this is queue: 193
+this is queue: 220
+this is queue: 230
+this is queue: 226
+this is queue: 218
+this is queue: 231
+this is queue: 235
+packet id: 245
+time now: 244
+processed Time: 245.0
+processed Time: 245.0
+Transmitted
+my id is: Node4
+packet id: 236
+env now: 245
+250.0
+245.0
+0
+this is queue: 128
+this is queue: 137
+this is queue: 113
+this is queue: 139
+this is queue: 150
+this is queue: 138
+this is queue: 144
+this is queue: 153
+this is queue: 168
+this is queue: 149
+this is queue: 167
+this is queue: 164
+this is queue: 189
+this is queue: 188
+this is queue: 201
+this is queue: 187
+this is queue: 194
+this is queue: 209
+this is queue: 202
+this is queue: 211
+this is queue: 212
+this is queue: 216
+this is queue: 221
+this is queue: 219
+this is queue: 222
+this is queue: 236
+Transmitted
+my id is: Node1
+packet id: 126
+env now: 245.0
+passed processed packet
+packet id: 246
+time now: 245
+processed Time: 246
+Transmitted
+my id is: Node4
+packet id: 237
+env now: 246
+250.0
+245.0
+0
+this is queue: 128
+this is queue: 137
+this is queue: 113
+this is queue: 139
+this is queue: 150
+this is queue: 138
+this is queue: 144
+this is queue: 153
+this is queue: 168
+this is queue: 149
+this is queue: 167
+this is queue: 164
+this is queue: 189
+this is queue: 188
+this is queue: 201
+this is queue: 187
+this is queue: 194
+this is queue: 209
+this is queue: 202
+this is queue: 211
+this is queue: 212
+this is queue: 216
+this is queue: 221
+this is queue: 219
+this is queue: 222
+this is queue: 237
+this is queue: 236
+Transmitted
+my id is: Node1
+packet id: 154
+env now: 246.0
+passed processed packet
+packet id: 247
+time now: 246
+processed Time: 247.0
+Transmitted
+my id is: Node5
+packet id: 238
+env now: 247
+252.0
+248.0
+0
+this is queue: 133
+this is queue: 155
+this is queue: 156
+this is queue: 175
+this is queue: 171
+this is queue: 184
+this is queue: 178
+this is queue: 190
+this is queue: 191
+this is queue: 172
+this is queue: 186
+this is queue: 195
+this is queue: 177
+this is queue: 182
+this is queue: 196
+this is queue: 199
+this is queue: 198
+this is queue: 210
+this is queue: 215
+this is queue: 197
+this is queue: 207
+this is queue: 213
+this is queue: 193
+this is queue: 220
+this is queue: 230
+this is queue: 226
+this is queue: 218
+this is queue: 231
+this is queue: 235
+this is queue: 238
+Transmitted
+my id is: Node1
+packet id: 159
+env now: 247.0
+passed processed packet
+packet id: 248
+time now: 247
+processed Time: 248.0
+Transmitted
+my id is: Node5
+packet id: 239
+env now: 248
+252.0
+248.0
+0
+this is queue: 133
+this is queue: 155
+this is queue: 156
+this is queue: 175
+this is queue: 171
+this is queue: 184
+this is queue: 178
+this is queue: 190
+this is queue: 191
+this is queue: 172
+this is queue: 186
+this is queue: 195
+this is queue: 177
+this is queue: 182
+this is queue: 196
+this is queue: 199
+this is queue: 198
+this is queue: 210
+this is queue: 215
+this is queue: 197
+this is queue: 207
+this is queue: 213
+this is queue: 193
+this is queue: 220
+this is queue: 230
+this is queue: 226
+this is queue: 218
+this is queue: 231
+this is queue: 239
+this is queue: 235
+this is queue: 238
+Transmitted
+my id is: Cloud
+packet id: 214
+env now: 248.0
+processed packet arrived cloud
+processed time: 243
+Transmitted
+my id is: Node2
+packet id: 224
+env now: 248.0
+passed processed packet
+packet id: 249
+time now: 248
+Transmitted
+my id is: Node6
+packet id: 240
+env now: 249
+243.0
+244.0
+247.0
+this is queue: 240
+this is queue: 233
+this is queue: 227
+this is queue: 229
+Transmitted
+my id is: Node2
+packet id: 225
+env now: 249.0
+passed processed packet
+packet id: 250
+time now: 249
+processed Time: 250.0
+processed Time: 250.0
+Transmitted
+my id is: Node3
+packet id: 241
+env now: 250
+241.0
+242.0
+250.0
+this is queue: 234
+this is queue: 241
+this is queue: 232
+Transmitted
+my id is: Node2
+packet id: 140
+env now: 250.0
+passed processed packet
+Transmitted
+my id is: Node1
+packet id: 119
+env now: 250.0
+passed processed packet
+Transmitted
+my id is: Cloud
+packet id: 126
+env now: 250.0
+processed packet arrived cloud
+processed time: 240.0
+next packet: <packets.Packets object at 0x1162a2350>
+processing: 128
+packet id: 251
+time now: 250
+Transmitted
+my id is: Node6
+packet id: 242
+env now: 251
+243.0
+244.0
+247.0
+this is queue: 242
+this is queue: 240
+this is queue: 233
+this is queue: 227
+this is queue: 229
+Transmitted
+my id is: Cloud
+packet id: 217
+env now: 251.0
+processed packet arrived cloud
+processed time: 246
+Transmitted
+my id is: Cloud
+packet id: 154
+env now: 251.0
+processed packet arrived cloud
+processed time: 241.0
+next packet: <packets.Packets object at 0x1162af4d0>
+processing: 234
+packet id: 252
+time now: 251
+processed Time: 252
+processed Time: 252.0
+Transmitted
+my id is: Node4
+packet id: 243
+env now: 252
+260.0
+245.0
+0
+this is queue: 137
+this is queue: 113
+this is queue: 139
+this is queue: 150
+this is queue: 138
+this is queue: 144
+this is queue: 153
+this is queue: 168
+this is queue: 149
+this is queue: 167
+this is queue: 164
+this is queue: 189
+this is queue: 188
+this is queue: 201
+this is queue: 187
+this is queue: 194
+this is queue: 209
+this is queue: 202
+this is queue: 211
+this is queue: 212
+this is queue: 216
+this is queue: 221
+this is queue: 219
+this is queue: 222
+this is queue: 237
+this is queue: 236
+this is queue: 243
+Transmitted
+my id is: Node2
+packet id: 228
+env now: 252.0
+passed processed packet
+Transmitted
+my id is: Cloud
+packet id: 159
+env now: 252.0
+processed packet arrived cloud
+processed time: 242.0
+next packet: <packets.Packets object at 0x1162a26d0>
+processing: 241
+packet id: 253
+time now: 252
+Transmitted
+my id is: Node5
+packet id: 244
+env now: 253
+252.0
+248.0
+0
+this is queue: 133
+this is queue: 155
+this is queue: 156
+this is queue: 175
+this is queue: 171
+this is queue: 184
+this is queue: 178
+this is queue: 190
+this is queue: 191
+this is queue: 172
+this is queue: 186
+this is queue: 195
+this is queue: 177
+this is queue: 182
+this is queue: 196
+this is queue: 199
+this is queue: 198
+this is queue: 210
+this is queue: 215
+this is queue: 197
+this is queue: 207
+this is queue: 213
+this is queue: 193
+this is queue: 220
+this is queue: 230
+this is queue: 226
+this is queue: 218
+this is queue: 231
+this is queue: 239
+this is queue: 235
+this is queue: 244
+this is queue: 238
+Transmitted
+my id is: Node2
+packet id: 160
+env now: 253.0
+passed processed packet
+Transmitted
+my id is: Cloud
+packet id: 224
+env now: 253.0
+processed packet arrived cloud
+processed time: 243.0
+next packet: <packets.Packets object at 0x1162ac3d0>
+processing: 242
+packet id: 254
+time now: 253
+Transmitted
+my id is: Node6
+packet id: 245
+env now: 254
+263.0
+244.0
+247.0
+this is queue: 240
+this is queue: 233
+this is queue: 227
+this is queue: 229
+this is queue: 245
+Transmitted
+my id is: Cloud
+packet id: 225
+env now: 254.0
+processed packet arrived cloud
+processed time: 244.0
+next packet: <packets.Packets object at 0x1162a3410>
+processing: 240
+packet id: 255
+time now: 254
+Transmitted
+my id is: Node4
+packet id: 246
+env now: 255
+260.0
+245.0
+0
+this is queue: 137
+this is queue: 113
+this is queue: 139
+this is queue: 150
+this is queue: 138
+this is queue: 144
+this is queue: 153
+this is queue: 168
+this is queue: 149
+this is queue: 167
+this is queue: 164
+this is queue: 189
+this is queue: 188
+this is queue: 201
+this is queue: 187
+this is queue: 194
+this is queue: 209
+this is queue: 202
+this is queue: 211
+this is queue: 212
+this is queue: 216
+this is queue: 221
+this is queue: 219
+this is queue: 222
+this is queue: 237
+this is queue: 246
+this is queue: 236
+this is queue: 243
+Transmitted
+my id is: Node1
+packet id: 181
+env now: 255.0
+passed processed packet
+Transmitted
+my id is: Node1
+packet id: 135
+env now: 255.0
+passed processed packet
+Transmitted
+my id is: Cloud
+packet id: 140
+env now: 255.0
+processed packet arrived cloud
+processed time: 245.0
+next packet: <packets.Packets object at 0x1162ae010>
+processing: 133
+Transmitted
+my id is: Cloud
+packet id: 119
+env now: 255.0
+processed packet arrived cloud
+processed time: 245.0
+next packet: <packets.Packets object at 0x1162a2250>
+processing: 137
+packet id: 256
+time now: 255
+Transmitted
+my id is: Node5
+packet id: 247
+env now: 256
+265.0
+248.0
+0
+this is queue: 155
+this is queue: 156
+this is queue: 175
+this is queue: 171
+this is queue: 184
+this is queue: 178
+this is queue: 190
+this is queue: 191
+this is queue: 172
+this is queue: 186
+this is queue: 195
+this is queue: 177
+this is queue: 182
+this is queue: 196
+this is queue: 199
+this is queue: 198
+this is queue: 210
+this is queue: 215
+this is queue: 197
+this is queue: 207
+this is queue: 213
+this is queue: 193
+this is queue: 220
+this is queue: 230
+this is queue: 226
+this is queue: 218
+this is queue: 231
+this is queue: 239
+this is queue: 235
+this is queue: 244
+this is queue: 247
+this is queue: 238
+packet id: 257
+time now: 256
+Transmitted
+my id is: Node6
+packet id: 248
+env now: 257
+263.0
+264.0
+247.0
+this is queue: 233
+this is queue: 227
+this is queue: 229
+this is queue: 245
+this is queue: 248
+Transmitted
+my id is: Cloud
+packet id: 223
+env now: 257.0
+processed packet arrived cloud
+processed time: 252
+Transmitted
+my id is: Node2
+packet id: 158
+env now: 257.0
+passed processed packet
+Transmitted
+my id is: Cloud
+packet id: 228
+env now: 257.0
+processed packet arrived cloud
+processed time: 247.0
+next packet: <packets.Packets object at 0x1162a2e10>
+processing: 233
+packet id: 258
+time now: 257
+Transmitted
+my id is: Node4
+packet id: 249
+env now: 258
+260.0
+265.0
+0
+this is queue: 113
+this is queue: 139
+this is queue: 150
+this is queue: 138
+this is queue: 144
+this is queue: 153
+this is queue: 168
+this is queue: 149
+this is queue: 167
+this is queue: 164
+this is queue: 189
+this is queue: 188
+this is queue: 201
+this is queue: 187
+this is queue: 194
+this is queue: 209
+this is queue: 202
+this is queue: 211
+this is queue: 212
+this is queue: 216
+this is queue: 221
+this is queue: 219
+this is queue: 222
+this is queue: 237
+this is queue: 246
+this is queue: 236
+this is queue: 243
+this is queue: 249
+Transmitted
+my id is: Cloud
+packet id: 160
+env now: 258.0
+processed packet arrived cloud
+processed time: 248.0
+next packet: <packets.Packets object at 0x1162a35d0>
+processing: 155
+packet id: 259
+time now: 258
+Transmitted
+my id is: Node6
+packet id: 250
+env now: 259
+263.0
+264.0
+267.0
+this is queue: 227
+this is queue: 229
+this is queue: 250
+this is queue: 245
+this is queue: 248
+packet id: 260
+time now: 259
+processed Time: 260.0
+Transmitted
+my id is: Node5
+packet id: 251
+env now: 260
+265.0
+268.0
+0
+this is queue: 156
+this is queue: 175
+this is queue: 171
+this is queue: 184
+this is queue: 178
+this is queue: 190
+this is queue: 191
+this is queue: 172
+this is queue: 186
+this is queue: 195
+this is queue: 177
+this is queue: 182
+this is queue: 196
+this is queue: 199
+this is queue: 198
+this is queue: 210
+this is queue: 215
+this is queue: 197
+this is queue: 207
+this is queue: 213
+this is queue: 193
+this is queue: 220
+this is queue: 230
+this is queue: 226
+this is queue: 218
+this is queue: 231
+this is queue: 239
+this is queue: 235
+this is queue: 244
+this is queue: 247
+this is queue: 238
+this is queue: 251
+Transmitted
+my id is: Cloud
+packet id: 181
+env now: 260.0
+processed packet arrived cloud
+processed time: 250.0
+next packet: <packets.Packets object at 0x1162ae810>
+processing: 232
+Transmitted
+my id is: Cloud
+packet id: 135
+env now: 260.0
+processed packet arrived cloud
+processed time: 250.0
+next packet: <packets.Packets object at 0x1162a2150>
+processing: 113
+packet id: 261
+time now: 260
+processed Time: 261.0
+Transmitted
+my id is: Node4
+packet id: 252
+env now: 261
+270.0
+265.0
+0
+this is queue: 139
+this is queue: 150
+this is queue: 138
+this is queue: 144
+this is queue: 153
+this is queue: 168
+this is queue: 149
+this is queue: 167
+this is queue: 164
+this is queue: 189
+this is queue: 188
+this is queue: 201
+this is queue: 187
+this is queue: 194
+this is queue: 209
+this is queue: 202
+this is queue: 211
+this is queue: 212
+this is queue: 216
+this is queue: 221
+this is queue: 219
+this is queue: 222
+this is queue: 237
+this is queue: 246
+this is queue: 252
+this is queue: 236
+this is queue: 243
+this is queue: 249
+packet id: 262
+time now: 261
+processed Time: 262.0
+Transmitted
+my id is: Node3
+packet id: 253
+env now: 262
+261.0
+262.0
+270.0
+this is queue: 253
+Transmitted
+my id is: Cloud
+packet id: 158
+env now: 262.0
+processed packet arrived cloud
+processed time: 252.0
+next packet: <packets.Packets object at 0x1162a32d0>
+processing: 156
+packet id: 263
+time now: 262
+processed Time: 263.0
+Transmitted
+my id is: Node5
+packet id: 254
+env now: 263
+272.0
+268.0
+0
+this is queue: 175
+this is queue: 171
+this is queue: 184
+this is queue: 178
+this is queue: 190
+this is queue: 191
+this is queue: 172
+this is queue: 186
+this is queue: 195
+this is queue: 177
+this is queue: 182
+this is queue: 196
+this is queue: 199
+this is queue: 198
+this is queue: 210
+this is queue: 215
+this is queue: 197
+this is queue: 207
+this is queue: 213
+this is queue: 193
+this is queue: 220
+this is queue: 230
+this is queue: 226
+this is queue: 218
+this is queue: 231
+this is queue: 239
+this is queue: 235
+this is queue: 254
+this is queue: 244
+this is queue: 247
+this is queue: 238
+this is queue: 251
+packet id: 264
+time now: 263
+processed Time: 264.0
+Transmitted
+my id is: Node4
+packet id: 255
+env now: 264
+270.0
+265.0
+0
+this is queue: 139
+this is queue: 150
+this is queue: 138
+this is queue: 144
+this is queue: 153
+this is queue: 168
+this is queue: 149
+this is queue: 167
+this is queue: 164
+this is queue: 189
+this is queue: 188
+this is queue: 201
+this is queue: 187
+this is queue: 194
+this is queue: 209
+this is queue: 202
+this is queue: 211
+this is queue: 212
+this is queue: 216
+this is queue: 221
+this is queue: 219
+this is queue: 222
+this is queue: 237
+this is queue: 246
+this is queue: 252
+this is queue: 236
+this is queue: 243
+this is queue: 255
+this is queue: 249
+packet id: 265
+time now: 264
+processed Time: 265.0
+processed Time: 265.0
+Transmitted
+my id is: Node5
+packet id: 256
+env now: 265
+272.0
+268.0
+0
+this is queue: 175
+this is queue: 171
+this is queue: 184
+this is queue: 178
+this is queue: 190
+this is queue: 191
+this is queue: 172
+this is queue: 186
+this is queue: 195
+this is queue: 177
+this is queue: 182
+this is queue: 196
+this is queue: 199
+this is queue: 198
+this is queue: 210
+this is queue: 215
+this is queue: 197
+this is queue: 207
+this is queue: 213
+this is queue: 193
+this is queue: 220
+this is queue: 230
+this is queue: 226
+this is queue: 218
+this is queue: 231
+this is queue: 239
+this is queue: 235
+this is queue: 254
+this is queue: 244
+this is queue: 247
+this is queue: 238
+this is queue: 251
+this is queue: 256
+Transmitted
+my id is: Node1
+packet id: 128
+env now: 265.0
+passed processed packet
+packet id: 266
+time now: 265
+Transmitted
+my id is: Node5
+packet id: 257
+env now: 266
+272.0
+268.0
+0
+this is queue: 175
+this is queue: 171
+this is queue: 184
+this is queue: 178
+this is queue: 190
+this is queue: 191
+this is queue: 172
+this is queue: 186
+this is queue: 195
+this is queue: 177
+this is queue: 182
+this is queue: 196
+this is queue: 199
+this is queue: 198
+this is queue: 210
+this is queue: 215
+this is queue: 197
+this is queue: 207
+this is queue: 213
+this is queue: 193
+this is queue: 220
+this is queue: 230
+this is queue: 226
+this is queue: 218
+this is queue: 231
+this is queue: 239
+this is queue: 235
+this is queue: 254
+this is queue: 244
+this is queue: 247
+this is queue: 238
+this is queue: 251
+this is queue: 256
+this is queue: 257
+Transmitted
+my id is: Node1
+packet id: 234
+env now: 266.0
+passed processed packet
+packet id: 267
+time now: 266
+processed Time: 267.0
+Transmitted
+my id is: Node5
+packet id: 258
+env now: 267
+272.0
+268.0
+0
+this is queue: 175
+this is queue: 171
+this is queue: 184
+this is queue: 178
+this is queue: 190
+this is queue: 191
+this is queue: 172
+this is queue: 186
+this is queue: 195
+this is queue: 177
+this is queue: 182
+this is queue: 196
+this is queue: 199
+this is queue: 198
+this is queue: 210
+this is queue: 215
+this is queue: 197
+this is queue: 207
+this is queue: 213
+this is queue: 193
+this is queue: 220
+this is queue: 230
+this is queue: 226
+this is queue: 218
+this is queue: 231
+this is queue: 239
+this is queue: 235
+this is queue: 254
+this is queue: 244
+this is queue: 247
+this is queue: 258
+this is queue: 238
+this is queue: 251
+this is queue: 256
+this is queue: 257
+Transmitted
+my id is: Node1
+packet id: 241
+env now: 267.0
+passed processed packet
+packet id: 268
+time now: 267
+processed Time: 268.0
+Transmitted
+my id is: Node6
+packet id: 259
+env now: 268
+263.0
+264.0
+267.0
+this is queue: 227
+this is queue: 229
+this is queue: 250
+this is queue: 245
+this is queue: 248
+this is queue: 259
+Transmitted
+my id is: Node2
+packet id: 242
+env now: 268.0
+passed processed packet
+packet id: 269
+time now: 268
+Transmitted
+my id is: Node3
+packet id: 260
+env now: 269
+261.0
+262.0
+270.0
+this is queue: 253
+this is queue: 260
+Transmitted
+my id is: Node2
+packet id: 240
+env now: 269.0
+passed processed packet
+packet id: 270
+time now: 269
+processed Time: 270.0
+processed Time: 270.0
+Transmitted
+my id is: Node3
+packet id: 261
+env now: 270
+261.0
+262.0
+270.0
+this is queue: 253
+this is queue: 260
+this is queue: 261
+Transmitted
+my id is: Node2
+packet id: 133
+env now: 270.0
+passed processed packet
+Transmitted
+my id is: Node1
+packet id: 137
+env now: 270.0
+passed processed packet
+Transmitted
+my id is: Cloud
+packet id: 128
+env now: 270.0
+processed packet arrived cloud
+processed time: 260.0
+next packet: <packets.Packets object at 0x1162aea10>
+processing: 139
+packet id: 271
+time now: 270
+Transmitted
+my id is: Node6
+packet id: 262
+env now: 271
+263.0
+264.0
+267.0
+this is queue: 227
+this is queue: 229
+this is queue: 250
+this is queue: 262
+this is queue: 245
+this is queue: 248
+this is queue: 259
+Transmitted
+my id is: Cloud
+packet id: 234
+env now: 271.0
+processed packet arrived cloud
+processed time: 261.0
+next packet: <packets.Packets object at 0x1162a23d0>
+processing: 253
+processed Time: 272.0
+Transmitted
+my id is: Node4
+packet id: 263
+env now: 272
+280.0
+265.0
+0
+this is queue: 150
+this is queue: 138
+this is queue: 144
+this is queue: 153
+this is queue: 168
+this is queue: 149
+this is queue: 167
+this is queue: 164
+this is queue: 189
+this is queue: 188
+this is queue: 201
+this is queue: 187
+this is queue: 194
+this is queue: 209
+this is queue: 202
+this is queue: 211
+this is queue: 212
+this is queue: 216
+this is queue: 221
+this is queue: 219
+this is queue: 222
+this is queue: 237
+this is queue: 246
+this is queue: 252
+this is queue: 236
+this is queue: 243
+this is queue: 255
+this is queue: 249
+this is queue: 263
+Transmitted
+my id is: Node2
+packet id: 233
+env now: 272.0
+passed processed packet
+Transmitted
+my id is: Cloud
+packet id: 241
+env now: 272.0
+processed packet arrived cloud
+processed time: 262.0
+next packet: <packets.Packets object at 0x1162b0390>
+processing: 260
+Transmitted
+my id is: Node6
+packet id: 264
+env now: 273
+263.0
+264.0
+267.0
+this is queue: 227
+this is queue: 229
+this is queue: 250
+this is queue: 262
+this is queue: 264
+this is queue: 245
+this is queue: 248
+this is queue: 259
+Transmitted
+my id is: Node2
+packet id: 155
+env now: 273.0
+passed processed packet
+Transmitted
+my id is: Cloud
+packet id: 242
+env now: 273.0
+processed packet arrived cloud
+processed time: 263.0
+next packet: <packets.Packets object at 0x1162a3d10>
+processing: 227
+Transmitted
+my id is: Node3
+packet id: 265
+env now: 274
+281.0
+282.0
+270.0
+this is queue: 265
+this is queue: 261
+Transmitted
+my id is: Cloud
+packet id: 240
+env now: 274.0
+processed packet arrived cloud
+processed time: 264.0
+next packet: <packets.Packets object at 0x1162a2e90>
+processing: 229
+Transmitted
+my id is: Node6
+packet id: 266
+env now: 275
+283.0
+284.0
+267.0
+this is queue: 250
+this is queue: 262
+this is queue: 264
+this is queue: 245
+this is queue: 248
+this is queue: 259
+this is queue: 266
+Transmitted
+my id is: Node1
+packet id: 232
+env now: 275.0
+passed processed packet
+Transmitted
+my id is: Node1
+packet id: 113
+env now: 275.0
+passed processed packet
+Transmitted
+my id is: Cloud
+packet id: 133
+env now: 275.0
+processed packet arrived cloud
+processed time: 265.0
+next packet: <packets.Packets object at 0x1162a2f10>
+processing: 175
+Transmitted
+my id is: Cloud
+packet id: 137
+env now: 275.0
+processed packet arrived cloud
+processed time: 265.0
+next packet: <packets.Packets object at 0x1162aed10>
+processing: 150
+Transmitted
+my id is: Node5
+packet id: 267
+env now: 276
+285.0
+268.0
+0
+this is queue: 171
+this is queue: 184
+this is queue: 178
+this is queue: 190
+this is queue: 191
+this is queue: 172
+this is queue: 186
+this is queue: 195
+this is queue: 177
+this is queue: 182
+this is queue: 196
+this is queue: 199
+this is queue: 198
+this is queue: 210
+this is queue: 215
+this is queue: 197
+this is queue: 207
+this is queue: 213
+this is queue: 193
+this is queue: 220
+this is queue: 230
+this is queue: 226
+this is queue: 218
+this is queue: 231
+this is queue: 239
+this is queue: 235
+this is queue: 254
+this is queue: 244
+this is queue: 247
+this is queue: 258
+this is queue: 238
+this is queue: 251
+this is queue: 256
+this is queue: 267
+this is queue: 257
+Transmitted
+my id is: Node4
+packet id: 268
+env now: 277
+280.0
+285.0
+0
+this is queue: 138
+this is queue: 144
+this is queue: 153
+this is queue: 168
+this is queue: 149
+this is queue: 167
+this is queue: 164
+this is queue: 189
+this is queue: 188
+this is queue: 201
+this is queue: 187
+this is queue: 194
+this is queue: 209
+this is queue: 202
+this is queue: 211
+this is queue: 212
+this is queue: 216
+this is queue: 221
+this is queue: 219
+this is queue: 222
+this is queue: 237
+this is queue: 246
+this is queue: 252
+this is queue: 236
+this is queue: 243
+this is queue: 255
+this is queue: 249
+this is queue: 263
+this is queue: 268
+Transmitted
+my id is: Node2
+packet id: 156
+env now: 277.0
+passed processed packet
+Transmitted
+my id is: Cloud
+packet id: 233
+env now: 277.0
+processed packet arrived cloud
+processed time: 267.0
+next packet: <packets.Packets object at 0x1162a2010>
+processing: 250
+Transmitted
+my id is: Node3
+packet id: 269
+env now: 278
+281.0
+282.0
+270.0
+this is queue: 265
+this is queue: 269
+this is queue: 261
+Transmitted
+my id is: Cloud
+packet id: 155
+env now: 278.0
+processed packet arrived cloud
+processed time: 268.0
+next packet: <packets.Packets object at 0x1162a2590>
+processing: 171
+Transmitted
+my id is: Node3
+packet id: 270
+env now: 279
+281.0
+282.0
+270.0
+this is queue: 265
+this is queue: 269
+this is queue: 261
+this is queue: 270
+processed Time: 280.0
+Transmitted
+my id is: Node5
+packet id: 271
+env now: 280
+285.0
+288.0
+0
+failed
+passing
+Transmitted
+my id is: Cloud
+packet id: 232
+env now: 280.0
+processed packet arrived cloud
+processed time: 270.0
+next packet: <packets.Packets object at 0x1162a3ed0>
+processing: 265
+Transmitted
+my id is: Cloud
+packet id: 113
+env now: 280.0
+processed packet arrived cloud
+processed time: 270.0
+next packet: <packets.Packets object at 0x1162a3050>
+processing: 138
+processed Time: 281.0
+processed Time: 282.0
+Transmitted
+my id is: Cloud
+packet id: 156
+env now: 282.0
+processed packet arrived cloud
+processed time: 272.0
+next packet: <packets.Packets object at 0x1162ac3d0>
+processing: 184
+processed Time: 283.0
+processed Time: 284.0
+processed Time: 285.0
+processed Time: 285.0
+Transmitted
+my id is: Node1
+packet id: 139
+env now: 285.0
+passed processed packet
+Transmitted
+my id is: Node1
+packet id: 253
+env now: 286.0
+passed processed packet
+processed Time: 287.0
+Transmitted
+my id is: Node1
+packet id: 260
+env now: 287.0
+passed processed packet
+processed Time: 288.0
+Transmitted
+my id is: Node2
+packet id: 227
+env now: 288.0
+passed processed packet
+Transmitted
+my id is: Node2
+packet id: 229
+env now: 289.0
+passed processed packet
+Transmitted
+my id is: Node2
+packet id: 271
+env now: 290
+not processed
+processing: 271
+processed Time: 290.0
+processed Time: 290.0
+Transmitted
+my id is: Node2
+packet id: 175
+env now: 290.0
+passed processed packet
+Transmitted
+my id is: Node1
+packet id: 150
+env now: 290.0
+passed processed packet
+Transmitted
+my id is: Cloud
+packet id: 139
+env now: 290.0
+processed packet arrived cloud
+processed time: 280.0
+next packet: <packets.Packets object at 0x1162ac4d0>
+processing: 144
+Transmitted
+my id is: Cloud
+packet id: 253
+env now: 291.0
+processed packet arrived cloud
+processed time: 281.0
+next packet: <packets.Packets object at 0x1162afb10>
+processing: 269
+processed Time: 292.0
+Transmitted
+my id is: Node2
+packet id: 250
+env now: 292.0
+passed processed packet
+Transmitted
+my id is: Cloud
+packet id: 260
+env now: 292.0
+processed packet arrived cloud
+processed time: 282.0
+next packet: <packets.Packets object at 0x1162ac110>
+processing: 261
+Transmitted
+my id is: Node2
+packet id: 171
+env now: 293.0
+passed processed packet
+Transmitted
+my id is: Cloud
+packet id: 227
+env now: 293.0
+processed packet arrived cloud
+processed time: 283.0
+next packet: <packets.Packets object at 0x1162a3150>
+processing: 262
+Transmitted
+my id is: Cloud
+packet id: 229
+env now: 294.0
+processed packet arrived cloud
+processed time: 284.0
+next packet: <packets.Packets object at 0x1162a22d0>
+processing: 264
+Transmitted
+my id is: Node1
+packet id: 265
+env now: 295.0
+passed processed packet
+Transmitted
+my id is: Node1
+packet id: 138
+env now: 295.0
+passed processed packet
+Transmitted
+my id is: Cloud
+packet id: 175
+env now: 295.0
+processed packet arrived cloud
+processed time: 285.0
+next packet: <packets.Packets object at 0x1162aefd0>
+processing: 178
+Transmitted
+my id is: Cloud
+packet id: 150
+env now: 295.0
+processed packet arrived cloud
+processed time: 285.0
+next packet: <packets.Packets object at 0x1162aee50>
+processing: 153
+Transmitted
+my id is: Node2
+packet id: 184
+env now: 297.0
+passed processed packet
+Transmitted
+my id is: Cloud
+packet id: 250
+env now: 297.0
+processed packet arrived cloud
+processed time: 287.0
+next packet: <packets.Packets object at 0x1162a2350>
+processing: 245
+Transmitted
+my id is: Cloud
+packet id: 171
+env now: 298.0
+processed packet arrived cloud
+processed time: 288.0
+next packet: <packets.Packets object at 0x1162ac990>
+processing: 190
+processed Time: 300
+processed Time: 300.0
+Transmitted
+my id is: Cloud
+packet id: 265
+env now: 300.0
+processed packet arrived cloud
+processed time: 290.0
+next packet: <packets.Packets object at 0x1162a3450>
+processing: 270
+Transmitted
+my id is: Cloud
+packet id: 138
+env now: 300.0
+processed packet arrived cloud
+processed time: 290.0
+next packet: <packets.Packets object at 0x1162ae0d0>
+processing: 168

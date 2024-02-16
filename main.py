@@ -9,20 +9,9 @@ def main():
     env = simpy.Environment()
     top = topology()
     
-    nodes = top.simulate_network(env, "TREE")
+    nodes = top.simulate_network(env, "TREE", "high")
 
     # There will be 6 packets per process (in a settings of 5s send) not delivered to cloud because simulation end
-    env.process(c.random_Senders(env, nodes, c.END_TIME - c.SMALLEST_TOTAL_TIME))
-    env.process(c.random_Senders(env, nodes, c.END_TIME - c.SMALLEST_TOTAL_TIME))
-    env.process(c.random_Senders(env, nodes, c.END_TIME - c.SMALLEST_TOTAL_TIME))
-    env.process(c.random_Senders(env, nodes, c.END_TIME - c.SMALLEST_TOTAL_TIME))
-    env.process(c.random_Senders(env, nodes, c.END_TIME - c.SMALLEST_TOTAL_TIME))
-    env.process(c.random_Senders(env, nodes, c.END_TIME - c.SMALLEST_TOTAL_TIME))
-    env.process(c.random_Senders(env, nodes, c.END_TIME - c.SMALLEST_TOTAL_TIME))
-    env.process(c.random_Senders(env, nodes, c.END_TIME - c.SMALLEST_TOTAL_TIME))
-    env.process(c.random_Senders(env, nodes, c.END_TIME - c.SMALLEST_TOTAL_TIME))
-    env.process(c.random_Senders(env, nodes, c.END_TIME - c.SMALLEST_TOTAL_TIME))
-    env.process(c.random_Senders(env, nodes, c.END_TIME - c.SMALLEST_TOTAL_TIME))
     env.process(c.random_Senders(env, nodes, c.END_TIME - c.SMALLEST_TOTAL_TIME))
 
     env.run(until = 301)

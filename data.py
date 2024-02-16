@@ -10,6 +10,8 @@ meetDeadline = 0
 
 latencyList = {}
 
+record = open("record.txt", "w")
+
 
 # packetLossRate = (receivedCount / packetCount) * 100
 # processedRate = unprocessedCount / receivedCount

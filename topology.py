@@ -19,18 +19,20 @@ class topology:
                         ('Node6', 'User7'), ('Node6', 'User8'),])
         return tree
 
-    def simulate_network(self, env, graph_str):
+    def simulate_network(self, env, graph_str, cpu_mode):
         nodes = {}
         if graph_str == "TREE":
             graph = self.__Tree()
             # Create nodes based on their names
-            if c.FIXED_DISTANCE:
+            if cpu_mode == 'high':
                 for node_id in graph.nodes:
-                    nodes[node_id] = Node(node_id, env, None, c.NUMBER_OF_PROCESSORS, c.DISTANCE)
-            else:
+                    if node_id == "Node1" or node_id == "Node2":
+                        nodes[node_id] = Node(node_id, env, None, int(c.TOTAL_NUMBER_OF_PROCESSORS / 2), c.DISTANCE)
+                        continue
+                    nodes[node_id] = Node(node_id, env, None, int(c.NUMBER_OF_PROCESSORS), c.DISTANCE)
+            elif cpu_mode == 'equal':
                 for node_id in graph.nodes:
-                    distance = random.randint(5, 20)
-                    nodes[node_id] = Node(node_id, env, c.NUMBER_OF_PROCESSORS, distance)
+                    nodes[node_id] = Node(node_id, env, None, int(c.NUMBER_OF_PROCESSORS), c.DISTANCE)
 
             # Establish relationships based on edges
             for edge in graph.edges:
