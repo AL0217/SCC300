@@ -14,11 +14,7 @@ class Node:
 
         self.cpu_num = num_processor
         self.cpuList = [cpu(env, self, i) for i in range(num_processor)]
-
-        #probably will have to synchronize this
-        self.cpu_in_use = simpy.Resource(env, capacity=num_processor)
-        self.scheduler = simpy.Resource(env, capacity=1)
-        print(self.cpu_in_use.count)
+        self.cpu_in_use = {i: False for i in range(num_processor)}
 
         self.nextNode = node
         self.env = env
@@ -26,7 +22,8 @@ class Node:
 
     def request(self):
         # create a packet that need to be send
-        packet = Packets(destination=1, processTime=c.PROCESS_TIME, sendTime=self.env.now, deadline=(self.env.now + random.randint(30, 60)), enable_deadline=True)
+        # random.seed(1)
+        packet = Packets(destination=1, processTime=c.PROCESS_TIME, sendTime=self.env.now, deadline=(c.gen_deadline(self.env.now)), enable_deadline=True)
 
         # add the packet to the list
         data.latencyList[packet.packetID] = 0
@@ -39,14 +36,13 @@ class Node:
 
     def receive(self, packet):
         # simulate the time used to send the packet
+        # propagation
         yield self.env.timeout(packet.transmit_time)
         data.record.write("Transmitted\n")
-
-        packet.setDistance(self.distance_to_nextNode)
-
         data.record.write(f"my id is: {self.id}\n")
         data.record.write(f"packet id: {packet.packetID}\n")
         data.record.write(f"env now: {self.env.now}\n")
+        packet.setDistance(self.distance_to_nextNode)
 
         if self.id == "Cloud":
             if packet.processed:
@@ -69,8 +65,6 @@ class Node:
                 data.failed[packet.packetID] = [packet.sendTime, packet.processedTime, packet.deadline]
             data.receivedCount += 1
             data.record.write(f"processed time: {packet.processedTime}\n")
-            # print(packet.sendTime)
-            # print(packet.packetID)
             data.latencyList[packet.packetID] = packet.processedTime - packet.sendTime
             return
         
@@ -85,7 +79,7 @@ class Node:
         
 
         # if it is in EDF mode
-        # if it is not possible to meet the deadline, do not admit the packet
+        # if it is impossible to meet the deadline, do not admit the packet
         if (c.SCHEDULING_METHOD == "EDF") and (self.env.now + packet.processTime > packet.deadline):
             # pass the packet
             data.record.write(f"Not receiving it")
@@ -96,10 +90,10 @@ class Node:
         # Check if the node is busy
         # Only allow one packet to look at this
         
-        if(self.cpu_in_use.count >= self.cpu_num):
+        if not any(cpu is False for cpu in self.cpu_in_use.values()):
             # print the states of the cpus
             data.record.write(f"packet waiting: {packet.packetID}\n")
-            data.record.write(f"cpu in use: {self.cpu_in_use.count}\n")
+            data.record.write(f"cpu_in_use: {self.cpu_in_use}\n")
             for cpus in self.cpuList:
                 data.record.write(str(cpus.next_available_time) + "\n")
 
@@ -122,9 +116,6 @@ class Node:
                         for packet in self.queue:
                                 data.record.write(f"this is queue: {packet.packetID}\n")
                         return
-                    else:
-                        # if didn't append to the queue
-                        pass
         
             #call the receive function
             packet.setDistance(self.distance_to_nextNode)
@@ -133,33 +124,25 @@ class Node:
             return
         
         data.record.write("not processed\n")
-        data.record.write(f"dllm\n")
-        data.record.write(f"cpu in use: {self.cpu_in_use.count}\n")
+        # data.record.write(f"cpu in use: {self.cpu_in_use.count}\n")
         #init a opt_cpu variable
         opt_cpu = self.cpuList[0]
 
         #find an available cpu from the cpuList
 
-        with self.scheduler.request() as req:
-            yield req
-            data.record.write(f"packet waiting: {packet.packetID}\n")
-            for cpus in self.cpuList:
-                #select the cpu and break the loop
+        data.record.write(f"packet waiting: {packet.packetID}\n")
+        for cpus in self.cpuList:
+            #select the cpu and break the loop
+            if not cpus.busy():
+                opt_cpu = cpus
+                
                 data.record.write(f"node id: {self.id}\n")
-                data.record.write(f"packet waiting: {packet.packetID}\n")
-                if not cpus.busy():
-                    opt_cpu = cpus
-                    data.record.write(f"node id: {self.id}\n")
-                    data.record.write(f"cpu id: {opt_cpu.id}\n")
-                    data.record.write(f"packet check: {packet.packetID}\n")
-                    self.scheduler.release(req)
-                    yield from opt_cpu.process(self.cpu_in_use, packet)
-                    break
+                data.record.write(f"cpu id: {opt_cpu.id}\n")
+                data.record.write(f"cpu check: {packet.packetID}\n")
+                yield from opt_cpu.process(packet)
 
-
-
-        
-        # yield from opt_cpu.process(self.cpu_in_use, packet)
+                data.record.write(f"finished packet: {packet.packetID}\n")
+                break
 
 
     def edf_complete_time(self, queue):

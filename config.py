@@ -5,7 +5,7 @@ import data
 END_TIME = 300
 SMALLEST_TOTAL_TIME = 30
 CPU_MODE = 'equal'
-SIMULATION_TIME = 300
+SIMULATION_TIME = 30000
 
 # Settings of the network
 LEVEL_OF_TOPOLOGY = 3
@@ -33,12 +33,12 @@ DATA_SIZE_MIN = 10
 # the scheduling method
 # FCFS = First In First Out
 # EDF = Earliest Deadline First
-SCHEDULING_METHOD = 'EDF'
+SCHEDULING_METHOD = 'FIFO'
 
+
+random.seed(1)
 
 def random_Senders(env, nodes, until_time):
-    random.seed(1)
-
     while env.now <= until_time:
         sender = random.randint(1, 8)
         senderStr = "User" + str(sender)
@@ -47,3 +47,6 @@ def random_Senders(env, nodes, until_time):
         data.packetCount += 1
         print(f"requested by {senderStr}")
         yield env.timeout(SEND_INTERVAL)
+
+def gen_deadline(envNow):
+    return envNow + random.randint(30,60)

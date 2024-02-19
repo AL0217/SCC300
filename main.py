@@ -14,7 +14,8 @@ def main():
     # There will be 6 packets per process (in a settings of 5s send) not delivered to cloud because simulation end
     env.process(c.random_Senders(env, nodes, c.SIMULATION_TIME))
     env.process(c.random_Senders(env, nodes, c.SIMULATION_TIME))
-    env.run(until = 500)
+
+    env.run(until = c.SIMULATION_TIME + 100)
 
     print(f"packet count: {data.packetCount}")
     print(f"received count: {data.receivedCount}")
