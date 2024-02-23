@@ -1,3 +1,4 @@
+from abc import abstractmethod
 from cpu import cpu
 from packets import Packets
 import config
@@ -116,22 +117,11 @@ class Node:
             queue = copy.deepcopy(self.queue)
             queue.append(packet)
             # scheduling method to use
-            match config.SCHEDULING_METHOD:
-                case "FIFO":        # First In First Out
-                    # if the p
-                    if self.fifo_complete_time(queue) and len(self.queue) < config.SIZE_OF_QUEUE:
+            if self.complete_time(queue):
                         self.queue.append(packet)
                         data.record.write("append to queue\n")
                         for packet in self.queue:
                             data.record.write(f"this is queue: {packet.packetID}\n")
-                        return
-                    
-                case "EDF":         # Earliest Deadline Firs
-                    if self.edf_complete_time(queue):
-                        self.queue = queue
-
-                        for packet in self.queue:
-                                data.record.write(f"this is queue: {packet.packetID}\n")
                         return
         
             # if fail to admit the packet, pass it
@@ -159,36 +149,12 @@ class Node:
                 yield from opt_cpu.process(packet)
                 break
 
+                
+    @abstractmethod
+    def complete_time(self, queue):
+        pass
 
 
-
-    # function to calculate the completion time for EDF
-    def edf_complete_time(self, queue):
-        cpu_schedule = [self.cpuList[i].next_available_time for i in range(len(self.cpuList))]
-        queue.sort(key = lambda p: p.deadline)
-        for packet in queue:
-            data.record.write(f"the schedule: {cpu_schedule}\n")
-            selected_cpu = cpu_schedule.index(min(cpu_schedule))
-            cpu_schedule[selected_cpu] += packet.processTime
-            data.record.write(f"deadline: {packet.deadline}\n")
-            if cpu_schedule[selected_cpu] > packet.deadline:
-                data.record.write("failed\n")
-                return False
-        return True
     
-    #function to calculate the completion time for FIFO
-    def fifo_complete_time(self, queue):
-        cpu_schedule = [self.cpuList[i].next_available_time for i in range(len(self.cpuList))]
-        # loop through the queue to simulate the queue time
-        for i in range(len(queue)):
-            data.record.write(f"the schedule: {cpu_schedule}\n")
-            selected_cpu = cpu_schedule.index(min(cpu_schedule))
-            cpu_schedule[selected_cpu] += queue[i].processTime
-            data.record.write(f"deadline: {queue[i].deadline}\n")
-
-        # check if the current time + process time + queue time can meet the deadline    
-        if cpu_schedule[selected_cpu] > queue[len(queue) - 1].deadline:
-            data.record.write("failed\n")
-            return False
 
 
