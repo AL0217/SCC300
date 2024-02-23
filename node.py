@@ -102,6 +102,7 @@ class Node:
             # pass the packet
             data.record.write(f"Not receiving it")
             self.env.process(self.nextNode.receive(packet))
+            return
         
         # For admitted packet
         # Check if the node is busy
