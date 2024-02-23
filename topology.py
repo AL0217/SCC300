@@ -24,16 +24,23 @@ class topology:
         if graph_str == "TREE":
             graph = self.__Tree()
             # Create nodes based on their names
-            if cpu_mode == 'high':
-                for node_id in graph.nodes:
-                    if node_id == "Node1" or node_id == "Node2":
-                        nodes[node_id] = Node(node_id, env, None, int(c.TOTAL_NUMBER_OF_PROCESSORS / 2), c.DISTANCE)
-                        continue
-                    nodes[node_id] = Node(node_id, env, None, int(c.NUMBER_OF_PROCESSORS), c.DISTANCE)
-            elif cpu_mode == 'equal':
-                for node_id in graph.nodes:
-                    nodes[node_id] = Node(node_id, env, None, int(c.NUMBER_OF_PROCESSORS), c.DISTANCE)
-
+            match(cpu_mode):
+                case "high":
+                    for node_id in graph.nodes:
+                        if node_id == "Node1" or node_id == "Node2":
+                            nodes[node_id] = Node(node_id, env, None, int(c.TOTAL_NUMBER_OF_PROCESSORS / 4), c.DISTANCE)
+                            continue
+                        nodes[node_id] = Node(node_id, env, None, int(c.HIGH_LOW_PROCESSORS), c.DISTANCE)
+                case "low":
+                    for node_id in graph.nodes:
+                        if not (node_id == "Node1" or node_id == "Node2"):
+                                nodes[node_id] = Node(node_id, env, None, 6, c.DISTANCE)
+                                continue
+                        nodes[node_id] = Node(node_id, env, None, 2, c.DISTANCE)
+                case 'equal':
+                    for node_id in graph.nodes:
+                        nodes[node_id] = Node(node_id, env, None, int(c.EQUAL_PROCESSORS), c.DISTANCE)
+                
             # Establish relationships based on edges
             for edge in graph.edges:
                 parent, child = edge

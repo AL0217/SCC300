@@ -4,12 +4,13 @@ packetCount = 0
 receivedCount = 0
 
 processedCount = 0
-unprocessedCount = 0
 
 meetDeadline = 0
 
+packetList = {}
 latencyList = {}
 failed = {}
+packetSet = set()
 
 record = open("record.txt", "w")
 
@@ -26,7 +27,7 @@ def plotLatency():
     plt.xlabel('Packets id')
     plt.ylabel('Latency')
     plt.title('Latency of packets')
-    print(latencyList)
+    # print(latencyList)
 
     # Show the plot
     plt.show()

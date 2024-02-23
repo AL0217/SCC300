@@ -12,11 +12,12 @@ class Packets:
         self.processed = False
 
         # the time it takes to process the packet
-        self.processTime = processTime
+        self.dataSize = config.gen_size()
+        # self.processTime = self.dataSize / 100
+        self.processTime = int(self.dataSize/config.PROCESS_SPEED)
         
         # destination of the packet
         self.destination = destination
-        self.transmit_time = 10
         
         # deadline of the packet
         self.enable_deadline = enable_deadline
@@ -27,6 +28,3 @@ class Packets:
         self.completionTime = 0
         self.processedTime = 0
         self.reached_cloud = 0
-    
-    def setDistance(self, distance_to_nextNode):
-        self.transmit_time = distance_to_nextNode
