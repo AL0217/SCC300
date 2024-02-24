@@ -108,6 +108,7 @@ class Node:
         # Check if the node is busy
         # Only allow one packet to look at this
         
+        
         if not any(cpu is False for cpu in self.cpu_in_use.values()):
             # print the states of the cpus
             data.record.write(f"packet waiting: {packet.packetID}\n")
@@ -137,6 +138,10 @@ class Node:
         #find an available cpu from the cpuList
 
         data.record.write(f"packet waiting: {packet.packetID}\n")
+        data.record.write(f"now: {self.env.now}\n")
+        data.record.write(f"cpu in use: {self.cpu_in_use}\n")
+        for cpus in self.cpuList:
+                data.record.write(f" {cpus.id} : {cpus.next_available_time} + \n")
         
         # get a cpu that's free and execute the packet
         for cpus in self.cpuList:
@@ -148,6 +153,7 @@ class Node:
                 data.record.write(f"cpu id: {opt_cpu.id}\n")
                 data.record.write(f"cpu check: {packet.packetID}\n")
                 yield from opt_cpu.process(packet)
+                
                 break
 
                 

@@ -1,6 +1,8 @@
+from abc import abstractmethod
 import node
 import data
 import config
+import copy
 
 class optimal(node.Node):
     def __init__(self, id, env, node, num_processor, distance):
@@ -124,6 +126,9 @@ class optimal(node.Node):
                 break
 
                 
-    @abstractmethod
     def complete_time(self, queue):
-        pass
+        nextQueue, nextCpuList = self.nextNode.queue, self.nextNode.cpu_in_use
+
+        if len(nextQueue) == 0:
+            
+        

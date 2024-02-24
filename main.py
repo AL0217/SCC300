@@ -15,7 +15,7 @@ def main():
     env.process(config.random_Senders(env, nodes, config.SIMULATION_TIME))
     env.process(config.random_Senders(env, nodes, config.SIMULATION_TIME))
 
-    env.run(until = config.SIMULATION_TIME + 100)
+    env.run(until = config.SIMULATION_TIME + 1000)
 
     print(f"packet count: {data.packetCount}")
     print(f"received count: {data.receivedCount}")
@@ -23,9 +23,17 @@ def main():
     print(f"processed count: {data.processedCount}")
     # print(config.NUMBER_OF_PROCESSORS)
     print("")
+    zeros = []
+    for key, value in data.latencyList.items():
+        if value == 0:
+            zeros.append(key)
+
+    print(zeros)
+
+    # print(data.latencyList)
     # data.record.write(data.failed)
-    top.drawing()
-    data.plotLatency()
+    # top.drawing()
+    # data.plotLatency()
     print(len(data.packetSet))
 
 main()

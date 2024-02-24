@@ -2,7 +2,7 @@ import random
 import data
 
 # Settings of simulation
-CPU_MODE = 'low'
+CPU_MODE = 'high'
 SIMULATION_TIME = 30000
 
 # Settings of the network
@@ -37,9 +37,9 @@ DATA_SIZE_MAX = 2000
 DATA_SIZE_MIN = 1000
 
 # the scheduling method
-# FCFS = First In First Out
+# FIFO = First In First Out
 # EDF = Earliest Deadline First
-SCHEDULING_METHOD = 'FIFO'
+SCHEDULING_METHOD = 'fifo'
 
 
 random.seed(1)

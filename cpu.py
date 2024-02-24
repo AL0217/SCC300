@@ -15,17 +15,11 @@ class cpu:
 
         # the node that this cpu belongs to
         self.node = node
-
-    # function to check if this cpu is busy
-    def busy(self):
-        if self.next_available_time > self.env.now:
-            return True
-        else:
-            return False
     
     def process(self, packet):
         # set the cpu to busy
         self.node.cpu_in_use[self.id] = True
+        data.record.write(f"cpu list: {self.node.cpu_in_use}")
         self.next_available_time = self.env.now + packet.processTime
 
         # print status of cpu
@@ -43,7 +37,9 @@ class cpu:
         packet.processedTime = self.env.now
         packet.processed = True
         data.record.write(f"processed Time: {packet.processedTime}\n")
-
+        data.record.write(f"releasing cpu id: {self.id}\n")
+        data.record.write(f"processing: {packet.packetID}\n")
+        data.record.write(f"now: {self.env.now}\n")
         # release the cpu
         self.node.cpu_in_use[self.id] = False
         

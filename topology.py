@@ -2,7 +2,8 @@ import networkx as nx
 import matplotlib.pyplot as plt
 from node import Node
 import random
-import config as c
+import edf
+import config
 
 
 class topology:
@@ -18,8 +19,12 @@ class topology:
                         ('Node5', 'User5'), ('Node5', 'User6'),
                         ('Node6', 'User7'), ('Node6', 'User8'),])
         return tree
+    
+
 
     def simulate_network(self, env, graph_str, cpu_mode):
+        scheduler_module = __import__(config.SCHEDULING_METHOD)
+        node_class = getattr(scheduler_module, config.SCHEDULING_METHOD)
         nodes = {}
         if graph_str == "TREE":
             graph = self.__Tree()
@@ -28,18 +33,18 @@ class topology:
                 case "high":
                     for node_id in graph.nodes:
                         if node_id == "Node1" or node_id == "Node2":
-                            nodes[node_id] = Node(node_id, env, None, int(c.TOTAL_NUMBER_OF_PROCESSORS / 4), c.DISTANCE)
+                            nodes[node_id] = node_class(node_id, env, None, int(config.TOTAL_NUMBER_OF_PROCESSORS / 4), config.DISTANCE)
                             continue
-                        nodes[node_id] = Node(node_id, env, None, int(c.HIGH_LOW_PROCESSORS), c.DISTANCE)
+                        nodes[node_id] = node_class(node_id, env, None, int(config.HIGH_LOW_PROCESSORS), config.DISTANCE)
                 case "low":
                     for node_id in graph.nodes:
                         if not (node_id == "Node1" or node_id == "Node2"):
-                                nodes[node_id] = Node(node_id, env, None, 6, c.DISTANCE)
+                                nodes[node_id] = node_class(node_id, env, None, 6, config.DISTANCE)
                                 continue
-                        nodes[node_id] = Node(node_id, env, None, 2, c.DISTANCE)
+                        nodes[node_id] = node_class(node_id, env, None, 2, config.DISTANCE)
                 case 'equal':
                     for node_id in graph.nodes:
-                        nodes[node_id] = Node(node_id, env, None, int(c.EQUAL_PROCESSORS), c.DISTANCE)
+                        nodes[node_id] = node_class(node_id, env, None, int(config.EQUAL_PROCESSORS), config.DISTANCE)
                 
             # Establish relationships based on edges
             for edge in graph.edges:
