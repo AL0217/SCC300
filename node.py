@@ -8,7 +8,7 @@ import simpy
 import copy
 
 class Node:
-    def __init__(self, id, env, node, num_processor, distance):
+    def __init__(self, id, env, nextNode, num_processor, distance):
         self.id = id
         self.distance_to_nextNode = distance
         self.queue = []
@@ -16,14 +16,13 @@ class Node:
         self.cpu_num = num_processor
         self.cpuList = [cpu(env, self, i) for i in range(num_processor)]
         self.cpu_in_use = {i: False for i in range(num_processor)}
-        self.nextNode = node
+        self.nextNode = nextNode
         self.env = env
         
 
     def request(self):
         # create a packet that need to be send
-        # random.seed(1)
-        packet = Packets(destination=1, processTime=config.PROCESS_TIME, sendTime=self.env.now, deadline=(config.gen_deadline(self.env.now)), enable_deadline=True)
+        packet = Packets(destination = "Cloud", processTime=config.PROCESS_TIME, sendTime=self.env.now, deadline=(config.gen_deadline(self.env.now)))
 
         # add the packet to the list
         data.latencyList[packet.packetID] = 0
@@ -64,6 +63,11 @@ class Node:
                 data.record.write("processed packet arrived cloud\n")
                 data.processedCount += 1
                 data.record.write(f"processed Count: {data.processedCount}")
+                            # Check if the packet meet the deadline    
+                if packet.processedTime <= packet.deadline:
+                    data.meetDeadline += 1
+                else:
+                    data.failed[packet.packetID] = [packet.sendTime, packet.processedTime, packet.deadline]
             else:
                 # if the packet is unprocessed, processed it at cloud immediately
                 data.record.write("unprocessed packet arrived cloud\n")
@@ -74,12 +78,6 @@ class Node:
 
             # get the data of the packet arrived cloud
             # need to add the deadline graph and other metrics
-
-            # Check if the packet meet the deadline    
-            if packet.processedTime <= packet.deadline:
-                data.meetDeadline += 1
-            else:
-                data.failed[packet.packetID] = [packet.sendTime, packet.processedTime, packet.deadline]
             
             data.record.write(f"processed time: {packet.processedTime}\n")
             data.latencyList[packet.packetID] = packet.processedTime - packet.sendTime
@@ -119,8 +117,7 @@ class Node:
             queue = copy.deepcopy(self.queue)
             queue.append(packet)
             # scheduling method to use
-            if self.complete_time(queue):
-                        self.queue.append(packet)
+            if self.complete_time(queue, packet):
                         data.record.write("append to queue\n")
                         for packet in self.queue:
                             data.record.write(f"this is queue: {packet.packetID}\n")
@@ -146,7 +143,7 @@ class Node:
         # get a cpu that's free and execute the packet
         for cpus in self.cpuList:
             #select the cpu and break the loop
-            if not cpus.busy():
+            if not self.cpu_in_use[cpus.id]:
                 opt_cpu = cpus
                 
                 data.record.write(f"node id: {self.id}\n")

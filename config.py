@@ -22,10 +22,10 @@ FIXED_DISTANCE = True
 
 # the distance in m between each node
 # propagation speed in m/s
+DISTANCE = 10 * 1000
 PROPAGATION_SPEED = 3 * (10 ** 8)
 
 # transmission speed in Mbps
-DISTANCE = 10
 TRANSMISSION_SPEED = 100
 
 # time of processing a packet
@@ -33,13 +33,13 @@ PROCESS_TIME = 10
 PROCESS_SPEED = 100
 
 # Size of Data pushed to the network but what's the proper size to simulate?  Let's assume its fixed for now
-DATA_SIZE_MAX = 2000
+DATA_SIZE_MAX = 1000
 DATA_SIZE_MIN = 1000
 
 # the scheduling method
 # FIFO = First In First Out
 # EDF = Earliest Deadline First
-SCHEDULING_METHOD = 'fifo'
+SCHEDULING_METHOD = 'edf'
 
 
 random.seed(1)

@@ -45,8 +45,8 @@ class topology:
                 case 'equal':
                     for node_id in graph.nodes:
                         nodes[node_id] = node_class(node_id, env, None, int(config.EQUAL_PROCESSORS), config.DISTANCE)
-                
-            # Establish relationships based on edges
+
+                    # Establish relationships based on edges
             for edge in graph.edges:
                 parent, child = edge
                 parent_node = nodes[parent]

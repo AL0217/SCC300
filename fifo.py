@@ -7,7 +7,7 @@ class fifo(node.Node):
         super().__init__(id, env, node, num_processor, distance)
 
      #function to calculate the completion time for FIFO
-    def complete_time(self, queue):
+    def complete_time(self, queue, packet):
         if len(queue) > config.SIZE_OF_QUEUE:
             return False
         
@@ -23,5 +23,5 @@ class fifo(node.Node):
         if cpu_schedule[selected_cpu] > queue[len(queue) - 1].deadline:
             data.record.write("failed\n")
             return False
-        
+        self.queue.append(packet)
         return True

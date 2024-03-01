@@ -31,7 +31,7 @@ def main():
     print(zeros)
 
     # print(data.latencyList)
-    # data.record.write(data.failed)
+    print(data.failed)
     # top.drawing()
     # data.plotLatency()
     print(len(data.packetSet))

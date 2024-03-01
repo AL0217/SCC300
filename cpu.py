@@ -17,6 +17,9 @@ class cpu:
         self.node = node
     
     def process(self, packet):
+        # if this is the optimal one
+        if config.SCHEDULING_METHOD == "optimal":
+            self.node.simunlation_queue.pop(packet.id)
         # set the cpu to busy
         self.node.cpu_in_use[self.id] = True
         data.record.write(f"cpu list: {self.node.cpu_in_use}")
@@ -30,6 +33,8 @@ class cpu:
         # simulate the time of processing the packet
         yield self.env.timeout(packet.processTime)
 
+        if config.SCHEDULING_METHOD == "optimal":
+            packet.destination = "Cloud"
         # Once processed, reduce the packet size
         packet.dataSize /= 2
 

@@ -3,7 +3,7 @@ import config
 packetCounter = 1
 #statistics of a packet
 class Packets:
-    def __init__(self, destination, processTime, sendTime, deadline, enable_deadline):
+    def __init__(self, destination, processTime, sendTime, deadline):
         global packetCounter
         # check if the packet is processed
         self.packetID = packetCounter
@@ -20,7 +20,6 @@ class Packets:
         self.destination = destination
         
         # deadline of the packet
-        self.enable_deadline = enable_deadline
         self.deadline = deadline
 
         # measuring delay

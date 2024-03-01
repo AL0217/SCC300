@@ -7,7 +7,7 @@ class edf(node.Node):
     
 
     # function to calculate the completion time for EDF
-    def complete_time(self, queue):
+    def complete_time(self, queue, packet):
         cpu_schedule = [self.cpuList[i].next_available_time for i in range(len(self.cpuList))]
         # sort the queue according to deadline
         queue.sort(key = lambda p: p.deadline)
@@ -27,5 +27,6 @@ class edf(node.Node):
                 data.record.write("failed\n")
                 return False
 
-        # if all the packet didn't miss, return yes    
+        # if all the packet didn't miss, return yes   
+        self.queue = queue 
         return True
