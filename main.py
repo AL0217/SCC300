@@ -7,9 +7,9 @@ import data
 
 def main():
     env = simpy.Environment()
-    top = topology()
+    top = topology("TREE")
     
-    nodes = top.simulate_network(env, "TREE", config.CPU_MODE)
+    nodes = top.simulate_network(env, config.CPU_MODE)
 
     # There will be 6 packets per process (in a settings of 5s send) not delivered to cloud because simulation end
     env.process(config.random_Senders(env, nodes, config.SIMULATION_TIME))
@@ -28,7 +28,7 @@ def main():
         if value == 0:
             zeros.append(key)
 
-    print(zeros)
+    # print(zeros)
 
     # print(data.latencyList)
     print(data.failed)

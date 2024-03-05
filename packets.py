@@ -27,3 +27,7 @@ class Packets:
         self.completionTime = 0
         self.processedTime = 0
         self.reached_cloud = 0
+
+        #optimal variables
+        self.arrivalTime = 0
+        self.assigned = False

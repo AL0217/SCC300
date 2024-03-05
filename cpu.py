@@ -19,7 +19,9 @@ class cpu:
     def process(self, packet):
         # if this is the optimal one
         if config.SCHEDULING_METHOD == "optimal":
-            self.node.simunlation_queue.pop(packet.id)
+            for item in self.node.simulation_queue:
+                data.record.write(f"stuff in simulation queue: {item}\n")
+            self.node.simulation_queue.pop(packet.packetID)
         # set the cpu to busy
         self.node.cpu_in_use[self.id] = True
         data.record.write(f"cpu list: {self.node.cpu_in_use}")

@@ -7,6 +7,11 @@ import config
 
 
 class topology:
+    def __init__(self, graph_str):
+        self.nodes = {}
+        if graph_str == "TREE":
+            self.graph = self.__Tree()
+
     # Create a simple graph (you can customize this based on your network topology)
     def __Tree(self):
         tree = nx.Graph()
@@ -22,42 +27,42 @@ class topology:
     
 
 
-    def simulate_network(self, env, graph_str, cpu_mode):
+    def simulate_network(self, env, cpu_mode):
         scheduler_module = __import__(config.SCHEDULING_METHOD)
         node_class = getattr(scheduler_module, config.SCHEDULING_METHOD)
-        nodes = {}
-        if graph_str == "TREE":
-            graph = self.__Tree()
-            # Create nodes based on their names
-            match(cpu_mode):
-                case "high":
-                    for node_id in graph.nodes:
-                        if node_id == "Node1" or node_id == "Node2":
-                            nodes[node_id] = node_class(node_id, env, None, int(config.TOTAL_NUMBER_OF_PROCESSORS / 4), config.DISTANCE)
+        match(cpu_mode):
+            case "high":
+                for node_id in self.graph.nodes:
+                    if node_id == "Node1" or node_id == "Node2":
+                        self.nodes[node_id] = node_class(node_id, env, None, int(config.TOTAL_NUMBER_OF_PROCESSORS / 4), config.DISTANCE, self)
+                        continue
+                    self.nodes[node_id] = node_class(node_id, env, None, int(config.HIGH_LOW_PROCESSORS), config.DISTANCE, self)
+            case "low":
+                for node_id in self.graph.nodes:
+                    if not (node_id == "Node1" or node_id == "Node2"):
+                            self.nodes[node_id] = node_class(node_id, env, None, 6, config.DISTANCE, self)
                             continue
-                        nodes[node_id] = node_class(node_id, env, None, int(config.HIGH_LOW_PROCESSORS), config.DISTANCE)
-                case "low":
-                    for node_id in graph.nodes:
-                        if not (node_id == "Node1" or node_id == "Node2"):
-                                nodes[node_id] = node_class(node_id, env, None, 6, config.DISTANCE)
-                                continue
-                        nodes[node_id] = node_class(node_id, env, None, 2, config.DISTANCE)
-                case 'equal':
-                    for node_id in graph.nodes:
-                        nodes[node_id] = node_class(node_id, env, None, int(config.EQUAL_PROCESSORS), config.DISTANCE)
+                    self.nodes[node_id] = node_class(node_id, env, None, 2, config.DISTANCE, self)
+            case 'equal':
+                for node_id in self.graph.nodes:
+                    self.nodes[node_id] = node_class(node_id, env, None, int(config.EQUAL_PROCESSORS), config.DISTANCE, self)
 
-                    # Establish relationships based on edges
-            for edge in graph.edges:
-                parent, child = edge
-                parent_node = nodes[parent]
-                child_node = nodes[child]
-
-                child_node.nextNode = parent_node
-
-            return nodes
-        return False
+                # Establish relationships based on edges
+        for edge in self.graph.edges:
+            parent, child = edge
+            parent_node = self.nodes[parent]
+            child_node = self.nodes[child]
+            child_node.node_set = nx.shortest_path(self.graph, source=child, target="Cloud", weight='weight')
+            child_node.nextNode = parent_node
+        return self.nodes
 
     def drawing(self):    
         # Visualize the network topology
         nx.draw(self.__Tree(), with_labels=True, font_weight='bold')
         plt.show()
+
+    def get_node(self, id):
+        return self.nodes[id]
+    
+    def get_distance(self, src, dst):
+        return nx.shortest_path_length(self.graph, src, dst)

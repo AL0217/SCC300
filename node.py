@@ -8,10 +8,12 @@ import simpy
 import copy
 
 class Node:
-    def __init__(self, id, env, nextNode, num_processor, distance):
+    def __init__(self, id, env, nextNode, num_processor, distance, topology):
         self.id = id
         self.distance_to_nextNode = distance
         self.queue = []
+        self.node_set = []
+        self.topology = topology
 
         self.cpu_num = num_processor
         self.cpuList = [cpu(env, self, i) for i in range(num_processor)]

@@ -2,7 +2,7 @@ import random
 import data
 
 # Settings of simulation
-CPU_MODE = 'high'
+CPU_MODE = 'equal'
 SIMULATION_TIME = 30000
 
 # Settings of the network
@@ -21,12 +21,12 @@ MULTIPLE_PROCESS = True
 FIXED_DISTANCE = True
 
 # the distance in m between each node
-# propagation speed in m/s
-DISTANCE = 10 * 1000
-PROPAGATION_SPEED = 3 * (10 ** 8)
-
+# distance in km
+# propagation speed in km/s
+DISTANCE = 10
+PROPAGATION_SPEED = 1
 # transmission speed in Mbps
-TRANSMISSION_SPEED = 100
+TRANSMISSION_SPEED = 1000
 
 # time of processing a packet
 PROCESS_TIME = 10
@@ -37,9 +37,10 @@ DATA_SIZE_MAX = 1000
 DATA_SIZE_MIN = 1000
 
 # the scheduling method
-# FIFO = First In First Out
-# EDF = Earliest Deadline First
-SCHEDULING_METHOD = 'edf'
+# fifo = First In First Out
+# edf = Earliest Deadline First
+# optimal = centralized scheduling
+SCHEDULING_METHOD = 'optimal'
 
 
 random.seed(1)

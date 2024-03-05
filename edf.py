@@ -2,8 +2,8 @@ import node
 import data
 
 class edf(node.Node):
-    def __init__(self, id, env, node, num_processor, distance):
-        super().__init__(id, env, node, num_processor, distance)
+    def __init__(self, id, env, node, num_processor, distance, topology):
+        super().__init__(id, env, node, num_processor, distance, topology)
     
 
     # function to calculate the completion time for EDF
