@@ -65,8 +65,7 @@ class optimal(node.Node):
 
         # loop start from the highest node, if the current time + propogation time + process time can meet the deadline
         # set the node to the destination
-        # for item in self.node_set[-2::-1]:
-        #     print(item)
+
         for node in self.node_set[-2:0:-1]:
             distance = self.topology.get_distance(self.id, node)
             packet.arrivalTime = self.env.now + distance * 10
@@ -104,39 +103,7 @@ class optimal(node.Node):
 
         # if this node is cloud
         if self.id == "Cloud":
-            # if packet.packetID not in data.packetSet:
-            #     data.packetSet.add(packet.packetID)
-            # else:
-            #     data.record.write("collide")
-            
-            data.receivedCount += 1
-            data.record.write(f"receive packet: {packet.packetID}")
-            data.record.write(f"received Count: {data.receivedCount}")
-            
-            # Check if the packet is processed
-            if packet.processed:
-                data.record.write("processed packet arrived cloud\n")
-                data.processedCount += 1
-                data.record.write(f"processed Count: {data.processedCount}")
-            else:
-                # if the packet is unprocessed, processed it at cloud immediately
-                data.record.write("unprocessed packet arrived cloud\n")
-
-                # simulate the time for process it at cloud
-                yield self.env.timeout(packet.processTime)
-                packet.processedTime = self.env.now
-
-            # get the data of the packet arrived cloud
-            # need to add the deadline graph and other metrics
-
-            # Check if the packet meet the deadline    
-            if packet.processedTime <= packet.deadline:
-                data.meetDeadline += 1
-            else:
-                data.failed[packet.packetID] = [packet.sendTime, packet.processedTime, packet.deadline]
-            
-            data.record.write(f"processed time: {packet.processedTime}\n")
-            data.latencyList[packet.packetID] = packet.processedTime - packet.sendTime
+            yield from self.cloudReceive(packet)
             return
         
         #######-----IF THIS NODE IS NOT THE CLOUD-----######

@@ -36,6 +36,7 @@ class Node:
 
 
     def receive(self, packet):
+
         # simulate the time used to send the packet
         propagationTime = int(self.distance_to_nextNode / config.PROPAGATION_SPEED)
         transmissionTime = (packet.dataSize / config.TRANSMISSION_SPEED)
@@ -51,38 +52,7 @@ class Node:
 
         # if this node is cloud
         if self.id == "Cloud":
-            
-            if packet.packetID not in data.packetSet:
-                data.packetSet.add(packet.packetID)
-            else:
-                data.record.write("collide")
-            
-            data.receivedCount += 1
-            data.record.write(f"receive packet: {packet.packetID}")
-            data.record.write(f"received Count: {data.receivedCount}")
-            # Check if the packet is processed
-            if packet.processed:
-                data.record.write("processed packet arrived cloud\n")
-                data.processedCount += 1
-                data.record.write(f"processed Count: {data.processedCount}")
-                            # Check if the packet meet the deadline    
-                if packet.processedTime <= packet.deadline:
-                    data.meetDeadline += 1
-                else:
-                    data.failed[packet.packetID] = [packet.sendTime, packet.processedTime, packet.deadline]
-            else:
-                # if the packet is unprocessed, processed it at cloud immediately
-                data.record.write("unprocessed packet arrived cloud\n")
-
-                # simulate the time for process it at cloud
-                yield self.env.timeout(packet.processTime)
-                packet.processedTime = self.env.now
-
-            # get the data of the packet arrived cloud
-            # need to add the deadline graph and other metrics
-            
-            data.record.write(f"processed time: {packet.processedTime}\n")
-            data.latencyList[packet.packetID] = packet.processedTime - packet.sendTime
+            yield from self.cloudReceive(packet)
             return
         
         #######-----IF THIS NODE IS NOT THE CLOUD-----######
@@ -120,10 +90,10 @@ class Node:
             queue.append(packet)
             # scheduling method to use
             if self.complete_time(queue, packet):
-                        data.record.write("append to queue\n")
-                        for packet in self.queue:
-                            data.record.write(f"this is queue: {packet.packetID}\n")
-                        return
+                data.record.write("append to queue\n")
+                for packet in self.queue:
+                    data.record.write(f"this is queue: {packet.packetID}\n")
+                return
         
             # if fail to admit the packet, pass it
             data.record.write("passing\n")
@@ -152,8 +122,41 @@ class Node:
                 data.record.write(f"cpu id: {opt_cpu.id}\n")
                 data.record.write(f"cpu check: {packet.packetID}\n")
                 yield from opt_cpu.process(packet)
-                
                 break
+
+    def cloudReceive(self, packet):
+        if packet.packetID not in data.packetSet:
+            data.packetSet.add(packet.packetID)
+        else:
+            data.record.write("collide")
+        
+        data.receivedCount += 1
+        data.record.write(f"receive packet: {packet.packetID}")
+        data.record.write(f"received Count: {data.receivedCount}")
+        # Check if the packet is processed
+        if packet.processed:
+            data.record.write("processed packet arrived cloud\n")
+            data.processedCount += 1
+            data.record.write(f"processed Count: {data.processedCount}")
+                        # Check if the packet meet the deadline    
+            if packet.processedTime <= packet.deadline:
+                data.meetDeadline += 1
+            else:
+                data.failed[packet.packetID] = [packet.sendTime, packet.processedTime, packet.deadline]
+        else:
+            # if the packet is unprocessed, processed it at cloud immediately
+            data.record.write("unprocessed packet arrived cloud\n")
+
+            # simulate the time for process it at cloud
+            yield self.env.timeout(packet.processTime)
+            packet.processedTime = self.env.now
+
+        # get the data of the packet arrived cloud
+        # need to add the deadline graph and other metrics
+        
+        data.record.write(f"processed time: {packet.processedTime}\n")
+        data.latencyList[packet.packetID] = packet.processedTime - packet.sendTime
+        data.closeToDeadline[packet.packetID] = packet.deadline - packet.processedTime
 
                 
     @abstractmethod

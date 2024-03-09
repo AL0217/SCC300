@@ -2,7 +2,7 @@ import random
 import data
 
 # Settings of simulation
-CPU_MODE = 'equal'
+CPU_MODE = 'high'
 SIMULATION_TIME = 30000
 
 # Settings of the network
@@ -16,6 +16,9 @@ SEND_INTERVAL = 1
 # Option for enable multiple processes
 MULTIPLE_PROCESS = True 
 
+# Rate of request in Request per millisecond
+REQUEST_ARRIVAL_RATE = 2
+LAMBDA = 1 / REQUEST_ARRIVAL_RATE
 
 # enable fixed distance between nodes in the network
 FIXED_DISTANCE = True
@@ -42,21 +45,24 @@ DATA_SIZE_MIN = 1000
 # optimal = centralized scheduling
 SCHEDULING_METHOD = 'optimal'
 
-
 random.seed(1)
 
 def random_Senders(env, nodes, until_time):
     while env.now <= until_time:
+        arrival_rate = random.expovariate(REQUEST_ARRIVAL_RATE)
         sender = random.randint(1, 8)
         senderStr = "User" + str(sender)
         sender_Node = nodes[senderStr]
         env.process(sender_Node.request())
         data.packetCount += 1
         print(f"requested by {senderStr}")
-        yield env.timeout(SEND_INTERVAL)
+        yield env.timeout(arrival_rate)
 
 def gen_deadline(envNow):
     return envNow + random.randint(30,60)
 
 def gen_size():
     return random.randint(DATA_SIZE_MIN, DATA_SIZE_MAX)
+
+def gen_target(nodes, weights):
+    return random.choices(nodes, weights, k = 1)[0]

@@ -13,14 +13,11 @@ def main():
 
     # There will be 6 packets per process (in a settings of 5s send) not delivered to cloud because simulation end
     env.process(config.random_Senders(env, nodes, config.SIMULATION_TIME))
-    env.process(config.random_Senders(env, nodes, config.SIMULATION_TIME))
+    # env.process(config.random_Senders(env, nodes, config.SIMULATION_TIME))
 
-    env.run(until = config.SIMULATION_TIME + 1000)
+    env.run(until = config.SIMULATION_TIME + 5000)
 
-    print(f"packet count: {data.packetCount}")
-    print(f"received count: {data.receivedCount}")
-    print(f"meet deadline count: {data.meetDeadline}")
-    print(f"processed count: {data.processedCount}")
+
     # print(config.NUMBER_OF_PROCESSORS)
     print("")
     zeros = []
@@ -33,7 +30,13 @@ def main():
     # print(data.latencyList)
     print(data.failed)
     # top.drawing()
-    # data.plotLatency()
+    #
     print(len(data.packetSet))
+    print(f"packet count: {data.packetCount}")
+    print(f"received count: {data.receivedCount}")
+    print(f"meet deadline count: {data.meetDeadline}")
+    print(f"processed count: {data.processedCount}")
 
+    data.plotLatency()
+    data.plotIdleTime()
 main()

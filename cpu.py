@@ -15,8 +15,15 @@ class cpu:
 
         # the node that this cpu belongs to
         self.node = node
+
+        self.idle_time = 0
+        self.last_use = 0
+
+        data.cpu_set.append(self.idle_time)
     
     def process(self, packet):
+        # now - last time use
+        self.idle_time += self.env.now - self.last_use
         # if this is the optimal one
         if config.SCHEDULING_METHOD == "optimal":
             for item in self.node.simulation_queue:
@@ -61,5 +68,7 @@ class cpu:
             
             # get the first one from the queue
             self.env.process(self.process(nextPacket))
+        
+        self.last_use = self.env.now
 
     
