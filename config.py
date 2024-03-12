@@ -2,14 +2,20 @@ import random
 import data
 
 # Settings of simulation
-CPU_MODE = 'high'
-SIMULATION_TIME = 30000
+CPU_MODE = 'equal'
+
+SIMULATION_TIME = 300 * 1000
 
 # Settings of the network
 LEVEL_OF_TOPOLOGY = 3
 TOTAL_NUMBER_OF_PROCESSORS = 24       #should be any reasonable number can be divided by 4
-EQUAL_PROCESSORS = 4
-HIGH_LOW_PROCESSORS = int((TOTAL_NUMBER_OF_PROCESSORS / 2) / 2**(LEVEL_OF_TOPOLOGY-1))
+EQUAL_PROCESSORS = 20
+HIGH_HIGHER_LEVEL = 80
+HIGH_LOWER_LEVEL = 40
+
+LOW_LOWER_LEVEL = 80
+LOW_HIGHER_LEVEL = 40
+
 SIZE_OF_QUEUE = 4
 SEND_INTERVAL = 1
 
@@ -17,19 +23,15 @@ SEND_INTERVAL = 1
 MULTIPLE_PROCESS = True 
 
 # Rate of request in Request per millisecond
-REQUEST_ARRIVAL_RATE = 2
-LAMBDA = 1 / REQUEST_ARRIVAL_RATE
+REQUEST_ARRIVAL_RATE = 10
+# LAMBDA = 1 / REQUEST_ARRIVAL_RATE
 
 # enable fixed distance between nodes in the network
 FIXED_DISTANCE = True
 
 # the distance in m between each node
-# distance in km
-# propagation speed in km/s
-DISTANCE = 10
-PROPAGATION_SPEED = 1
-# transmission speed in Mbps
-TRANSMISSION_SPEED = 1000
+# propagation speed in ms
+PROPAGATION_TIME = 10
 
 # time of processing a packet
 PROCESS_TIME = 10
@@ -47,16 +49,23 @@ SCHEDULING_METHOD = 'optimal'
 
 random.seed(1)
 
+def recordData(env, until_time):
+    while env.now <= until_time:
+        if env.now % 50 == 0:
+            data.processed_rate.append(data.cal_processedRate())
+            data.satisfaction_rate.append(data.cal_satisfaction())
+
+
 def random_Senders(env, nodes, until_time):
     while env.now <= until_time:
-        arrival_rate = random.expovariate(REQUEST_ARRIVAL_RATE)
+        send_time = random.expovariate(REQUEST_ARRIVAL_RATE)
         sender = random.randint(1, 8)
         senderStr = "User" + str(sender)
         sender_Node = nodes[senderStr]
         env.process(sender_Node.request())
         data.packetCount += 1
-        print(f"requested by {senderStr}")
-        yield env.timeout(arrival_rate)
+        # print(f"requested by {senderStr}")
+        yield env.timeout(send_time)
 
 def gen_deadline(envNow):
     return envNow + random.randint(30,60)

@@ -13,7 +13,7 @@ class Packets:
 
         # the time it takes to process the packet
         self.dataSize = config.gen_size()
-        # self.processTime = self.dataSize / 100
+
         self.processTime = int(self.dataSize/config.PROCESS_SPEED)
         
         # destination of the packet

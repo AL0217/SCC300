@@ -19,25 +19,25 @@ class cpu:
         self.idle_time = 0
         self.last_use = 0
 
-        data.cpu_set.append(self.idle_time)
     
     def process(self, packet):
         # now - last time use
         self.idle_time += self.env.now - self.last_use
         # if this is the optimal one
         if config.SCHEDULING_METHOD == "optimal":
-            for item in self.node.simulation_queue:
-                data.record.write(f"stuff in simulation queue: {item}\n")
+            # for item in self.node.simulation_queue:
+            #     data.record.write(f"stuff in simulation queue: {item}\n")
             self.node.simulation_queue.pop(packet.packetID)
         # set the cpu to busy
         self.node.cpu_in_use[self.id] = True
-        data.record.write(f"cpu list: {self.node.cpu_in_use}")
         self.next_available_time = self.env.now + packet.processTime
 
         # print status of cpu
-        data.record.write(f"cpu id: {self.id}\n")
-        data.record.write(f"processing: {packet.packetID} and deadline: {packet.deadline}\n")
-        data.record.write(f"now: {self.env.now}\n")
+        # data.record.write(f"cpu id: {self.id}\n")
+        # for cpus in self.node.cpuList:
+        #     data.record.write(f" {cpus.id} : {cpus.next_available_time} \n")
+        # data.record.write(f"processing: {packet.packetID} and deadline: {packet.deadline}\n")
+        # data.record.write(f"now: {self.env.now}\n")
 
         # simulate the time of processing the packet
         yield self.env.timeout(packet.processTime)
@@ -50,21 +50,21 @@ class cpu:
         # update the status of the packet
         packet.processedTime = self.env.now
         packet.processed = True
-        data.record.write(f"processed Time: {packet.processedTime}\n")
-        data.record.write(f"releasing cpu id: {self.id}\n")
-        data.record.write(f"processing: {packet.packetID}\n")
-        data.record.write(f"now: {self.env.now}\n")
+        # data.record.write(f"processed Time: {packet.processedTime}\n")
+        # data.record.write(f"releasing cpu id: {self.id}\n")
+        # data.record.write(f"processing: {packet.packetID}\n")
+        # data.record.write(f"now: {self.env.now}\n")
         # release the cpu
         self.node.cpu_in_use[self.id] = False
         
         # send it to the next node
         self.env.process(self.node.nextNode.receive(packet))
-        data.record.write(f"finished packet: {packet.packetID}\n")
+        # data.record.write(f"finished packet: {packet.packetID}\n")
 
         # check if there is any packet waiting in the queue
         if len(self.node.queue) > 0:
             nextPacket = self.node.queue.pop(0)
-            data.record.write(f"next packet: {nextPacket}\n")
+            # data.record.write(f"next packet: {nextPacket.packetID}\n")
             
             # get the first one from the queue
             self.env.process(self.process(nextPacket))

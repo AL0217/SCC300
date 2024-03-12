@@ -25,18 +25,27 @@ def main():
         if value == 0:
             zeros.append(key)
 
+    print(data.debug)
     # print(zeros)
+    for node in nodes:
+        for cpu in nodes[node].cpuList:
+            data.cpu_idle_time.append([node, cpu.idle_time])
 
     # print(data.latencyList)
-    print(data.failed)
+    # print(data.failed)
     # top.drawing()
     #
-    print(len(data.packetSet))
+    # print(len(data.packetSet))
+    print(f"cpu idle time: {data.cpu_idle_time}")
     print(f"packet count: {data.packetCount}")
     print(f"received count: {data.receivedCount}")
     print(f"meet deadline count: {data.meetDeadline}")
+    print(f"satisfaction rate: {data.cal_satisfaction()}")
     print(f"processed count: {data.processedCount}")
+    print(f"processed rate: {data.cal_processedRate()}")
 
     data.plotLatency()
     data.plotIdleTime()
+    data.plotProcessedRate()
+    data.plotSatisfactionRate
 main()

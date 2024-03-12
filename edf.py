@@ -14,17 +14,17 @@ class edf(node.Node):
 
         # simulate the queue to check if any of the packets will miss the deadline if added the new packet
         for packet in queue:
-            data.record.write(f"the schedule: {cpu_schedule}\n")
+            # data.record.write(f"the schedule: {cpu_schedule}\n")
             # get the earliest available cpu
             selected_cpu = cpu_schedule.index(min(cpu_schedule))
             
             # update the scheduler
             cpu_schedule[selected_cpu] += packet.processTime
-            data.record.write(f"deadline: {packet.deadline}\n")
+            # data.record.write(f"deadline: {packet.deadline}\n")
 
             # check if the packet fail to meet the deadline
             if cpu_schedule[selected_cpu] > packet.deadline:
-                data.record.write("failed\n")
+                # data.record.write("failed\n")
                 return False
 
         # if all the packet didn't miss, return yes   

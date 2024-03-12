@@ -34,18 +34,18 @@ class topology:
             case "high":
                 for node_id in self.graph.nodes:
                     if node_id == "Node1" or node_id == "Node2":
-                        self.nodes[node_id] = node_class(node_id, env, None, int(config.TOTAL_NUMBER_OF_PROCESSORS / 4), config.DISTANCE, self)
+                        self.nodes[node_id] = node_class(node_id, env, None, config.HIGH_HIGHER_LEVEL, config.PROPAGATION_TIME, self)
                         continue
-                    self.nodes[node_id] = node_class(node_id, env, None, int(config.HIGH_LOW_PROCESSORS), config.DISTANCE, self)
+                    self.nodes[node_id] = node_class(node_id, env, None, config.HIGH_LOWER_LEVEL, config.PROPAGATION_TIME, self)
             case "low":
                 for node_id in self.graph.nodes:
                     if not (node_id == "Node1" or node_id == "Node2"):
-                            self.nodes[node_id] = node_class(node_id, env, None, 6, config.DISTANCE, self)
-                            continue
-                    self.nodes[node_id] = node_class(node_id, env, None, 2, config.DISTANCE, self)
+                        self.nodes[node_id] = node_class(node_id, env, None, config.LOW_LOWER_LEVEL, config.PROPAGATION_TIME, self)
+                        continue
+                    self.nodes[node_id] = node_class(node_id, env, None, config.LOW_HIGHER_LEVEL, config.PROPAGATION_TIME, self)
             case 'equal':
                 for node_id in self.graph.nodes:
-                    self.nodes[node_id] = node_class(node_id, env, None, int(config.EQUAL_PROCESSORS), config.DISTANCE, self)
+                    self.nodes[node_id] = node_class(node_id, env, None, config.EQUAL_PROCESSORS, config.PROPAGATION_TIME, self)
 
                 # Establish relationships based on edges
         for edge in self.graph.edges:
