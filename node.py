@@ -8,7 +8,7 @@ import simpy
 import copy
 
 class Node:
-    def __init__(self, id, env, nextNode, num_processor, distance, topology):
+    def __init__(self, id, env, nextNode, num_processor, distance, topology, experimentID):
         self.id = id
         self.distance_to_nextNode = distance
         self.queue = []
@@ -20,6 +20,7 @@ class Node:
         self.cpu_in_use = {i: False for i in range(num_processor)}
         self.nextNode = nextNode
         self.env = env
+        self.experimentID = experimentID
         
 
     def request(self):
@@ -27,7 +28,7 @@ class Node:
         packet = Packets(destination = "Cloud", processTime=config.PROCESS_TIME, sendTime=self.env.now, deadline=(config.gen_deadline(self.env.now)))
 
         # add the packet to the list
-        data.latencyList[packet.packetID] = 0
+        data.latencyList[self.experimentID][packet.packetID] = 0
         # data.record.write(f"packet id: {packet.packetID}\n")
         # data.record.write(f"time now: {self.env.now}\n")
         # Send the packet
@@ -38,9 +39,7 @@ class Node:
     def receive(self, packet):
 
         # simulate the time used to send the packet
-        propagationTime = int(self.distance_to_nextNode / config.PROPAGATION_SPEED)
-        transmissionTime = (packet.dataSize / config.TRANSMISSION_SPEED)
-        yield self.env.timeout(propagationTime + transmissionTime)
+        yield self.env.timeout(self.distance_to_nextNode)
 
         # print the info of the packet and the node
         # data.record.write("Transmitted\n")
@@ -125,18 +124,18 @@ class Node:
                 break
 
     def cloudReceive(self, packet):
-        if packet.packetID not in data.packetSet:
-            data.packetSet.add(packet.packetID)
+        if packet.packetID not in data.packetSet[self.experimentID]:
+            data.packetSet[self.experimentID].add(packet.packetID)
         # else:
         #     data.record.write("collide")
         
-        data.receivedCount += 1
+        data.receivedCount[self.experimentID] += 1
         # data.record.write(f"receive packet: {packet.packetID}")
         # data.record.write(f"received Count: {data.receivedCount}")
         # Check if the packet is processed
         if packet.processed:
             # data.record.write("processed packet arrived cloud\n")
-            data.processedCount += 1
+            data.processedCount[self.experimentID] += 1
             # data.record.write(f"processed Count: {data.processedCount}")
         else:
             # if the packet is unprocessed, processed it at cloud immediately
@@ -148,18 +147,18 @@ class Node:
 
         # Check if the packet meet the deadline 
         if packet.processedTime <= packet.deadline:
-            data.meetDeadline += 1
-        else:
-            data.failed[packet.packetID] = [packet.sendTime, packet.processedTime, packet.deadline]
+            data.meetDeadline[self.experimentID] += 1
+        # else:
+        #     data.failed[self.experimentID][packet.packetID] = [packet.sendTime, packet.processedTime, packet.deadline]
 
-        if packet.processed and not (packet.processedTime <= packet.deadline):
-            data.debug.append(packet.packetID)
+        # if packet.processed and not (packet.processedTime <= packet.deadline):
+        #     data.debug.append(packet.packetID)
         # get the data of the packet arrived cloud
         # need to add the deadline graph and other metrics
         
         # data.record.write(f"processed time: {packet.processedTime}\n")
-        data.latencyList[packet.packetID] = packet.processedTime - packet.sendTime
-        data.closeToDeadline[packet.packetID] = packet.deadline - packet.processedTime
+        data.latencyList[self.experimentID][packet.packetID] = packet.processedTime - packet.sendTime
+        data.closeToDeadline[self.experimentID][packet.packetID] = packet.deadline - packet.processedTime
 
                 
     @abstractmethod

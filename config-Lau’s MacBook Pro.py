@@ -2,15 +2,9 @@ import random
 import data
 
 # Settings of simulation
-cpu_mode = 'equal'
-# the scheduling method
-# fifo = First In First Out
-# edf = Earliest Deadline First
-# optimal = centralized scheduling
-scheduling_method = 'optimal'
+CPU_MODE = 'equal'
 
-
-SIMULATION_TIME = 3000
+SIMULATION_TIME = 30000
 
 # Settings of the network
 LEVEL_OF_TOPOLOGY = 3
@@ -47,29 +41,33 @@ PROCESS_SPEED = 100
 DATA_SIZE_MAX = 1000
 DATA_SIZE_MIN = 1000
 
-
+# the scheduling method
+# fifo = First In First Out
+# edf = Earliest Deadline First
+# optimal = centralized scheduling
+SCHEDULING_METHOD = 'optimal'
 
 random.seed(1)
 
-def recordData(env, experimentID, until_time):
+def recordData(env, until_time):
     while env.now <= until_time:
         if env.now == 0:
-            data.processed_rate[experimentID].append(0.0)
-            data.satisfaction_rate[experimentID].append(0.0)
+            data.processed_rate.append(0.0)
+            data.satisfaction_rate.append(0.0)
         else:
             data.processed_rate.append(data.cal_processedRate())
             data.satisfaction_rate.append(data.cal_satisfaction())
         yield env.timeout(500)
 
 
-def random_Senders(env, nodes, until_time, experimentID):
+def random_Senders(env, nodes, until_time):
     while env.now <= until_time:
         send_time = random.expovariate(REQUEST_ARRIVAL_RATE)
         sender = random.randint(1, 8)
         senderStr = "User" + str(sender)
         sender_Node = nodes[senderStr]
         env.process(sender_Node.request())
-        data.packetCount[experimentID] += 1
+        data.packetCount += 1
         # print(f"requested by {senderStr}")
         yield env.timeout(send_time)
 

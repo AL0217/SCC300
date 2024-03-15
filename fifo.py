@@ -3,8 +3,8 @@ import data
 import config
 
 class fifo(node.Node):
-    def __init__(self, id, env, node, num_processor, distance, topology):
-        super().__init__(id, env, node, num_processor, distance, topology)
+    def __init__(self, id, env, node, num_processor, distance, topology, experimentID):
+        super().__init__(id, env, node, num_processor, distance, topology, experimentID)
 
      #function to calculate the completion time for FIFO
     def complete_time(self, queue, packet):

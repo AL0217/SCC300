@@ -5,8 +5,8 @@ from packets import Packets
 import random
 
 class probability (Node):
-    def __init__(self, id, env, nextNode, num_processor, distance, topology):
-        super().__init__(id, env, nextNode, num_processor, distance, topology)
+    def __init__(self, id, env, nextNode, num_processor, distance, topology, experimentID):
+        super().__init__(id, env, nextNode, num_processor, distance, topology, experimentID)
 
     def scheduling(self):
         weights = []
@@ -36,7 +36,7 @@ class probability (Node):
         packet.destination = self.scheduling()
 
         # add the packet to the list
-        data.latencyList[packet.packetID] = 0
+        data.latencyList[self.experimentID][packet.packetID] = 0
         # data.record.write(f"packet id: {packet.packetID}\n")
         # data.record.write(f"time now: {self.env.now}\n")
         # Send the packet
@@ -45,8 +45,7 @@ class probability (Node):
 
     def receive(self, packet):
         # simulate the time used to send the packet
-        propagationTime = int(self.distance_to_nextNode / config.PROPAGATION_SPEED)
-        yield self.env.timeout(propagationTime)
+        yield self.env.timeout(self.distance_to_nextNode)
 
         # print the info of the packet and the node
         # data.record.write("Transmitted\n")

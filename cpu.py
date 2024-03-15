@@ -24,7 +24,7 @@ class cpu:
         # now - last time use
         self.idle_time += self.env.now - self.last_use
         # if this is the optimal one
-        if config.SCHEDULING_METHOD == "optimal":
+        if config.scheduling_method == "optimal":
             # for item in self.node.simulation_queue:
             #     data.record.write(f"stuff in simulation queue: {item}\n")
             self.node.simulation_queue.pop(packet.packetID)
@@ -42,7 +42,7 @@ class cpu:
         # simulate the time of processing the packet
         yield self.env.timeout(packet.processTime)
 
-        if config.SCHEDULING_METHOD == "optimal":
+        if config.scheduling_method == "optimal":
             packet.destination = "Cloud"
         # Once processed, reduce the packet size
         packet.dataSize /= 2

@@ -6,8 +6,8 @@ from topology import topology
 from packets import Packets
 
 class optimal(node.Node):
-    def __init__(self, id, env, node, num_processor, distance, topology):
-        super().__init__(id, env, node, num_processor, distance, topology)
+    def __init__(self, id, env, node, num_processor, distance, topology, experimentID):
+        super().__init__(id, env, node, num_processor, distance, topology, experimentID)
         self.simulation_queue = {}
     
     def scheduling(self, packet):
@@ -86,7 +86,7 @@ class optimal(node.Node):
                 break
 
         # add the packet to the list
-        data.latencyList[packet.packetID] = 0
+        data.latencyList[self.experimentID][packet.packetID] = 0
         # data.record.write(f"packet id: {packet.packetID}\n")
         # data.record.write(f"time now: {self.env.now}\n")
         # Send the packet
