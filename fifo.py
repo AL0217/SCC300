@@ -3,8 +3,8 @@ import data
 import config
 
 class fifo(node.Node):
-    def __init__(self, id, env, node, num_processor, distance, topology, experimentID):
-        super().__init__(id, env, node, num_processor, distance, topology, experimentID)
+    def __init__(self, id, env, node, num_processor, distance, topology):
+        super().__init__(id, env, node, num_processor, distance, topology)
 
      #function to calculate the completion time for FIFO
     def complete_time(self, queue, packet):
@@ -20,7 +20,7 @@ class fifo(node.Node):
             # data.record.write(f"deadline: {queue[i].deadline}\n")
 
         # check if the current time + process time + queue time can meet the deadline    
-        if cpu_schedule[selected_cpu] > queue[len(queue) - 1].deadline:
+        if cpu_schedule[selected_cpu] > packet.deadline:
             # data.record.write("failed\n")
             return False
         self.queue.append(packet)

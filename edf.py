@@ -2,8 +2,8 @@ import node
 import data
 
 class edf(node.Node):
-    def __init__(self, id, env, node, num_processor, distance, topology, experimentID):
-        super().__init__(id, env, node, num_processor, distance, topology, experimentID)
+    def __init__(self, id, env, node, num_processor, distance, topology):
+        super().__init__(id, env, node, num_processor, distance, topology)
     
 
     # function to calculate the completion time for EDF
@@ -28,5 +28,6 @@ class edf(node.Node):
                 return False
 
         # if all the packet didn't miss, return yes   
-        self.queue = queue 
+        self.queue.append(packet)
+        self.queue.sort(key = lambda p: p.deadline)
         return True

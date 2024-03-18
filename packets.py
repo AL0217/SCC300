@@ -31,3 +31,4 @@ class Packets:
         #optimal variables
         self.arrivalTime = 0
         self.assigned = False
+        self.simulate_processed = False

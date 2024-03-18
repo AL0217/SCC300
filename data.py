@@ -1,47 +1,45 @@
 import matplotlib.pyplot as plt
 import config
 
-experimentID = 0
+packetCount = 0
+receivedCount = 0
 
-packetCount = [0,0,0,0]
-receivedCount = [0,0,0,0]
+processedCount = 0
 
-processedCount = [0,0,0,0]
+meetDeadline = 0
 
-meetDeadline = [0,0,0,0]
-
-packetList = [{}, {}, {}, {}]
+packetList = {}
 
 
 # Metrics
 
 # Latency of packet being processed
-latencyList = [{}, {}, {}, {}]
+latencyList = {}
 
 # The remaining deadline
-closeToDeadline = [{}, {}, {}, {}]
+closeToDeadline = {}
 
 # CPU idle time
-cpu_idle_time = [[], [], [], []]
+cpu_idle_time = []
 
 # Satisfaction rate
-satisfaction_rate = [[], [], [], []]
+satisfaction_rate = []
 
 # processed rate
-processed_rate = [[], [], [], []]
+processed_rate = []
 
-# failed = {}
+failed = {}
 
 # debug = []
-packetSet = [set(), set(), set(), set()]
+packetSet = set()
 
 record = open("record.txt", "w")
 # packetLossRate = (receivedCount / packetCount) * 100
 # processedRate = processedCount / receivedCount
 
 def plotLatency():
-    x_values = range(1, packetCount[experimentID]+1)
-    plt.bar(x_values, list(latencyList[experimentID].values()))
+    x_values = range(1, packetCount+1)
+    plt.bar(x_values, list(latencyList.values()))
 
     # Add labels and title
     plt.xlabel('Packets id')
@@ -54,9 +52,9 @@ def plotLatency():
     # Show the plot
     plt.show()
 
-def plotIdleTime():
-    x_values = range(1, packetCount[experimentID] + 1)
-    plt.bar(x_values, list(closeToDeadline[experimentID].values()))
+def plotRemainingTime():
+    x_values = range(1, packetCount + 1)
+    plt.bar(x_values, list(closeToDeadline.values()))
 
     # Add labels and title
     plt.xlabel('Packets id')
@@ -69,28 +67,39 @@ def plotIdleTime():
 
 def cal_satisfaction():
     # Satisfaction rate (rate of meeting the deadline)
-    return meetDeadline[experimentID] / packetCount[experimentID]
+    # print(meetDeadline)
+    # print(packetCount)
+    return meetDeadline / packetCount
 
 def cal_processedRate():
     # Processed rate - rate of being processed before cloud
-    return processedCount[experimentID] / packetCount[experimentID]
+    return processedCount / packetCount
 
 def plotSatisfactionRate():
     x_values = range(0, config.SIMULATION_TIME, 50 * 1000)
-    plt.plot(satisfaction_rate[experimentID])
+    plt.plot(satisfaction_rate[0], label = "optimal", color = "black")
+    plt.plot(satisfaction_rate[1], label = "edf", color = "blue")
+    plt.plot(satisfaction_rate[2], label = "fifo", color = "red")
+    plt.plot(satisfaction_rate[3], label = "prob", color = "green")
 
     plt.xlabel('simulation time')
     plt.ylabel('satisfaction rate')
     plt.title('Satisfaction rate over 300 seconds time period')
 
+    plt.legend()
     plt.show()
 
 def plotProcessedRate():
     x_values = range(0, config.SIMULATION_TIME, 50 * 1000)
-    plt.plot(processed_rate[experimentID])
+    plt.plot(processed_rate[0], label = "optimal", color = "black")
+    plt.plot(processed_rate[1], label = "edf", color = "blue")
+    plt.plot(processed_rate[2], label = "fifo", color = "red")
+    plt.plot(processed_rate[3], label = "prob", color = "green")
+        
+    
 
     plt.xlabel('simulation time')
     plt.ylabel('processed rate')
     plt.title('processed rate over 300 seconds time period')
-
+    plt.legend()
     plt.show()
