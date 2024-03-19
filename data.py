@@ -1,85 +1,116 @@
 import matplotlib.pyplot as plt
 import config
 
-packetCount = 0
-receivedCount = 0
+packetCount = [0, 0, 0, 0]
+receivedCount = [0, 0, 0, 0]
 
-processedCount = 0
+processedCount = [0, 0, 0, 0]
 
-meetDeadline = 0
+meetDeadline = [0, 0, 0, 0]
 
-packetList = {}
+packetList = [{}, {}, {}, {}]
 
-
+experiment_set = ["fifo", "edf", "optimal", "probability"]
 # Metrics
 
 # Latency of packet being processed
-latencyList = {}
+latencyList = [{}, {}, {}, {}]
 
 # The remaining deadline
-closeToDeadline = {}
-
+closeToDeadline = [{}, {}, {}, {}]
 # CPU idle time
-cpu_idle_time = []
+cpu_idle_time = [[], [], [], []]
+cpu_id = [[], [], [], []]
 
 # Satisfaction rate
-satisfaction_rate = []
+satisfaction_rate = [[], [], [], []]
 
 # processed rate
-processed_rate = []
+processed_rate = [[], [], [], []]
 
-failed = {}
+failed = [{}, {}, {}, {}]
 
 # debug = []
-packetSet = set()
+packetSet = [set(), set(), set(), set()]
 
 record = open("record.txt", "w")
 # packetLossRate = (receivedCount / packetCount) * 100
 # processedRate = processedCount / receivedCount
 
 def plotLatency():
-    x_values = range(1, packetCount+1)
-    plt.bar(x_values, list(latencyList.values()))
+    plt.figure(figsize=(8,6))
+    x_values = experiment_set
+    y_values = []
+
+    for i in range(len(latencyList)):
+        y_values.append(sum(latencyList[i].values())/packetCount[i])
+
+    plt.bar(x_values, y_values)
 
     # Add labels and title
     plt.xlabel('Packets id')
-    plt.ylabel('Latency')
-    plt.title('Latency of packets')
-    # plt.grid(True)
-    # plt.legend()
-    # print(latencyList)
+    plt.ylabel('Average Latency')
+    plt.title('Average latency of packets')
 
     # Show the plot
-    plt.show()
+    # plt.show()
+    plt.savefig("graphs/Latency_of_packets.png")
 
 def plotRemainingTime():
-    x_values = range(1, packetCount + 1)
-    plt.bar(x_values, list(closeToDeadline.values()))
+    plt.figure(figsize=(8,6))
+    x_values = experiment_set
+
+    y_values = []
+
+    for i in range(len(closeToDeadline)):
+        y_values.append(sum(closeToDeadline[i].values())/(packetCount[i]))
+
+    plt.bar(x_values, y_values)
 
     # Add labels and title
     plt.xlabel('Packets id')
-    plt.ylabel('deadline diff')
-    plt.title('Remaining deadlines')
-    # print(latencyList)
+    plt.ylabel('average remaining deadlines')
+    plt.title('Average remaining deadlines')
 
     # Show the plot
-    plt.show()
+    # plt.show()
+    plt.savefig("graphs/Remaining_deadlines.png")
 
 def cal_satisfaction():
     # Satisfaction rate (rate of meeting the deadline)
-    # print(meetDeadline)
-    # print(packetCount)
-    return meetDeadline / packetCount
+    return meetDeadline[config.experimentID] / packetCount[config.experimentID]
 
 def cal_processedRate():
     # Processed rate - rate of being processed before cloud
-    return processedCount / packetCount
+    return processedCount[config.experimentID] / packetCount[config.experimentID]
+
+def plotCPUidleTime():
+    plt.figure(figsize=(10,6))
+    y_values = cpu_idle_time
+    
+    x = range(len(cpu_id[0]))
+    width = 0.2
+
+    plt.bar(cpu_id[0], y_values[0], width=width, label = "fifo")
+    plt.bar([i + width for i in x], y_values[1], width=width, label = "edf")
+    plt.bar([i + 2 * width for i in x], y_values[2], width=width, label = "optimal")
+    plt.bar([i + 3 * width for i in x], y_values[3], width=width, label = "prob")
+
+    # Add labels and title
+    plt.xlabel('cpu')
+    plt.ylabel('cpu idle time')
+    plt.title('CPU idle time')
+    plt.legend()
+
+    # Show the plot
+    # plt.show()
+    plt.savefig("graphs/cpu_idle_time.png")
 
 def plotSatisfactionRate():
-    x_values = range(0, config.SIMULATION_TIME, 50 * 1000)
-    plt.plot(satisfaction_rate[0], label = "optimal", color = "black")
+    plt.figure(figsize=(8,6))
+    plt.plot(satisfaction_rate[2], label = "optimal", color = "black")
     plt.plot(satisfaction_rate[1], label = "edf", color = "blue")
-    plt.plot(satisfaction_rate[2], label = "fifo", color = "red")
+    plt.plot(satisfaction_rate[0], label = "fifo", color = "red")
     plt.plot(satisfaction_rate[3], label = "prob", color = "green")
 
     plt.xlabel('simulation time')
@@ -87,13 +118,14 @@ def plotSatisfactionRate():
     plt.title('Satisfaction rate over 300 seconds time period')
 
     plt.legend()
-    plt.show()
+    # plt.show()
+    plt.savefig("graphs/Satisfaction_rate" + experiment_set[config.experimentID] + ".png")
 
 def plotProcessedRate():
-    x_values = range(0, config.SIMULATION_TIME, 50 * 1000)
-    plt.plot(processed_rate[0], label = "optimal", color = "black")
+    plt.figure(figsize=(8,6))
+    plt.plot(processed_rate[2], label = "optimal", color = "black")
     plt.plot(processed_rate[1], label = "edf", color = "blue")
-    plt.plot(processed_rate[2], label = "fifo", color = "red")
+    plt.plot(processed_rate[0], label = "fifo", color = "red")
     plt.plot(processed_rate[3], label = "prob", color = "green")
         
     
@@ -102,4 +134,5 @@ def plotProcessedRate():
     plt.ylabel('processed rate')
     plt.title('processed rate over 300 seconds time period')
     plt.legend()
-    plt.show()
+    # plt.show()
+    plt.savefig("graphs/ProcessRate" + experiment_set[config.experimentID] + ".png")

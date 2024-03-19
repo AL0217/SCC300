@@ -9,7 +9,7 @@ def main():
     env = simpy.Environment()
     top = topology("TREE")
     
-    config.scheduling_method = "fifo"
+    config.scheduling_method = "optimal"
     nodes = top.simulate_network(env, config.cpu_mode)
 
     # There will be 6 packets per process (in a settings of 5s send) not delivered to cloud because simulation end
@@ -21,23 +21,29 @@ def main():
 
     for node in nodes:
         for cpu in nodes[node].cpuList:
-            data.cpu_idle_time.append([node, cpu.idle_time])
-    
-    data.record.write(f"cpu idle time: {data.cpu_idle_time}\n")
-    data.record.write(f"packet count: {data.packetCount}\n")
-    data.record.write(f"received count: {data.receivedCount}\n")
-    data.record.write(f"meet deadline count: {data.meetDeadline}\n")
-    data.record.write(f"satisfaction rate: {data.cal_satisfaction()}\n")
-    data.record.write(f"processed count: {data.processedCount}\n")
-    data.record.write(f"processed rate: {data.cal_processedRate()}\n")
+            data.cpu_idle_time[config.experimentID].append([(node, cpu.id), cpu.idle_time])
+
+    print(f"cpu idle time: {data.cpu_idle_time}\n")
+    print(f"packet count: {data.packetCount}\n")
+    print(f"received count: {data.receivedCount}\n")
+    print(f"meet deadline count: {data.meetDeadline}\n")
+    print(f"satisfaction rate: {data.cal_satisfaction()}\n")
+    print(f"processed count: {data.processedCount}\n")
+    print(f"processed rate: {data.cal_processedRate()}\n")
 
     # data.plotLatency()
     # data.plotRemainingTime()
 
-    data.record.write(f"{data.processed_rate}\n")
-    data.record.write(f"{data.satisfaction_rate}\n")
+    print(f"processed rate: {data.processed_rate}\n")
+    print(f"satisfaction rate: {data.satisfaction_rate}\n")
 
-    data.record.write(f"{data.failed}")
+    # data.record.write(f"{data.failed}")
+    needed = []
+    for key, value in data.failed[0].items():
+        if round(value[1], 5) - round(value[0], 5) != 40:
+            needed.append((key, value))  # Append both the key and value
+    data.record.write(f"Packets I need: {needed}")
+    print(len(needed))
     # data.plotProcessedRate()
     # data.plotSatisfactionRate()
 

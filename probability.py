@@ -7,18 +7,16 @@ import random
 class probability (Node):
     def __init__(self, id, env, nextNode, num_processor, distance, topology):
         super().__init__(id, env, nextNode, num_processor, distance, topology)
+        self.randAssignment = random.Random()
+        self.randAssignment.seed(1)
 
     def scheduling(self):
         weights = []
         nodes = self.node_set[-2:0:-1]
-    
         for node in nodes:
             weights.append(self.topology.get_node(node).cpu_num)
 
-        # print(nodes)
-        # print(weights)
-        assignment = config.gen_target(nodes, weights)
-        # print(assignment)
+        assignment = self.randAssignment.choices(nodes, weights, k = 1)[0]
         return assignment
 
 
@@ -26,8 +24,7 @@ class probability (Node):
 
     def request(self):
         # create a packet that need to be send
-        gen_deadline = config.gen_deadline(self.env.now)
-        packet = Packets(destination=1, processTime=config.PROCESS_TIME, sendTime=self.env.now, deadline = gen_deadline)
+        packet = Packets(destination="Cloud", processTime=config.PROCESS_TIME, sendTime=self.env.now, deadline = (config.gen_deadline(self.env.now)))
 
         # loop start from the highest node, if the current time + propogation time + process time can meet the deadline
         # set the node to the destination
@@ -36,7 +33,7 @@ class probability (Node):
         packet.destination = self.scheduling()
 
         # add the packet to the list
-        data.latencyList[packet.packetID] = 0
+        data.latencyList[config.experimentID][packet.packetID] = 0
         # data.record.write(f"packet id: {packet.packetID}\n")
         # data.record.write(f"time now: {self.env.now}\n")
         # Send the packet

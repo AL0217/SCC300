@@ -20,6 +20,7 @@ class Node:
         self.cpu_in_use = {i: False for i in range(num_processor)}
         self.nextNode = nextNode
         self.env = env
+        self.experimentID = config.experimentID
         
 
     def request(self):
@@ -27,9 +28,7 @@ class Node:
         packet = Packets(destination = "Cloud", processTime=config.PROCESS_TIME, sendTime=self.env.now, deadline=(config.gen_deadline(self.env.now)))
 
         # add the packet to the list
-        data.latencyList[packet.packetID] = 0
-        # data.record.write(f"packet id: {packet.packetID}\n")
-        # data.record.write(f"time now: {self.env.now}\n")
+        data.latencyList[self.experimentID][packet.packetID] = 0
         # Send the packet
     
         yield from self.nextNode.receive(packet)
@@ -124,17 +123,17 @@ class Node:
 
     def cloudReceive(self, packet):
         if packet.packetID not in data.packetSet:
-            data.packetSet.add(packet.packetID)
+            data.packetSet[self.experimentID].add(packet.packetID)
         # else:
         #     data.record.write("collide")
         
-        data.receivedCount += 1
+        data.receivedCount[self.experimentID] += 1
         # data.record.write(f"receive packet: {packet.packetID}")
         # data.record.write(f"received Count: {data.receivedCount}")
         # Check if the packet is processed
         if packet.processed:
             # data.record.write("processed packet arrived cloud\n")
-            data.processedCount += 1
+            data.processedCount[self.experimentID] += 1
             # data.record.write(f"processed Count: {data.processedCount}")
         else:
             # if the packet is unprocessed, processed it at cloud immediately
@@ -146,9 +145,9 @@ class Node:
 
         # Check if the packet meet the deadline 
         if packet.processedTime <= packet.deadline:
-            data.meetDeadline += 1
+            data.meetDeadline[self.experimentID] += 1
         else:
-            data.failed[packet.packetID] = [packet.sendTime, packet.processedTime, packet.deadline]
+            data.failed[self.experimentID][packet.packetID] = [packet.sendTime, packet.processedTime, packet.deadline]
 
         # if packet.processed and not (packet.processedTime <= packet.deadline):
         #     data.debug.append(packet.packetID)
@@ -156,8 +155,8 @@ class Node:
         # need to add the deadline graph and other metrics
         
         # data.record.write(f"processed time: {packet.processedTime}\n")
-        data.latencyList[packet.packetID] = packet.processedTime - packet.sendTime
-        data.closeToDeadline[packet.packetID] = packet.deadline - packet.processedTime
+        data.latencyList[self.experimentID][packet.packetID] = packet.processedTime - packet.sendTime
+        data.closeToDeadline[self.experimentID][packet.packetID] = packet.deadline - packet.processedTime
 
                 
     @abstractmethod

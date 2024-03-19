@@ -1,5 +1,6 @@
 import random
 import data
+import config
 
 # Settings of simulation
 cpu_mode = 'equal'
@@ -8,9 +9,9 @@ cpu_mode = 'equal'
 # edf = Earliest Deadline First
 # optimal = centralized scheduling
 scheduling_method = 'optimal'
+experimentID = 0
 
-
-SIMULATION_TIME = 3000
+SIMULATION_TIME = 600 * 1000
 
 # Settings of the network
 LEVEL_OF_TOPOLOGY = 3
@@ -44,21 +45,18 @@ PROCESS_TIME = 10
 PROCESS_SPEED = 100
 
 # Size of Data pushed to the network but what's the proper size to simulate?  Let's assume its fixed for now
-DATA_SIZE_MAX = 1000
-DATA_SIZE_MIN = 1000
+DATA_SIZE = 1000
 
-
-
-random.seed(1)
+random.seed(42)
 
 def recordData(env, until_time):
     while env.now <= until_time + 500:
         if env.now == 0:
-            data.processed_rate.append(0.0)
-            data.satisfaction_rate.append(0.0)
+            data.processed_rate[config.experimentID].append(0.0)
+            data.satisfaction_rate[config.experimentID].append(0.0)
         else:
-            data.processed_rate.append(data.cal_processedRate())
-            data.satisfaction_rate.append(data.cal_satisfaction())
+            data.processed_rate[config.experimentID].append(data.cal_processedRate())
+            data.satisfaction_rate[config.experimentID].append(data.cal_satisfaction())
         yield env.timeout(500)
 
 
@@ -68,16 +66,10 @@ def random_Senders(env, nodes, until_time):
         sender = random.randint(1, 8)
         senderStr = "User" + str(sender)
         sender_Node = nodes[senderStr]
+        data.packetCount[experimentID] += 1
         env.process(sender_Node.request())
-        data.packetCount += 1
         # print(f"requested by {senderStr}")
         yield env.timeout(send_time)
 
 def gen_deadline(envNow):
     return envNow + random.randint(30,60)
-
-def gen_size():
-    return random.randint(DATA_SIZE_MIN, DATA_SIZE_MAX)
-
-def gen_target(nodes, weights):
-    return random.choices(nodes, weights, k = 1)[0]

@@ -1,18 +1,17 @@
 import config
+import data
 
-packetCounter = 1
 #statistics of a packet
+
 class Packets:
     def __init__(self, destination, processTime, sendTime, deadline):
-        global packetCounter
         # check if the packet is processed
-        self.packetID = packetCounter
-        packetCounter += 1
+        self.packetID = data.packetCount[config.experimentID]
 
         self.processed = False
 
         # the time it takes to process the packet
-        self.dataSize = config.gen_size()
+        self.dataSize = config.DATA_SIZE
 
         self.processTime = int(self.dataSize/config.PROCESS_SPEED)
         

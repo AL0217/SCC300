@@ -36,17 +36,14 @@ class optimal(node.Node):
             # get the earliest available cpu
             selected_cpu = cpu_schedule.index(min(cpu_schedule))
             # data.record.write(f"the schedule before: in {self.id} cpu {selected_cpu}, {cpu_schedule}\n")
-            # update sim_time
             # it frees after its arrival
             if cpu_schedule[selected_cpu] > p.arrivalTime:
                 # data.record.write(f"larger than\n")
-                # self.sim_time = cpu_schedule[selected_cpu]
                 cpu_schedule[selected_cpu] += p.processTime
                 # update the scheduler
                 
             elif cpu_schedule[selected_cpu] <= p.arrivalTime and len(queue[queue.index(p) + 1:]) == 0:
                 # data.record.write(f"smaller than\n")
-                # self.sim_time = p.arrivalTime
                 cpu_schedule[selected_cpu] = p.arrivalTime + p.processTime
             
             else:
@@ -57,7 +54,6 @@ class optimal(node.Node):
             
             # data.record.write(f"deadline: {p.deadline}\n")
             # data.record.write(f"the schedule after: {cpu_schedule}\n")
-            # data.record.write(f"sim_time updated: {self.sim_time}\n")
 
 
 
@@ -97,17 +93,14 @@ class optimal(node.Node):
                     # update the simulation time
                     
                     if self.cpu_schedule[selected_cpu] >= p.arrivalTime:
-                        # self.sim_time = self.cpu_schedule[selected_cpu]
                         # update the scheduler
                         self.cpu_schedule[selected_cpu] += p.processTime
 
                     elif self.cpu_schedule[selected_cpu] < p.arrivalTime:
-                        # self.sim_time = p.arrivalTime
                         # update the scheduler
                         self.cpu_schedule[selected_cpu] = p.arrivalTime + p.processTime
 
                     # data.record.write(f"schedule: {self.cpu_schedule}\n")
-                    # data.record.write(f"sim_time updated: {self.sim_time}\n")
             
                     # check if the packet fail to meet the deadline
                     if self.cpu_schedule[selected_cpu] > p.deadline:
@@ -174,10 +167,10 @@ class optimal(node.Node):
                 # data.record.write(f"destination {packet.destination}\n")
                 break
 
-        print(f"packet {packet.packetID}")
+        # print(f"packet {packet.packetID}")
 
         # add the packet to the list
-        data.latencyList[packet.packetID] = 0
+        data.latencyList[self.experimentID][packet.packetID] = 0
         # data.record.write(f"destination: {packet.destination}\n")
         # data.record.write(f"packet id: {packet.packetID}\n")
         # data.record.write(f"time now: {self.env.now}\n")
