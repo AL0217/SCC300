@@ -7,7 +7,7 @@ import data
 import random
 
 
-experiment_set = ["fifo", "edf", "optimal", "probability"]
+experiment_set = ["fifo", "edf", "optimal"]
 # FIFO data
 for experiment in experiment_set:
     env = simpy.Environment()

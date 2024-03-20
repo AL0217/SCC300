@@ -8,7 +8,7 @@ class probability (Node):
     def __init__(self, id, env, nextNode, num_processor, distance, topology):
         super().__init__(id, env, nextNode, num_processor, distance, topology)
         self.randAssignment = random.Random()
-        self.randAssignment.seed(1)
+        self.randAssignment.seed(42)
 
     def scheduling(self):
         weights = []

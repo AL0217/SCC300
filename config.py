@@ -3,7 +3,7 @@ import data
 import config
 
 # Settings of simulation
-cpu_mode = 'equal'
+cpu_mode = 'low'
 # the scheduling method
 # fifo = First In First Out
 # edf = Earliest Deadline First
@@ -15,13 +15,14 @@ SIMULATION_TIME = 600 * 1000
 
 # Settings of the network
 LEVEL_OF_TOPOLOGY = 3
-TOTAL_NUMBER_OF_PROCESSORS = 24       #should be any reasonable number can be divided by 4
-EQUAL_PROCESSORS = 4
-HIGH_HIGHER_LEVEL = 80
-HIGH_LOWER_LEVEL = 40
 
-LOW_LOWER_LEVEL = 80
-LOW_HIGHER_LEVEL = 40
+EQUAL_PROCESSORS = 4
+
+HIGH_HIGHER_LEVEL = 6
+HIGH_LOWER_LEVEL = 3
+
+LOW_LOWER_LEVEL = 5
+LOW_HIGHER_LEVEL = 2
 
 SIZE_OF_QUEUE = 4
 SEND_INTERVAL = 1
@@ -30,7 +31,7 @@ SEND_INTERVAL = 1
 MULTIPLE_PROCESS = True 
 
 # Rate of request in Request per millisecond
-REQUEST_ARRIVAL_RATE = 3
+REQUEST_ARRIVAL_RATE = 2.4
 # LAMBDA = 1 / REQUEST_ARRIVAL_RATE
 
 # enable fixed distance between nodes in the network
@@ -72,4 +73,5 @@ def random_Senders(env, nodes, until_time):
         yield env.timeout(send_time)
 
 def gen_deadline(envNow):
-    return envNow + random.randint(30,60)
+    return envNow + random.randint(30,50)
+

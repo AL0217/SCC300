@@ -31,3 +31,4 @@ class Packets:
         self.arrivalTime = 0
         self.assigned = False
         self.simulate_processed = False
+        self.assigned_CPU_id = 0

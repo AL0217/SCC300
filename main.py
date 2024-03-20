@@ -9,7 +9,7 @@ def main():
     env = simpy.Environment()
     top = topology("TREE")
     
-    config.scheduling_method = "optimal"
+    config.scheduling_method = "edf"
     nodes = top.simulate_network(env, config.cpu_mode)
 
     # There will be 6 packets per process (in a settings of 5s send) not delivered to cloud because simulation end
@@ -40,11 +40,12 @@ def main():
     # data.record.write(f"{data.failed}")
     needed = []
     for key, value in data.failed[0].items():
-        if round(value[1], 5) - round(value[0], 5) != 40:
+        if round(value[1], 5) - round(value[0], 5) < 40.00005:
             needed.append((key, value))  # Append both the key and value
     data.record.write(f"Packets I need: {needed}")
     print(len(needed))
     # data.plotProcessedRate()
+    print(data.counter)
     # data.plotSatisfactionRate()
 
 

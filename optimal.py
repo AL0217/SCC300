@@ -11,7 +11,7 @@ class optimal(node.Node):
         super().__init__(id, env, node, num_processor, distance, topology)
         self.simulation_queue = {}
         self.cpu_schedule = [self.cpuList[i].next_available_time for i in range(len(self.cpuList))]
-
+        
         # function to calculate the completion time for EDF
     def complete_time(self, queue, packet):
         cpu_schedule = copy.deepcopy(self.cpu_schedule)
@@ -19,22 +19,29 @@ class optimal(node.Node):
         queue.append(packet)
         queue.sort(key = lambda p: p.deadline)
 
-        # for p in queue:
-        #     data.record.write(f"in node queue: {p.packetID}, deadline: {p.deadline}\n")
-        # sort the queue according to deadline
-        
-
         # simulate the queue to check if any of the packets will miss the deadline if added the new packet
         for p in queue:
+            temp_cpu_in_use = {i: False for i in range(len(self.cpuList))}
             if p.simulate_processed:
                 # data.record.write(f"{p.packetID} sim in complete\n")
                 continue
-            # data.record.write(f"packet id: {p.packetID}\n")
+            # data.record.write(f"packet id: '{p.packetID}'\n")
             # data.record.write(f"arrival Time: {p.arrivalTime}\n")
+            # print(f"temp_cpu_in_use: {temp_cpu_in_use}\n")
 
-            
-            # get the earliest available cpu
-            selected_cpu = cpu_schedule.index(min(cpu_schedule))
+            for i in range(len(cpu_schedule)):
+                if cpu_schedule[i] > p.arrivalTime:
+                    temp_cpu_in_use[i] = True
+
+            selected_cpu = 0
+            if all(temp_cpu_in_use.values()):
+                selected_cpu = cpu_schedule.index(min(cpu_schedule))
+            else:
+                for i in range(len(temp_cpu_in_use)):
+                    if temp_cpu_in_use[i] is False:
+                        selected_cpu = i
+                        break
+
             # data.record.write(f"the schedule before: in {self.id} cpu {selected_cpu}, {cpu_schedule}\n")
             # it frees after its arrival
             if cpu_schedule[selected_cpu] > p.arrivalTime:
@@ -46,11 +53,6 @@ class optimal(node.Node):
                 # data.record.write(f"smaller than\n")
                 cpu_schedule[selected_cpu] = p.arrivalTime + p.processTime
             
-            else:
-                # data.record.write(f"exception\n")
-                # for p in queue:
-                #     data.record.write(f"in node queue: {p.packetID}, arrivalTime: {p.arrivalTime}\n")
-                continue
             
             # data.record.write(f"deadline: {p.deadline}\n")
             # data.record.write(f"the schedule after: {cpu_schedule}\n")
@@ -69,11 +71,15 @@ class optimal(node.Node):
         arrival_queue = []
 
         # simulate the arrival of packets
-        for packet in self.simulation_queue:  
+        for packet in self.simulation_queue:
             # data.record.write(f"arrival_queue: {arrival_queue}\n")
             temp_packet = self.simulation_queue.get(packet)
             # data.record.write(f"packet: {packet}\n")
             # data.record.write(f"arrival time: {temp_packet.arrivalTime}\n")
+            # for i in range(len(self.sim_cpu_in_use)):
+            #     # when the packet arrives, if the next available time is passed, release the cpu
+            #     if self.cpu_schedule[i] <= packet.arrivalTime:
+            #         self.sim_cpu_in_use[i] = False
 
             for p in arrival_queue[:]:
                 if p.simulate_processed:
@@ -83,11 +89,35 @@ class optimal(node.Node):
                 # if the packets stays and will be processed before the new packet arrive
                 # if they can be processed before arrival
                 available_cpu = min(self.cpu_schedule)
+                temp_cpu_in_use = {i: False for i in range(len(self.cpuList))}
+
                 if available_cpu < temp_packet.arrivalTime:
                     # data.record.write(f"processed: {p.simulate_processed}\n")
                     # data.record.write(f"sim process: {p.packetID}\n")
                     # get the earliest available cpu
-                    selected_cpu = self.cpu_schedule.index(available_cpu)
+                    # check the availability of that node at that moment
+                    for i in range(len(self.cpu_schedule)):
+                        if self.cpu_schedule[i] > p.arrivalTime:
+                            temp_cpu_in_use[i] = True
+
+
+                    selected_cpu = 0
+                    # if all cpu are busy
+                    if all(temp_cpu_in_use.values()):
+                        # get the earliest available one
+                        selected_cpu = self.cpu_schedule.index(min(self.cpu_schedule))
+                    else:
+                        # if any of them is free
+                        # data.record.write(f"temp cpu: {temp_cpu_in_use}\n")
+                        for i in range(len(temp_cpu_in_use)):
+                            if temp_cpu_in_use[i] is False:
+                                # get the first one to execute it
+                                selected_cpu = i
+                                break
+                    # selected_cpu = self.cpu_schedule.index(available_cpu)
+                    # for i in range(len(self.sim_cpu_in_use)):
+                    # if self.cpu_in_use[i] is False:
+                    #     selected_cpu = i
                     
                     # data.record.write(f"schedule before: {self.cpu_schedule}\n")
                     # update the simulation time
@@ -100,7 +130,7 @@ class optimal(node.Node):
                         # update the scheduler
                         self.cpu_schedule[selected_cpu] = p.arrivalTime + p.processTime
 
-                    # data.record.write(f"schedule: {self.cpu_schedule}\n")
+                    # data.record.write(f"schedule after: {self.cpu_schedule}\n")
             
                     # check if the packet fail to meet the deadline
                     if self.cpu_schedule[selected_cpu] > p.deadline:
@@ -148,7 +178,7 @@ class optimal(node.Node):
     def request(self):
         # create a packet that need to be send
         gen_deadline = config.gen_deadline(self.env.now)
-        packet = Packets(destination=1, processTime=config.PROCESS_TIME, sendTime=self.env.now, deadline = gen_deadline)
+        packet = Packets(destination="Cloud", processTime=config.PROCESS_TIME, sendTime=self.env.now, deadline = gen_deadline)
 
         # loop start from the highest node, if the current time + propogation time + process time can meet the deadline
         # set the node to the destination
@@ -167,10 +197,12 @@ class optimal(node.Node):
                 # data.record.write(f"destination {packet.destination}\n")
                 break
 
-        # print(f"packet {packet.packetID}")
+        print(f"packet {packet.packetID}")
 
         # add the packet to the list
         data.latencyList[self.experimentID][packet.packetID] = 0
+        if packet.destination != "Cloud":
+            data.counter += 1
         # data.record.write(f"destination: {packet.destination}\n")
         # data.record.write(f"packet id: {packet.packetID}\n")
         # data.record.write(f"time now: {self.env.now}\n")
