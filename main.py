@@ -42,11 +42,12 @@ def main():
     for key, value in data.failed[0].items():
         if round(value[1], 5) - round(value[0], 5) < 40.00005:
             needed.append((key, value))  # Append both the key and value
-    data.record.write(f"Packets I need: {needed}")
+    data.record.write(f"Packets I need: {needed}\n")
     print(len(needed))
     # data.plotProcessedRate()
     print(data.counter)
     # data.plotSatisfactionRate()
+    data.record.write(f"wrong: {data.missed_at_node}")
 
 
 main()

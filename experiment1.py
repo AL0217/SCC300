@@ -43,6 +43,7 @@ for experiment in experiment_set:
 
 for fail in data.failed:
     data.record.write(f"failed: {fail}\n")
+print(data.missed_at_node)
 data.plotCPUidleTime()
 data.plotLatency()
 data.plotProcessedRate()

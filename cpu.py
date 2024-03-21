@@ -29,6 +29,7 @@ class cpu:
                 # data.record.write(f"stuff in simulation queue: {item}\n")
             self.node.simulation_queue.pop(packet.packetID)
             if packet.simulate_processed is False:
+                # data.record.write(f"{self.node.id} updated cpu: {self.id}")
                 self.node.cpu_schedule[self.id] = self.env.now + packet.processTime
         # set the cpu to busy
         self.node.cpu_in_use[self.id] = True
@@ -53,6 +54,9 @@ class cpu:
         packet.processedTime = self.env.now
         packet.processed = True
 
+        if packet.processedTime > packet.deadline:
+            data.missed_at_node[config.experimentID][packet.packetID] = packet
+
         # data.record.write(f"processed Time: {packet.processedTime}\n")
         # data.record.write(f"releasing cpu id: {self.id}, node: {self.node.id}\n")
         # data.record.write(f"processing: {packet.packetID}\n")
@@ -61,7 +65,7 @@ class cpu:
         self.node.cpu_in_use[self.id] = False
         
         # send it to the next node
-        self.env.process(self.node.nextNode.receive(packet))
+        self.env.process(self.node.nextNode.receive(packet, self.node.distance_to_nextNode))
         # data.record.write(f"finished packet: {packet.packetID}\n")
 
         # check if there is any packet waiting in the queue

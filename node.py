@@ -31,26 +31,25 @@ class Node:
         data.latencyList[self.experimentID][packet.packetID] = 0
         # Send the packet
     
-        yield from self.nextNode.receive(packet)
+        yield from self.nextNode.receive(packet, self.distance_to_nextNode)
 
 
-    def receive(self, packet):
-
+    def receive(self, packet, distance_to_next_nde):
         # simulate the time used to send the packet
-        yield self.env.timeout(self.distance_to_nextNode)
+        yield self.env.timeout(distance_to_next_nde)
 
-        # print the info of the packet and the node
+
+        # if this node is cloud
+        if self.id == "Cloud":
+            yield from self.cloudReceive(packet)
+            return
+        
         # data.record.write("Transmitted\n")
         # data.record.write(f"my id is: {self.id}\n")
         # data.record.write(f"packet id: {packet.packetID}\n")
         # data.record.write(f"propagationTime : {propagationTime}\n")
         # data.record.write(f"transmission time: {transmissionTime}\n")
         # data.record.write(f"env now: {self.env.now}\n")
-
-        # if this node is cloud
-        if self.id == "Cloud":
-            yield from self.cloudReceive(packet)
-            return
         
         #######-----IF THIS NODE IS NOT THE CLOUD-----######
 
@@ -60,7 +59,7 @@ class Node:
 
             # pass it directly
             #call the receive function of the next node
-            self.env.process(self.nextNode.receive(packet))
+            self.env.process(self.nextNode.receive(packet, self.distance_to_nextNode))
             return
         
 
@@ -68,7 +67,7 @@ class Node:
         if (self.env.now + packet.processTime > packet.deadline):
             # pass the packet
             data.record.write(f"Already missed the deadline")
-            self.env.process(self.nextNode.receive(packet))
+            self.env.process(self.nextNode.receive(packet, self.distance_to_nextNode))
             return
         
         # For admitted packet
@@ -76,7 +75,7 @@ class Node:
         # Only allow one packet to look at this
         
         
-        if not any(cpu is False for cpu in self.cpu_in_use.values()):
+        if all(cpu is True for cpu in self.cpu_in_use.values()):
             # print the states of the cpus
             # data.record.write(f"packet waiting: {packet.packetID}\n")
             # data.record.write(f"cpu_in_use: {self.cpu_in_use}\n")
@@ -94,7 +93,7 @@ class Node:
         
             # if fail to admit the packet, pass it
             # data.record.write("passing\n")
-            self.env.process(self.nextNode.receive(packet))
+            self.env.process(self.nextNode.receive(packet, self.distance_to_nextNode))
             return
         
         # if the packet is admitted and the node is free to process it

@@ -3,7 +3,7 @@ import data
 import config
 
 # Settings of simulation
-cpu_mode = 'low'
+cpu_mode = 'equal'
 # the scheduling method
 # fifo = First In First Out
 # edf = Earliest Deadline First
@@ -31,7 +31,7 @@ SEND_INTERVAL = 1
 MULTIPLE_PROCESS = True 
 
 # Rate of request in Request per millisecond
-REQUEST_ARRIVAL_RATE = 2.4
+REQUEST_ARRIVAL_RATE = 2
 # LAMBDA = 1 / REQUEST_ARRIVAL_RATE
 
 # enable fixed distance between nodes in the network
@@ -51,14 +51,14 @@ DATA_SIZE = 1000
 random.seed(42)
 
 def recordData(env, until_time):
-    while env.now <= until_time + 500:
+    while env.now <= 600 * 100 :
         if env.now == 0:
             data.processed_rate[config.experimentID].append(0.0)
             data.satisfaction_rate[config.experimentID].append(0.0)
         else:
             data.processed_rate[config.experimentID].append(data.cal_processedRate())
             data.satisfaction_rate[config.experimentID].append(data.cal_satisfaction())
-        yield env.timeout(500)
+        yield env.timeout(30 * 100)
 
 
 def random_Senders(env, nodes, until_time):
@@ -69,9 +69,8 @@ def random_Senders(env, nodes, until_time):
         sender_Node = nodes[senderStr]
         data.packetCount[experimentID] += 1
         env.process(sender_Node.request())
-        # print(f"requested by {senderStr}")
         yield env.timeout(send_time)
 
 def gen_deadline(envNow):
-    return envNow + random.randint(30,50)
+    return envNow + random.randint(100, 130)
 
